@@ -1,0 +1,378 @@
+/* ============================================
+   Hero Section — What is SDD?
+   ============================================ */
+
+/* --- Hero Container --- */
+
+.hero {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-4xl) var(--space-xl);
+}
+
+.hero__container {
+  max-width: var(--max-width-narrow);
+  margin: 0 auto;
+}
+
+/* --- Definition Section --- */
+
+.hero__definition {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.hero__definition h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: 700;
+  color: var(--color-secondary);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-sm);
+}
+
+.hero__subtitle {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+  font-weight: 400;
+}
+
+.hero__text {
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  line-height: var(--line-height-base);
+  max-width: 65ch;
+  margin: 0 auto;
+}
+
+/* --- Section Headings --- */
+
+.hero__principles h2,
+.hero__benefits h2,
+.hero__comparison h2,
+.hero__checklist h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+.hero__principles,
+.hero__benefits,
+.hero__comparison,
+.hero__checklist {
+  margin-bottom: var(--space-3xl);
+}
+
+/* --- Grids (Principles & Benefits) --- */
+
+.principles-grid,
+.benefits-grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+/* --- Principle Card --- */
+
+.principle-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xl);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.principle-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.principle-card__icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--space-md);
+  color: var(--color-primary);
+}
+
+.principle-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.principle-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.principle-card__desc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-base);
+}
+
+/* --- Benefit Card --- */
+
+.benefit-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xl);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.benefit-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.benefit-card__icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: var(--space-md);
+  color: var(--color-accent);
+}
+
+.benefit-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.benefit-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.benefit-card__desc {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-base);
+}
+
+/* --- Comparison Table --- */
+
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-sm);
+  background-color: var(--color-background);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.comparison-table thead {
+  background-color: var(--color-secondary);
+  color: var(--color-text-inverse);
+}
+
+.comparison-table th {
+  padding: var(--space-md) var(--space-lg);
+  text-align: left;
+  font-weight: 600;
+  font-size: var(--font-size-base);
+}
+
+.comparison-table td {
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-border-light);
+  vertical-align: top;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+  background-color: var(--color-surface);
+}
+
+.comparison-table tbody tr:hover {
+  background-color: var(--color-surface-hover);
+}
+
+/* --- Checklist --- */
+
+.checklist__intro {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-xl);
+}
+
+.checklist {
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  background-color: var(--color-surface);
+}
+
+.checklist__item {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.checklist__item:last-child {
+  border-bottom: none;
+}
+
+.checklist__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-lg) var(--space-xl);
+  text-align: left;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--color-secondary);
+  background-color: transparent;
+  transition: background-color var(--transition-fast);
+}
+
+.checklist__toggle:hover {
+  background-color: var(--color-surface-hover);
+}
+
+.checklist__toggle[aria-expanded="true"] {
+  background-color: var(--color-surface-hover);
+  color: var(--color-primary);
+}
+
+.checklist__icon {
+  font-size: var(--font-size-xl);
+  font-weight: 300;
+  line-height: 1;
+  transition: transform var(--transition-base);
+  flex-shrink: 0;
+  margin-left: var(--space-md);
+}
+
+.checklist__toggle[aria-expanded="true"] .checklist__icon {
+  transform: rotate(45deg);
+}
+
+.checklist__answer {
+  padding: 0 var(--space-xl) var(--space-lg);
+  color: var(--color-text-muted);
+  line-height: var(--line-height-base);
+  font-size: var(--font-size-base);
+  animation: checklistFadeIn var(--transition-base) ease;
+}
+
+@keyframes checklistFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- Progress Bar --- */
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--color-border-light);
+  z-index: var(--z-progress-bar);
+}
+
+.progress-bar__fill {
+  height: 100%;
+  width: 0%;
+  background-color: var(--color-primary);
+  transition: width var(--transition-slow);
+  border-radius: 0 var(--border-radius-full) var(--border-radius-full) 0;
+}
+
+/* --- Responsive: Mobile (320px+) --- */
+
+@media (max-width: 767px) {
+  .hero {
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .hero__definition h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .hero__subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .hero__text {
+    font-size: var(--font-size-base);
+  }
+
+  .principles-grid,
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__principles h2,
+  .hero__benefits h2,
+  .hero__comparison h2,
+  .hero__checklist h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-xs);
+  }
+
+  .checklist__toggle {
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .checklist__answer {
+    padding: 0 var(--space-lg) var(--space-md);
+  }
+}
+
+/* --- Responsive: Tablet (768px+) --- */
+
+@media (min-width: 768px) {
+  .principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero__definition h1 {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/* --- Responsive: Desktop (1024px+) --- */
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: var(--space-4xl) var(--space-2xl);
+  }
+
+  .principles-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .hero__definition h1 {
+    font-size: var(--font-size-5xl);
+  }
+}
