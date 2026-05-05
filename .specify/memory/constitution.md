@@ -1,50 +1,136 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+## Sync Impact Report
+- Version change: N/A → 1.0.0 (initial ratification)
+- Modified principles: All placeholders replaced with concrete principles
+- Added sections: Technology Stack Constraints, Collaborative Workflow, CI/CD & Deployment
+- Removed sections: None
+- Templates requiring updates:
+  - .specify/templates/plan-template.md ✅ compatible
+  - .specify/templates/spec-template.md ✅ compatible
+  - .specify/templates/tasks-template.md ✅ compatible
+- Follow-up TODOs: None
+-->
+
+# WebApp Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Vanilla-First (NON-NEGOTIABLE)
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+No JavaScript frameworks (React, Vue, Angular, Svelte, etc.) are permitted. All
+interactivity MUST be implemented with vanilla JavaScript (ES6+). DOM
+manipulation uses native APIs: `querySelector`, `addEventListener`,
+`fetch`, `IntersectionObserver`, etc. State management is explicit and
+traceable without framework abstractions.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+**Rationale**: Eliminates build-step complexity, reduces bundle size, ensures
+long-term maintainability, and lowers the barrier for contributors who only
+need to know standard web technologies.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### II. Semantic HTML & Accessible by Default
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+All markup MUST use semantic HTML5 elements (`header`, `nav`, `main`,
+`section`, `article`, `aside`, `footer`). ARIA attributes are added only
+when native semantics are insufficient. Every interactive element MUST be
+keyboard-accessible and screen-reader compatible.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Rationale**: Accessibility is not an afterthought. Semantic markup improves
+SEO, readability, and ensures the application works for all users.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### III. Professional CSS Architecture
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+Styles are organized using a modular, scalable architecture. CSS custom
+properties (variables) define the design system (colors, spacing, typography,
+shadows). Media queries implement responsive design with a mobile-first
+approach. No inline styles are permitted except for dynamic values set via
+JavaScript.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+**Rationale**: A consistent design system ensures visual coherence across all
+pages and components. Custom properties enable theming and reduce repetition.
+
+### IV. Feature Branch & PR Workflow (NON-NEGOTIABLE)
+
+Every change MUST originate from a feature branch named `feat/<short-description>`.
+Direct commits to `main` are prohibited. Each feature branch MUST be merged
+via a Pull Request. Before merging:
+1. The branch MUST be rebased onto the latest `main`.
+2. Any merge conflicts MUST be resolved by the author.
+3. At least one code review approval is required.
+4. The PR MUST include a description of changes and testing evidence.
+
+**Rationale**: Enables parallel development by multiple collaborators without
+stepping on each other's work. PRs provide a natural review gate and audit
+trail.
+
+### V. CI/CD via GitHub Actions
+
+Every pull request MUST trigger a GitHub Actions workflow that validates:
+- HTML/CSS/JS linting passes.
+- No console errors in production code.
+- All assets are optimized.
+
+The `main` branch MUST have a deployment workflow that publishes to the
+target hosting platform (GitHub Pages, Netlify, Vercel, or custom server)
+on every successful merge.
+
+**Rationale**: Automated validation catches regressions before they reach
+production. Continuous deployment ensures the live site always reflects `main`.
+
+## Technology Stack Constraints
+
+| Layer        | Technology                          | Constraint                |
+|--------------|-------------------------------------|---------------------------|
+| Markup       | HTML5                               | Semantic elements required|
+| Styling      | CSS3 (Custom Properties, Flexbox, Grid, Animations) | No preprocessors required |
+| Scripting    | Vanilla JavaScript (ES6+)           | No frameworks or libraries|
+| Version Ctrl | Git + GitHub                        | Feature branches + PRs    |
+| CI/CD        | GitHub Actions                      | Required for all PRs      |
+| Deployment   | GitHub Pages / Static hosting       | Automated on merge to main|
+
+Third-party libraries (fonts, icons, lightweight utilities) MUST be approved
+via PR before inclusion. No npm dependencies for framework-level code.
+
+## Collaborative Workflow
+
+### Branch Naming Convention
+
+- `feat/<description>` — New features
+- `fix/<description>` — Bug fixes
+- `docs/<description>` — Documentation updates
+- `refactor/<description>` — Code refactoring (no behavior change)
+- `chore/<description>` — Maintenance tasks (tooling, config)
+
+### Pull Request Requirements
+
+- Title follows Conventional Commits: `type(scope): description`
+- Description includes: purpose, approach, testing notes, screenshots if UI
+- Conflicts with `main` resolved before review request
+- Self-review completed before requesting reviewer
+
+### Conflict Resolution
+
+When conflicts arise between a feature branch and `main`:
+1. Fetch latest `main`: `git fetch origin main`
+2. Rebase feature branch: `git rebase origin/main`
+3. Resolve conflicts manually, test the result
+4. Force-push: `git push --force-with-lease`
+5. Re-request review
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other development practices in the project.
+Any deviation MUST be documented in a PR with explicit justification and
+approved by at least one collaborator.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Amendment Process**: Propose changes via PR. Amendments require consensus
+(or majority if >3 collaborators). Approved amendments increment the version.
+
+**Versioning Policy**: Semantic versioning (MAJOR.MINOR.PATCH):
+- MAJOR: Backward-incompatible principle removal or redefinition
+- MINOR: New principle or section added
+- PATCH: Clarifications, wording fixes, non-semantic refinements
+
+**Compliance Review**: Every PR review MUST verify constitution compliance.
+Automated checks in GitHub Actions SHOULD enforce linting and style rules.
+
+**Version**: 1.0.0 | **Ratified**: 2026-05-05 | **Last Amended**: 2026-05-05
