@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/phases.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -228,8 +229,322 @@
 
       </div>
     </section>
+
+    <!-- Phases Section: SDD Process -->
+    <section class="phases-section" id="phases" data-trackable>
+      <div class="phases-container">
+
+        <!-- Prerequisite Banner -->
+        <div class="prereq-banner">
+          <span class="prereq-banner__icon" aria-hidden="true">ℹ️</span>
+          <p class="prereq-banner__text">¿No sabes qué es SDD? <a href="#hero">Lee la introducción primero</a></p>
+        </div>
+
+        <h2>Las 5 Fases de SDD</h2>
+        <p class="phases-section__intro">Cada fase tiene entradas, salidas y roles definidos. Haz clic en una fase para ver los detalles.</p>
+
+        <!-- Phase Cards Grid -->
+        <div class="phases-grid" role="list">
+
+          <!-- Phase 1: Specify -->
+          <div class="phase-card" data-phase="1" tabindex="0" role="button" aria-expanded="false" aria-controls="phase-detail-1">
+            <span class="phase-card__number">1</span>
+            <h3 class="phase-card__title">Specify</h3>
+            <p class="phase-card__desc">Definir qué debe hacer el sistema mediante una especificación funcional con historias de usuario y criterios de aceptación.</p>
+            <div class="phase-card__meta">
+              <span class="phase-card__duration">⏱ 1-2 días</span>
+            </div>
+            <ul class="phase-card__inputs" aria-label="Entradas">
+              <li>Idea de feature</li>
+              <li>Contexto del problema</li>
+            </ul>
+            <ul class="phase-card__outputs" aria-label="Salidas">
+              <li>spec.md</li>
+              <li>Criterios de aceptación</li>
+            </ul>
+          </div>
+
+          <!-- Phase 2: Clarify -->
+          <div class="phase-card" data-phase="2" tabindex="0" role="button" aria-expanded="false" aria-controls="phase-detail-2">
+            <span class="phase-card__number">2</span>
+            <h3 class="phase-card__title">Clarify</h3>
+            <p class="phase-card__desc">Resolver ambigüedades en la spec mediante preguntas estructuradas, reduciendo incertidumbre antes de planificar.</p>
+            <div class="phase-card__meta">
+              <span class="phase-card__duration">⏱ 1 día</span>
+            </div>
+            <ul class="phase-card__inputs" aria-label="Entradas">
+              <li>spec.md (draft)</li>
+              <li>Stakeholders disponibles</li>
+            </ul>
+            <ul class="phase-card__outputs" aria-label="Salidas">
+              <li>spec.md (clarified)</li>
+              <li>Lista de decisiones</li>
+            </ul>
+          </div>
+
+          <!-- Phase 3: Plan -->
+          <div class="phase-card" data-phase="3" tabindex="0" role="button" aria-expanded="false" aria-controls="phase-detail-3">
+            <span class="phase-card__number">3</span>
+            <h3 class="phase-card__title">Plan</h3>
+            <p class="phase-card__desc">Diseñar la solución técnica: arquitectura, modelos de datos, contratos de interfaces y decisiones de implementación.</p>
+            <div class="phase-card__meta">
+              <span class="phase-card__duration">⏱ 1-2 días</span>
+            </div>
+            <ul class="phase-card__inputs" aria-label="Entradas">
+              <li>spec.md (clarified)</li>
+              <li>Stack tecnológico</li>
+            </ul>
+            <ul class="phase-card__outputs" aria-label="Salidas">
+              <li>plan.md</li>
+              <li>data-model.md</li>
+              <li>contracts/</li>
+            </ul>
+          </div>
+
+          <!-- Phase 4: Tasks -->
+          <div class="phase-card" data-phase="4" tabindex="0" role="button" aria-expanded="false" aria-controls="phase-detail-4">
+            <span class="phase-card__number">4</span>
+            <h3 class="phase-card__title">Tasks</h3>
+            <p class="phase-card__desc">Descomponer el plan en tareas implementables, organizadas por historia de usuario con dependencias y paralelismo.</p>
+            <div class="phase-card__meta">
+              <span class="phase-card__duration">⏱ 0.5-1 día</span>
+            </div>
+            <ul class="phase-card__inputs" aria-label="Entradas">
+              <li>plan.md</li>
+              <li>data-model.md</li>
+            </ul>
+            <ul class="phase-card__outputs" aria-label="Salidas">
+              <li>tasks.md</li>
+              <li>Dependency graph</li>
+            </ul>
+          </div>
+
+          <!-- Phase 5: Implement -->
+          <div class="phase-card" data-phase="5" tabindex="0" role="button" aria-expanded="false" aria-controls="phase-detail-5">
+            <span class="phase-card__number">5</span>
+            <h3 class="phase-card__title">Implement</h3>
+            <p class="phase-card__desc">Ejecutar las tareas siguiendo el plan, verificando contra los criterios de aceptación de la spec en cada paso.</p>
+            <div class="phase-card__meta">
+              <span class="phase-card__duration">⏱ Variable</span>
+            </div>
+            <ul class="phase-card__inputs" aria-label="Entradas">
+              <li>tasks.md</li>
+              <li>spec.md</li>
+            </ul>
+            <ul class="phase-card__outputs" aria-label="Salidas">
+              <li>Código funcional</li>
+              <li>Tests pasando</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Detail Panels -->
+        <div class="phase-details">
+
+          <!-- Detail 1: Specify -->
+          <details class="phase-detail" id="phase-detail-1">
+            <summary class="phase-detail__toggle">Ver detalle: Specify</summary>
+            <div class="phase-detail__content">
+              <h4>Descripción</h4>
+              <p>La fase Specify es donde todo comienza. Se escribe una especificación funcional que describe qué debe hacer el sistema, para quién y bajo qué condiciones. La spec incluye historias de usuario priorizadas, criterios de aceptación medibles y escenarios edge case. No se habla de implementación — solo de comportamiento deseado.</p>
+              <h4>Artefactos de ejemplo</h4>
+              <ul>
+                <li><code>spec.md</code> — Historias de usuario con Acceptance Scenarios (Given/When/Then)</li>
+                <li><code>checklists/requirements.md</code> — Checklist de calidad de la spec</li>
+              </ul>
+              <h4>Preguntas frecuentes</h4>
+              <details>
+                <summary>¿Qué nivel de detalle debe tener la spec?</summary>
+                <p>Suficiente para que cualquier desarrollador entienda qué construir sin ambigüedades, pero sin entrar en detalles de implementación.</p>
+              </details>
+              <details>
+                <summary>¿Quién escribe la spec?</summary>
+                <p>Típicamente el Spec Writer o Product Owner, con input de stakeholders y asistencia de IA.</p>
+              </details>
+              <h4>Consejos</h4>
+              <ul>
+                <li>Empieza con el escenario más simple (happy path) y luego agrega edge cases</li>
+                <li>Cada criterio de aceptación debe ser medible y verificable</li>
+                <li>Usa el formato Given/When/Then para eliminar ambigüedad</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Detail 2: Clarify -->
+          <details class="phase-detail" id="phase-detail-2">
+            <summary class="phase-detail__toggle">Ver detalle: Clarify</summary>
+            <div class="phase-detail__content">
+              <h4>Descripción</h4>
+              <p>En Clarify se revisa la spec draft para identificar y resolver ambigüedades. Se hacen preguntas estructuradas sobre scope, comportamiento, datos y casos edge. El objetivo es que la spec quede lo suficientemente clara para planificar sin sorpresas.</p>
+              <h4>Artefactos de ejemplo</h4>
+              <ul>
+                <li><code>spec.md</code> (versión clarificada con respuestas incorporadas)</li>
+                <li>Lista de decisiones tomadas durante la clarificación</li>
+              </ul>
+              <h4>Preguntas frecuentes</h4>
+              <details>
+                <summary>¿Cuántas rondas de clarificación son normales?</summary>
+                <p>Típicamente 1-2 rondas. Si hay más de 3, la spec probablemente necesita reescribirse desde una perspectiva más clara.</p>
+              </details>
+              <details>
+                <summary>¿Puede la IA participar en la clarificación?</summary>
+                <p>Sí, la IA puede generar preguntas de clarificación basadas en patrones comunes de ambigüedad.</p>
+              </details>
+              <h4>Consejos</h4>
+              <ul>
+                <li>Prioriza preguntas por impacto: scope > seguridad > UX > detalles técnicos</li>
+                <li>Máximo 3-5 preguntas por ronda para mantener el foco</li>
+                <li>Documenta cada respuesta directamente en la spec</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Detail 3: Plan -->
+          <details class="phase-detail" id="phase-detail-3">
+            <summary class="phase-detail__toggle">Ver detalle: Plan</summary>
+            <div class="phase-detail__content">
+              <h4>Descripción</h4>
+              <p>La fase Plan traduce la spec clarificada en un diseño técnico. Se definen la arquitectura, modelos de datos, contratos de interfaces, estructura de archivos y decisiones tecnológicas. El plan es el puente entre "qué" y "cómo".</p>
+              <h4>Artefactos de ejemplo</h4>
+              <ul>
+                <li><code>plan.md</code> — Contexto técnico, constitution check, estructura de proyecto</li>
+                <li><code>data-model.md</code> — Entidades, campos, relaciones</li>
+                <li><code>contracts/</code> — Contratos de APIs o interfaces</li>
+                <li><code>research.md</code> — Decisiones técnicas con alternativas consideradas</li>
+              </ul>
+              <h4>Preguntas frecuentes</h4>
+              <details>
+                <summary>¿El plan puede cambiar durante la implementación?</summary>
+                <p>Sí, pero los cambios significativos deben documentarse y justificarse.</p>
+              </details>
+              <h4>Consejos</h4>
+              <ul>
+                <li>Marca todo "NEEDS CLARIFICATION" que no esté decidido y resuélvelo antes de Tasks</li>
+                <li>El Constitution Check debe pasar antes de continuar</li>
+                <li>Mantén el plan lo más simple posible — justifica cada decisión de complejidad</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Detail 4: Tasks -->
+          <details class="phase-detail" id="phase-detail-4">
+            <summary class="phase-detail__toggle">Ver detalle: Tasks</summary>
+            <div class="phase-detail__content">
+              <h4>Descripción</h4>
+              <p>En Tasks se descompone el plan en una lista de tareas implementables. Cada tarea tiene un ID, descripción, archivo destino y se organiza por historia de usuario. Se identifican dependencias y oportunidades de paralelismo.</p>
+              <h4>Artefactos de ejemplo</h4>
+              <ul>
+                <li><code>tasks.md</code> — Lista completa de tareas con formato <code>- [ ] T### [P?] [US#] Descripción</code></li>
+                <li>Dependency graph — Orden de ejecución y dependencias entre tareas</li>
+              </ul>
+              <h4>Preguntas frecuentes</h4>
+              <details>
+                <summary>¿Qué tan granular debe ser cada tarea?</summary>
+                <p>Lo suficiente para que un LLM pueda completarla sin contexto adicional. Típicamente 1-4 horas de trabajo cada una.</p>
+              </details>
+              <h4>Consejos</h4>
+              <ul>
+                <li>Organiza por user story para permitir entregas incrementales</li>
+                <li>Marca [P] solo si las tareas no comparten archivos ni dependencias</li>
+                <li>Incluye rutas de archivo exactas en cada descripción</li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- Detail 5: Implement -->
+          <details class="phase-detail" id="phase-detail-5">
+            <summary class="phase-detail__toggle">Ver detalle: Implement</summary>
+            <div class="phase-detail__content">
+              <h4>Descripción</h4>
+              <p>La fase Implement es donde se ejecutan las tareas del plan. Se escribe código siguiendo las decisiones de arquitectura, se verifican los criterios de aceptación de la spec y se marca cada tarea como completada. El ciclo es: implementar → verificar → hacer commit → repetir.</p>
+              <h4>Artefactos de ejemplo</h4>
+              <ul>
+                <li>Código fuente (<code>src/</code>)</li>
+                <li><code>tasks.md</code> actualizado con tareas completadas <code>- [x]</code></li>
+                <li>Commits con mensajes descriptivos</li>
+              </ul>
+              <h4>Preguntas frecuentes</h4>
+              <details>
+                <summary>¿Qué hacer si una tarea resulta más compleja de lo esperado?</summary>
+                <p>Divídela en subtareas más pequeñas. Si cambia el enfoque, actualiza el plan y documenta por qué.</p>
+              </details>
+              <h4>Consejos</h4>
+              <ul>
+                <li>Sigue el orden de tareas respeta las dependencias</li>
+                <li>Haz commit después de cada tarea o grupo lógico</li>
+                <li>Verifica contra la spec: ¿cumple los criterios de aceptación?</li>
+                <li>Trabaja en una rama feature y crea PR al terminar</li>
+              </ul>
+            </div>
+          </details>
+
+        </div>
+
+        <!-- Flow Diagram -->
+        <div class="flow-diagram" role="img" aria-label="Diagrama de flujo de las 5 fases de SDD: Specify → Clarify → Plan → Tasks → Implement">
+          <svg class="flow-diagram__svg" viewBox="0 0 900 120" aria-hidden="true">
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="var(--color-primary)" />
+              </marker>
+            </defs>
+            <!-- Node 1: Specify -->
+            <rect class="flow-diagram__node" data-diagram-node="1" x="10" y="20" width="140" height="80" rx="8" tabindex="0" role="button" aria-label="Fase 1: Specify"/>
+            <text class="flow-diagram__label" x="80" y="55" text-anchor="middle" font-weight="600">1. Specify</text>
+            <text class="flow-diagram__sublabel" x="80" y="75" text-anchor="middle" font-size="11">Definir qué</text>
+            <!-- Arrow 1→2 -->
+            <path class="flow-diagram__arrow" d="M160 60 L200 60" marker-end="url(#arrowhead)"/>
+            <!-- Node 2: Clarify -->
+            <rect class="flow-diagram__node" data-diagram-node="2" x="210" y="20" width="140" height="80" rx="8" tabindex="0" role="button" aria-label="Fase 2: Clarify"/>
+            <text class="flow-diagram__label" x="280" y="55" text-anchor="middle" font-weight="600">2. Clarify</text>
+            <text class="flow-diagram__sublabel" x="280" y="75" text-anchor="middle" font-size="11">Resolver dudas</text>
+            <!-- Arrow 2→3 -->
+            <path class="flow-diagram__arrow" d="M360 60 L400 60" marker-end="url(#arrowhead)"/>
+            <!-- Node 3: Plan -->
+            <rect class="flow-diagram__node" data-diagram-node="3" x="410" y="20" width="140" height="80" rx="8" tabindex="0" role="button" aria-label="Fase 3: Plan"/>
+            <text class="flow-diagram__label" x="480" y="55" text-anchor="middle" font-weight="600">3. Plan</text>
+            <text class="flow-diagram__sublabel" x="480" y="75" text-anchor="middle" font-size="11">Diseñar cómo</text>
+            <!-- Arrow 3→4 -->
+            <path class="flow-diagram__arrow" d="M560 60 L600 60" marker-end="url(#arrowhead)"/>
+            <!-- Node 4: Tasks -->
+            <rect class="flow-diagram__node" data-diagram-node="4" x="610" y="20" width="140" height="80" rx="8" tabindex="0" role="button" aria-label="Fase 4: Tasks"/>
+            <text class="flow-diagram__label" x="680" y="55" text-anchor="middle" font-weight="600">4. Tasks</text>
+            <text class="flow-diagram__sublabel" x="680" y="75" text-anchor="middle" font-size="11">Descomponer</text>
+            <!-- Arrow 4→5 -->
+            <path class="flow-diagram__arrow" d="M760 60 L800 60" marker-end="url(#arrowhead)"/>
+            <!-- Node 5: Implement -->
+            <rect class="flow-diagram__node" data-diagram-node="5" x="810" y="20" width="80" height="80" rx="8" tabindex="0" role="button" aria-label="Fase 5: Implement"/>
+            <text class="flow-diagram__label" x="850" y="55" text-anchor="middle" font-weight="600">5. Imp.</text>
+            <text class="flow-diagram__sublabel" x="850" y="75" text-anchor="middle" font-size="11">Ejecutar</text>
+          </svg>
+        </div>
+
+        <!-- Mobile Flow Diagram Fallback -->
+        <div class="flow-diagram--mobile" aria-label="Diagrama de flujo de las 5 fases de SDD">
+          <div class="flow-mobile__step" data-diagram-node="1">1. Specify</div>
+          <div class="flow-mobile__arrow" aria-hidden="true">↓</div>
+          <div class="flow-mobile__step" data-diagram-node="2">2. Clarify</div>
+          <div class="flow-mobile__arrow" aria-hidden="true">↓</div>
+          <div class="flow-mobile__step" data-diagram-node="3">3. Plan</div>
+          <div class="flow-mobile__arrow" aria-hidden="true">↓</div>
+          <div class="flow-mobile__step" data-diagram-node="4">4. Tasks</div>
+          <div class="flow-mobile__arrow" aria-hidden="true">↓</div>
+          <div class="flow-mobile__step" data-diagram-node="5">5. Implement</div>
+        </div>
+
+        <!-- Print Button -->
+        <div class="phases-actions">
+          <button class="print-button" type="button" aria-label="Imprimir sección de fases">
+            Imprimir esta sección
+          </button>
+        </div>
+
+      </div>
+    </section>
   </main>
 
   <script src="js/hero.js" defer></script>
+  <script src="js/phases.js" defer></script>
 </body>
 </html>
