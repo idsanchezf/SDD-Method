@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/phases.css">
+  <link rel="stylesheet" href="css/roles.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -542,9 +543,339 @@
 
       </div>
     </section>
+
+    <!-- Roles Section: SDD Roles & Responsibilities -->
+    <section class="roles-section" id="roles" data-trackable>
+      <div class="roles-container">
+
+        <!-- Prerequisite Banner -->
+        <div class="prereq-banner">
+          <span class="prereq-banner__icon" aria-hidden="true">ℹ️</span>
+          <p class="prereq-banner__text">¿No sabes qué es SDD? <a href="#hero">Lee la introducción primero</a></p>
+        </div>
+
+        <h2>Roles en SDD</h2>
+        <p class="roles-section__intro">Conoce los roles humanos y de IA que participan en el proceso SDD, sus responsabilidades y cómo colaboran entre sí.</p>
+
+        <!-- Human Roles -->
+        <div class="roles-subsection">
+          <div class="roles-subsection__header roles-subsection__header--human">
+            <svg class="roles-subsection__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <h3 class="roles-subsection__title">Roles Humanos</h3>
+            <span class="roles-subsection__desc">Participantes que lideran, escriben, desarrollan y revisan</span>
+          </div>
+
+          <div class="role-cards" role="list">
+
+            <!-- Spec Writer -->
+            <article class="role-card" data-role="spec-writer" data-type="humano" data-responsibilities="Escribir specs funcionales con historias de usuario|Definir criterios de aceptación medibles|Priorizar features por valor de negocio|Resolver ambigüedades durante Clarify" data-skills="Comunicación técnica|Análisis de requisitos|Escritura técnica|Pensamiento crítico" data-experience="Mid-Senior" data-phases="Specify|Clarify|Plan" tabindex="0" role="button" aria-expanded="false">
+              <span class="role-card__badge role-card__badge--human">Humano</span>
+              <svg class="role-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <h4 class="role-card__name">Spec Writer</h4>
+              <p class="role-card__desc">Escribe las especificaciones funcionales que definen qué debe hacer el sistema.</p>
+              <div class="role-card__meta">
+                <span class="role-card__tag">Specify</span>
+                <span class="role-card__tag">Clarify</span>
+              </div>
+            </article>
+
+            <!-- Developer -->
+            <article class="role-card" data-role="developer" data-type="humano" data-responsibilities="Implementar código siguiendo el plan|Escribir pruebas unitarias|Verificar criterios de aceptación|Resolver bugs y refactorizar" data-skills="Programación|Testing|Diseño de software|Resolución de problemas" data-experience="Junior-Senior" data-phases="Plan|Tasks|Implement" tabindex="0" role="button" aria-expanded="false">
+              <span class="role-card__badge role-card__badge--human">Humano</span>
+              <svg class="role-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              <h4 class="role-card__name">Developer</h4>
+              <p class="role-card__desc">Implementa la solución técnica siguiendo el plan y verificando contra la spec.</p>
+              <div class="role-card__meta">
+                <span class="role-card__tag">Implement</span>
+                <span class="role-card__tag">Tasks</span>
+              </div>
+            </article>
+
+            <!-- Reviewer -->
+            <article class="role-card" data-role="reviewer" data-type="humano" data-responsibilities="Revisar specs en busca de ambigüedades|Revisar código en PRs|Verificar cumplimiento de criterios|Sugerir mejoras de calidad" data-skills="Revisión de código|Pensamiento analítico|Comunicación constructiva|Conocimiento del dominio" data-experience="Senior" data-phases="Clarify|Plan|Implement" tabindex="0" role="button" aria-expanded="false">
+              <span class="role-card__badge role-card__badge--human">Humano</span>
+              <svg class="role-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <h4 class="role-card__name">Reviewer</h4>
+              <p class="role-card__desc">Asegura la calidad revisando specs y código en cada etapa del proceso.</p>
+              <div class="role-card__meta">
+                <span class="role-card__tag">Clarify</span>
+                <span class="role-card__tag">Implement</span>
+              </div>
+            </article>
+
+            <!-- Product Owner -->
+            <article class="role-card" data-role="product-owner" data-type="humano" data-responsibilities="Definir prioridades de negocio|Validar que las specs reflejen necesidades|Aprobar features completadas|Gestionar stakeholders" data-skills="Visión de producto|Comunicación|Toma de decisiones|Gestión de expectativas" data-experience="Senior" data-phases="Specify|Clarify" tabindex="0" role="button" aria-expanded="false">
+              <span class="role-card__badge role-card__badge--human">Humano</span>
+              <svg class="role-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M12 11v4"/><path d="M9 17h6"/></svg>
+              <h4 class="role-card__name">Product Owner</h4>
+              <p class="role-card__desc">Define prioridades de negocio y valida que las specs reflejen las necesidades reales.</p>
+              <div class="role-card__meta">
+                <span class="role-card__tag">Specify</span>
+                <span class="role-card__tag">Clarify</span>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- AI Roles -->
+        <div class="roles-subsection">
+          <div class="roles-subsection__header roles-subsection__header--ai">
+            <svg class="roles-subsection__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M16 14H8a4 4 0 0 0-4 4v2h16v-2a4 4 0 0 0-4-4z"/><circle cx="18" cy="6" r="2"/></svg>
+            <h3 class="roles-subsection__title">Roles de IA</h3>
+            <span class="roles-subsection__desc">Asistentes inteligentes que aceleran el proceso bajo supervisión humana</span>
+          </div>
+
+          <div class="role-cards" role="list">
+
+            <!-- AI Spec Assistant -->
+            <article class="role-card role-card--ai" data-role="ai-spec-assistant" data-type="ia" data-capabilities="Generar drafts de specs desde descripciones|Sugerir criterios de aceptación|Identificar ambigüedades en el texto|Proponer edge cases no considerados" data-limitations="No entiende contexto de negocio implícito|Puede inventar requisitos no deseados|No prioriza por valor de negocio real|Requiere prompts bien estructurados" data-prompts="&quot;Escribe una spec para un sistema de login con email y contraseña, incluyendo criterios de aceptación en formato Given/When/Then&quot;|&quot;Identifica ambigüedades en esta spec: [pegar texto]&quot;|&quot;Genera 5 edge cases para un formulario de registro de usuarios&quot;" data-supervision="Un humano debe revisar y validar todos los criterios de aceptación, asegurar que reflejan necesidades reales del negocio y ajustar el tono y nivel de detalle." data-phases="Specify|Clarify" tabindex="0" role="button" aria-expanded="false">
+              <span class="role-card__badge role-card__badge--ai">IA</span>
+              <svg class="role-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><circle cx="18" cy="4" r="2"/></svg>
+              <h4 class="role-card__name">AI Spec Assistant</h4>
+              <p class="role-card__desc">Ayuda a escribir y refinar especificaciones funcionales con sugerencias inteligentes.</p>
+              <div class="role-card__meta">
+                <span class="role-card__tag">Specify</span>
+                <span class="role-card__tag">Clarify</span>
+              </div>
+            </article>
+
+            <!-- AI Code Generator -->
+            <article class="role-card role-card--ai" data-role="ai-code-generator" data-type="ia" data-capabilities="Generar código desde tasks descriptivos|Implementar patrones comunes|Escribir boilerplate y scaffolding|Sugerir refactorizaciones" data-limitations="No entiende arquitectura global del proyecto|Puede introducir vulnerabilidades si no se revisa|No conoce convenciones internas del equipo|Genera código sin contexto de negocio" data-prompts="&quot;Implementa una función que valide email con las siguientes reglas: [lista]&quot;|&quot;Genera un componente HTML para una tarjeta de rol con estos campos: [lista]&quot;|&quot;Refactoriza este código para mejorar la legibilidad: [pegar código]&quot;" data-supervision="El Developer debe revisar cada bloque de código generado, verificar que sigue el plan de arquitectura, añadir tests y asegurar que no introduce vulnerabilidades." data-phases="Implement|Tasks" tabindex="0" role="button" aria-expanded="false">
+              <span class="role-card__badge role-card__badge--ai">IA</span>
+              <svg class="role-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><circle cx="12" cy="12" r="2"/></svg>
+              <h4 class="role-card__name">AI Code Generator</h4>
+              <p class="role-card__desc">Genera código a partir de tareas descriptivas siguiendo patrones y buenas prácticas.</p>
+              <div class="role-card__meta">
+                <span class="role-card__tag">Implement</span>
+                <span class="role-card__tag">Tasks</span>
+              </div>
+            </article>
+
+            <!-- AI Reviewer -->
+            <article class="role-card role-card--ai" data-role="ai-reviewer" data-type="ia" data-capabilities="Detectar inconsistencias entre spec y código|Sugerir mejoras de accesibilidad|Identificar código duplicado|Revisar cumplimiento de estándares" data-limitations="No entiende intención de negocio|Puede generar falsos positivos|No evalúa UX subjetiva|No conoce decisiones de arquitectura previas" data-prompts="&quot;Revisa esta spec y verifica que todos los criterios de aceptación son medibles: [pegar spec]&quot;|&quot;Analiza este código HTML en busca de problemas de accesibilidad: [pegar código]&quot;|&quot;¿Este código cumple con los criterios de aceptación de esta spec? Spec: [X] Código: [Y]&quot;" data-supervision="El Reviewer humano debe validar los hallazgos de la IA, descartar falsos positivos y tomar la decisión final sobre la calidad del entregable." data-phases="Clarify|Implement" tabindex="0" role="button" aria-expanded="false">
+              <span class="role-card__badge role-card__badge--ai">IA</span>
+              <svg class="role-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/><circle cx="18" cy="4" r="2"/></svg>
+              <h4 class="role-card__name">AI Reviewer</h4>
+              <p class="role-card__desc">Revisa specs y código en busca de inconsistencias, problemas de calidad y accesibilidad.</p>
+              <div class="role-card__meta">
+                <span class="role-card__tag">Clarify</span>
+                <span class="role-card__tag">Implement</span>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <!-- Role Detail Panel -->
+        <div class="role-detail" role="region" aria-label="Detalle del rol seleccionado">
+          <!-- Dynamically populated by JS -->
+        </div>
+
+        <!-- Compare View -->
+        <div class="compare-view" role="region" aria-label="Vista comparativa de roles">
+          <div class="compare-view__header">
+            <h3 class="compare-view__title">Comparar roles</h3>
+            <button class="compare-view__close" type="button" aria-label="Cerrar vista comparativa">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+          </div>
+          <div class="compare-view__grid">
+            <!-- Dynamically populated by JS -->
+          </div>
+        </div>
+
+        <!-- Collaboration Matrix -->
+        <div class="collab-matrix" data-trackable>
+          <h3 class="collab-matrix__title">Matriz de Colaboración</h3>
+          <p class="collab-matrix__desc">Haz clic en un rol o fase para resaltar las interacciones. Haz clic de nuevo para limpiar.</p>
+
+          <!-- Desktop Table -->
+          <div class="matrix-table-wrapper">
+            <table class="matrix-table">
+              <thead>
+                <tr>
+                  <th scope="col">Rol / Fase</th>
+                  <th scope="col">Specify</th>
+                  <th scope="col">Clarify</th>
+                  <th scope="col">Plan</th>
+                  <th scope="col">Tasks</th>
+                  <th scope="col">Implement</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Spec Writer</th>
+                  <td class="cell--principal" data-cell-type="phase" data-cell-index="0">Principal</td>
+                  <td class="cell--principal" data-cell-type="phase" data-cell-index="1">Principal</td>
+                  <td class="cell--secundario" data-cell-type="phase" data-cell-index="2">Secundario</td>
+                  <td class="cell--none" data-cell-type="phase" data-cell-index="3">—</td>
+                  <td class="cell--none" data-cell-type="phase" data-cell-index="4">—</td>
+                </tr>
+                <tr>
+                  <th scope="row">Developer</th>
+                  <td class="cell--none" data-cell-type="phase" data-cell-index="0">—</td>
+                  <td class="cell--none" data-cell-type="phase" data-cell-index="1">—</td>
+                  <td class="cell--principal" data-cell-type="phase" data-cell-index="2">Principal</td>
+                  <td class="cell--principal" data-cell-type="phase" data-cell-index="3">Principal</td>
+                  <td class="cell--principal" data-cell-type="phase" data-cell-index="4">Principal</td>
+                </tr>
+                <tr>
+                  <th scope="row">Reviewer</th>
+                  <td class="cell--none" data-cell-type="phase" data-cell-index="0">—</td>
+                  <td class="cell--revisor" data-cell-type="phase" data-cell-index="1">Revisor</td>
+                  <td class="cell--revisor" data-cell-type="phase" data-cell-index="2">Revisor</td>
+                  <td class="cell--none" data-cell-type="phase" data-cell-index="3">—</td>
+                  <td class="cell--revisor" data-cell-type="phase" data-cell-index="4">Revisor</td>
+                </tr>
+                <tr>
+                  <th scope="row">Product Owner</th>
+                  <td class="cell--principal" data-cell-type="phase" data-cell-index="0">Principal</td>
+                  <td class="cell--principal" data-cell-type="phase" data-cell-index="1">Principal</td>
+                  <td class="cell--secundario" data-cell-type="phase" data-cell-index="2">Secundario</td>
+                  <td class="cell--none" data-cell-type="phase" data-cell-index="3">—</td>
+                  <td class="cell--none" data-cell-type="phase" data-cell-index="4">—</td>
+                </tr>
+                <tr>
+                  <th scope="row">AI Spec Assistant</th>
+                  <td class="cell--secundario" data-cell-type="phase" data-cell-index="0">Secundario</td>
+                  <td class="cell--secundario" data-cell-type="phase" data-cell-index="1">Secundario</td>
+                  <td class="cell--none" data-cell-type="phase" data-cell-index="2">—</td>
+                  <td class="cell--none" data-cell-type="phase" data-cell-index="3">—</td>
+                  <td class="cell--none" data-cell-type="phase" data-cell-index="4">—</td>
+                </tr>
+                <tr>
+                  <th scope="row">AI Code Generator</th>
+                  <td class="cell--none" data-cell-type="phase" data-cell-index="0">—</td>
+                  <td class="cell--none" data-cell-type="phase" data-cell-index="1">—</td>
+                  <td class="cell--secundario" data-cell-type="phase" data-cell-index="2">Secundario</td>
+                  <td class="cell--secundario" data-cell-type="phase" data-cell-index="3">Secundario</td>
+                  <td class="cell--principal" data-cell-type="phase" data-cell-index="4">Principal</td>
+                </tr>
+                <tr>
+                  <th scope="row">AI Reviewer</th>
+                  <td class="cell--secundario" data-cell-type="phase" data-cell-index="0">Secundario</td>
+                  <td class="cell--revisor" data-cell-type="phase" data-cell-index="1">Revisor</td>
+                  <td class="cell--none" data-cell-type="phase" data-cell-index="2">—</td>
+                  <td class="cell--none" data-cell-type="phase" data-cell-index="3">—</td>
+                  <td class="cell--revisor" data-cell-type="phase" data-cell-index="4">Revisor</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Mobile Cards -->
+          <div class="matrix-mobile" aria-label="Matriz de colaboración en vista móvil">
+
+            <div class="matrix-mobile__phase">
+              <h4 class="matrix-mobile__phase-title">Specify</h4>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">Spec Writer</span>
+                <span class="matrix-mobile__level matrix-mobile__level--principal">Principal</span>
+              </div>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">Product Owner</span>
+                <span class="matrix-mobile__level matrix-mobile__level--principal">Principal</span>
+              </div>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">AI Spec Assistant</span>
+                <span class="matrix-mobile__level matrix-mobile__level--secundario">Secundario</span>
+              </div>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">AI Reviewer</span>
+                <span class="matrix-mobile__level matrix-mobile__level--secundario">Secundario</span>
+              </div>
+            </div>
+
+            <div class="matrix-mobile__phase">
+              <h4 class="matrix-mobile__phase-title">Clarify</h4>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">Spec Writer</span>
+                <span class="matrix-mobile__level matrix-mobile__level--principal">Principal</span>
+              </div>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">Product Owner</span>
+                <span class="matrix-mobile__level matrix-mobile__level--principal">Principal</span>
+              </div>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">Reviewer</span>
+                <span class="matrix-mobile__level matrix-mobile__level--revisor">Revisor</span>
+              </div>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">AI Spec Assistant</span>
+                <span class="matrix-mobile__level matrix-mobile__level--secundario">Secundario</span>
+              </div>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">AI Reviewer</span>
+                <span class="matrix-mobile__level matrix-mobile__level--revisor">Revisor</span>
+              </div>
+            </div>
+
+            <div class="matrix-mobile__phase">
+              <h4 class="matrix-mobile__phase-title">Plan</h4>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">Developer</span>
+                <span class="matrix-mobile__level matrix-mobile__level--principal">Principal</span>
+              </div>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">Spec Writer</span>
+                <span class="matrix-mobile__level matrix-mobile__level--secundario">Secundario</span>
+              </div>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">Product Owner</span>
+                <span class="matrix-mobile__level matrix-mobile__level--secundario">Secundario</span>
+              </div>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">Reviewer</span>
+                <span class="matrix-mobile__level matrix-mobile__level--revisor">Revisor</span>
+              </div>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">AI Code Generator</span>
+                <span class="matrix-mobile__level matrix-mobile__level--secundario">Secundario</span>
+              </div>
+            </div>
+
+            <div class="matrix-mobile__phase">
+              <h4 class="matrix-mobile__phase-title">Tasks</h4>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">Developer</span>
+                <span class="matrix-mobile__level matrix-mobile__level--principal">Principal</span>
+              </div>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">AI Code Generator</span>
+                <span class="matrix-mobile__level matrix-mobile__level--secundario">Secundario</span>
+              </div>
+            </div>
+
+            <div class="matrix-mobile__phase">
+              <h4 class="matrix-mobile__phase-title">Implement</h4>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">Developer</span>
+                <span class="matrix-mobile__level matrix-mobile__level--principal">Principal</span>
+              </div>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">AI Code Generator</span>
+                <span class="matrix-mobile__level matrix-mobile__level--principal">Principal</span>
+              </div>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">Reviewer</span>
+                <span class="matrix-mobile__level matrix-mobile__level--revisor">Revisor</span>
+              </div>
+              <div class="matrix-mobile__interaction">
+                <span class="matrix-mobile__role">AI Reviewer</span>
+                <span class="matrix-mobile__level matrix-mobile__level--revisor">Revisor</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
   </main>
 
   <script src="js/hero.js" defer></script>
   <script src="js/phases.js" defer></script>
+  <script src="js/roles.js" defer></script>
 </body>
 </html>
