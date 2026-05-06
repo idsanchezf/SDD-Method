@@ -1,126 +1,153 @@
 ---
-description: "Task list for End-to-End SDD Process Visualization"
+description: "Task list for End-to-End SDD Process - Greenfield & Brownfield"
 ---
 
-# Tasks: End-to-End SDD Process Visualization
+# Tasks: End-to-End SDD Process - Greenfield & Brownfield
 
 **Input**: Design documents from `/specs/004-us4-proceso-end-to-end/`
-**Prerequisites**: plan.md, spec.md, research.md, data-model.md, contracts/, quickstart.md
+**Prerequisites**: plan.md, spec.md, research.md, data-model.md, contracts/process-diagram.md
+**Dependencies**: US2 (phases.js, phases.css), US3 (roles.js, roles.css), US1 (variables.css, reset.css)
 
-**Organization**: Tasks for User Story 4 (P2) - Process visualization with interactive diagram
+**Note**: US1, US2, US3 must be completed before US4 implementation.
 
 ## Format: `[ID] [P?] [Story] Description`
 
 - **[P]**: Can run in parallel (different files, no dependencies)
-- **[Story]**: [US4] for all tasks (User Story 4)
+- **[Story]**: Which user story this task belongs to (US4)
 - Include exact file paths in descriptions
 
 ---
 
 ## Phase 1: Setup (Shared Infrastructure)
 
-**Purpose**: Verify project structure is ready for US4 implementation
+**Purpose**: Verify prerequisites and prepare data files
 
-- [X] T001 Verify existing src/ directory structure matches plan.md (src/css/, src/js/, src/assets/)
-- [X] T002 [P] Verify src/index.html includes required CSS/JS placeholders for process section
-
----
-
-## Phase 2: Foundational (Blocking Prerequisites)
-
-**Purpose**: Core components that US4 depends on
-
-**⚠️ CRITICAL**: US4 requires understanding of phases (US2) and roles (US3) to render correctly
-
-- [X] T003 [US4] Review US2 phase data structure in src/js/phases.js for integration
-- [X] T004 [US4] Review US3 roles data structure in src/js/roles.js for integration
-- [X] T005 [P] [US4] Create src/js/process-data.js with SDD process phases data (Specify, Clarify, Plan, Tasks, Implement) including inputs, outputs, roles, artifacts, duration
-- [X] T006 [P] [US4] Create src/js/case-studies-data.js with greenfield and brownfield case study data including phases, artifacts, challenges, lessons learned
-
-**Checkpoint**: Data structures ready - US4 implementation can now begin
+- [ ] T001 Verify US2 artifacts exist: `src/js/phases.js`, `src/css/phases.css`
+- [ ] T002 Verify US3 artifacts exist: `src/js/roles.js`, `src/css/roles.css`
+- [ ] T003 Verify US1 design system: `src/css/variables.css`, `src/css/reset.css`
+- [ ] T004 [P] Create directory `src/js/data/` for JSON data files
+- [ ] T005 [P] Create directory `src/assets/diagrams/` for SVG assets
 
 ---
 
-## Phase 3: User Story 4 - End-to-End Process Visualization (Priority: P2) 🎯
+## Phase 2: Foundational (Data Layer)
 
-**Goal**: Visualizar el flujo completo de SDD desde la concepción de una feature hasta su entrega, incluyendo handoffs entre roles y puntos de control de calidad.
+**Purpose**: Create all data files that US4 depends on
 
-**Independent Test**: Un usuario puede describir el flujo end-to-end de SDD, identificar al menos 3 puntos de control de calidad y explicar qué sucede si una spec no pasa revisión.
+**⚠️ CRITICAL**: US4 implementation cannot begin until this phase is complete
+
+- [ ] T006 Create `src/js/data/phases-enhanced.js` with ProcessPhase entities (include handoffs and qualityPoints arrays)
+- [ ] T007 [P] Create `src/js/data/handoffs.js` with Handoff entities (from US2 spec updates)
+- [ ] T008 [P] Create `src/js/data/quality-points.js` with QualityPoint entities
+- [ ] T009 Create `src/js/data/case-studies.js` with CaseStudy and CasePhase entities (greenfield + brownfield)
+- [ ] T010 [P] Create `src/js/data/diagram-layout.js` with ProcessDiagram layout coordinates (nodes, edges, handoffArrows, gates)
+- [ ] T011 Create `src/js/data/roles-integration.js` mapping US3 roles to handoff participants
+
+**Checkpoint**: All data files created - US4 implementation can now begin
+
+---
+
+## Phase 3: User Story 4 - End-to-End SDD Process (Priority: P2) 🎯
+
+**Goal**: Visualize complete SDD flow with interactive diagram, handoffs, quality gates, and guided walkthrough for greenfield and brownfield cases
+
+**Independent Test**: User can view process diagram, activate quality gates, and complete interactive walkthrough for both greenfield and brownfield cases
 
 ### Implementation for User Story 4
 
-#### 3.1: Process Diagram CSS Styles
+#### Subphase 3A: Process Diagram Rendering
 
-- [X] T007 [P] [US4] Create process section styles in src/css/process.css (`.process`, `.process__container`, `.process__diagram`, `.process__controls`)
-- [X] T008 [P] [US4] Create diagram node styles in src/css/process.css (`.diagram-node`, `.diagram-node.active`, `.diagram-node:focus`, `.diagram-node:hover`)
-- [X] T009 [P] [US4] Create quality gate styles in src/css/process.css (`.quality-gate`, `.quality-gate.visible`, `.quality-gate__marker`)
-- [X] T010 [P] [US4] Create phase detail panel styles in src/css/process.css (`.process__detail`, `.process__detail--empty`, `.detail__title`, `.detail__content`)
-- [X] T011 [P] [US4] Create responsive breakpoints for process section in src/css/process.css (mobile: font-size, layout adjustments)
-- [X] T012 [P] [US4] Create handoff arrow styles in src/css/process.css (`.handoff-arrow`, `.handoff-arrow__label`)
-- [X] T013 [P] [US4] Create case studies section styles in src/css/process.css (`.case-studies`, `.case-study-card`, `.case-study-card__header`)
+- [ ] T012 [P] [US4] Create `src/js/process-diagram.js` with ProcessDiagram class (SVG rendering, node creation)
+- [ ] T013 [P] [US4] Implement `renderNodes()` method in ProcessDiagram (use `diagram-layout.js` coordinates)
+- [ ] T014 [P] [US4] Implement `renderEdges()` method (phase connections with arrows)
+- [ ] T015 [US4] Implement `renderHandoffs()` method (curved arrows with role labels, artifact names)
+- [ ] T016 [US4] Implement `renderQualityGates()` method (diamond shapes, toggle visibility)
+- [ ] T017 [US4] Add event listeners: `phase:select`, `phase:hover`, `handoff:highlight` (depends on T012-T016)
 
-#### 3.2: Process Diagram SVG Rendering
+#### Subphase 3B: Interactive Walkthrough
 
-- [X] T014 [US4] Create ProcessDiagram class skeleton in src/js/process.js with constructor accepting svgId parameter
-- [X] T015 [US4] Implement renderPhases() method in src/js/process.js to render PhaseNode elements from process-data.js (id, name, x, y, description)
-- [X] T016 [US4] Implement renderConnectors() method in src/js/process.js to draw SVG path connectors between phases with arrow markers
-- [X] T017 [US4] Implement renderQualityGates() method in src/js/process.js to render quality gate overlays (Review, Code Review, UAT) at correct positions
-- [X] T018 [US4] Implement renderHandoffs() method in src/js/process.js to render handoff arrows between roles (Spec Writer → Developer, etc.)
+- [ ] T018 [US4] Create `src/js/walkthrough.js` with InteractiveWalkthrough class (state machine: currentCase, currentPhaseIndex, userDecisions)
+- [ ] T019 [US4] Implement `start(caseType)` method (initialize greenfield or brownfield walkthrough)
+- [ ] T020 [US4] Implement `showCurrentStep()` method (highlight node, show handoff, display artifact example)
+- [ ] T021 [US4] Implement `next()` and `previous()` methods for navigation
+- [ ] T022 [US4] Implement `promptUserDecision(phase)` method (render decision buttons, capture choice, show feedback)
+- [ ] T023 [US4] Add walkthrough event integration: `walkthrough:step` events to highlight diagram (depends on T017, T018)
 
-#### 3.3: Process Diagram Interactivity
+#### Subphase 3C: CSS Styling
 
-- [X] T019 [US4] Implement bindEvents() method in src/js/process.js with click event delegation on `.diagram-node` elements
-- [X] T020 [US4] Implement selectPhase(phaseId) method in src/js/process.js to update active state and trigger `phase-selected` CustomEvent
-- [X] T021 [US4] Implement updateDetailPanel(phaseData) method in src/js/process.js to populate `#phase-detail` with phase info (inputs, outputs, roles, artifacts)
-- [X] T022 [US4] Implement toggleQualityGates() method in src/js/process.js to toggle `.visible` class on `.quality-gate` elements and trigger `quality-gates-toggled` event
-- [X] T023 [US4] Implement keyboard navigation in src/js/process.js (tabindex="0", Enter/Space key handlers for `.diagram-node`)
-- [X] T024 [US4] Add event listener for `#toggle-quality-gates` button in src/js/process.js to call toggleQualityGates()
+- [ ] T024 [P] [US4] Create `src/css/process.css` with base styles for `#process-diagram` (SVG container, responsive)
+- [ ] T025 [P] [US4] Style `.diagram-node` states: default, active, completed, highlighted (use CSS custom properties from `variables.css`)
+- [ ] T026 [P] [US4] Style `.diagram-handoff` arrows: default, active, filtered states
+- [ ] T027 [US4] Style `.diagram-gate` markers: default, visible, passed, failed states
+- [ ] T028 [US4] Style walkthrough UI: `.walkthrough-controls`, `.walkthrough-btn`, progress indicator
+- [ ] T029 [US4] Add responsive breakpoints: desktop (≥1024px), tablet (768-1023px), mobile (<768px)
 
-#### 3.4: HTML Integration
+#### Subphase 3D: HTML Integration
 
-- [X] T025 [US4] Add process section HTML structure to src/index.html after existing sections (`.process` with `#process`, `.process__diagram` with `#sdd-flow-svg`, `.process__detail` with `#phase-detail`)
-- [X] T026 [US4] Add case studies section HTML structure to src/index.html (`.case-studies` with greenfield and brownfield cards)
-- [X] T027 [US4] Add process.css link tag to src/index.html head section after existing CSS links
-- [X] T028 [US4] Add process-data.js script tag to src/index.html before process.js
-- [X] T029 [US4] Add case-studies-data.js script tag to src/index.html before process.js
-- [X] T030 [US4] Add process.js script tag to src/index.html after all data script tags
+- [ ] T030 [US4] Add US4 section to `src/index.html` after US3 section (id="process", heading, diagram container)
+- [ ] T031 [US4] Add controls: quality gate toggle button, greenfield/brownfield case selector
+- [ ] T032 [US4] Add walkthrough section: container, start buttons, decision UI, progress bar
+- [ ] T033 [US4] Import scripts in `index.html`: `process-diagram.js`, `walkthrough.js`, data files (depends on T006-T011)
+- [ ] T034 [US4] Import `process.css` in `index.html`
 
-#### 3.5: Case Studies Implementation
+#### Subphase 3E: Cross-Story Integration
 
-- [X] T031 [US4] Implement renderCaseStudies() method in src/js/process.js to create expandable case study cards from case-studies-data.js
-- [X] T032 [US4] Implement expandCaseStudy(caseId) method in src/js/process.js to show/hide case study details with phase walkthrough
-- [X] T033 [US4] Add event listeners for case study card clicks in src/js/process.js to trigger expandCaseStudy()
+- [ ] T035 [US4] Implement US2 sync: When US2 phase card clicked → highlight diagram node (listen for `phase:highlight` event)
+- [ ] T036 [US4] Implement US3 sync: When US3 role selected → highlight handoff arrows for that role (listen for `role:highlight` event)
+- [ ] T037 [US4] Implement diagram → US2 sync: When diagram node clicked → highlight US2 phase card (dispatch `phase:highlight` event)
+- [ ] T038 [US4] Implement diagram → US3 sync: When handoff arrow clicked → highlight US3 role card
 
-#### 3.6: Accessibility Implementation
-
-- [X] T034 [P] [US4] Add ARIA attributes to SVG diagram in src/js/process.js (`role="img"`, `aria-label="Diagrama de flujo SDD"`)
-- [X] T035 [P] [US4] Add ARIA attributes to phase nodes in src/js/process.js (`aria-label` with phase name and description)
-- [X] T036 [P] [US4] Add `aria-live="polite"` to `#phase-detail` panel in src/index.html
-- [X] T037 [P] [US4] Add `aria-pressed` toggle state to `#toggle-quality-gates` button in src/js/process.js
-- [X] T038 [P] [US4] Add `aria-hidden="true"` to quality gates overlay when hidden in src/js/process.js
-- [X] T039 [P] [US4] Verify keyboard tab order flows correctly through diagram nodes and controls
-
-#### 3.7: Error Handling & Edge Cases
-
-- [X] T040 [US4] Add error handling in src/js/process.js constructor to throw Error if SVG element not found
-- [X] T041 [US4] Add error handling in src/js/process.js selectPhase() to warn and no-op on invalid phaseId
-- [X] T042 [US4] Implement "Datos no disponibles" empty state in updateDetailPanel() when phase data missing
-- [X] T043 [US4] Add error message display in src/index.html for spec review failure scenario (edge case from spec)
-
-**Checkpoint**: At this point, User Story 4 should be fully functional and testable independently
+**Checkpoint**: At this point, US4 should be fully functional with all integrations working
 
 ---
 
-## Phase 4: Polish & Cross-Cutting Concerns
+## Phase 4: Testing & Validation
 
-**Purpose**: Improvements that affect US4 implementation
+**Purpose**: Verify US4 meets all requirements from spec.md
 
-- [X] T044 [P] [US4] Run accessibility audit on process section using browser DevTools or axe
-- [X] T045 [P] [US4] Optimize SVG rendering performance (minimize DOM operations, use DocumentFragment)
-- [X] T046 [US4] Test diagram on mobile viewport (320px width) and adjust font sizes/ spacing
-- [X] T047 [US4] Verify diagram prints correctly (print media query in src/css/process.css)
-- [X] T048 [US4] Add CSS transitions for phase selection and quality gate toggle in src/css/process.css
-- [X] T049 [US4] Validate all acceptance scenarios from spec.md are met
+### Manual Testing (No automated test framework per constitution)
+
+- [ ] T039 [P] [US4] Test diagram rendering: Verify 5 phase nodes render correctly with proper coordinates
+- [ ] T040 [P] [US4] Test diagram interaction: Click node → highlight, hover → tooltip
+- [ ] T041 [P] [US4] Test quality gates: Toggle visibility, verify all gates appear at correct phases
+- [ ] T042 [US4] Test handoff arrows: Verify arrows show fromRole → toRole with artifact labels
+- [ ] T043 [US4] Test case switching: Greenfield → Brownfield → Greenfield, verify data changes
+- [ ] T044 [US4] Test walkthrough start: Click "Iniciar Greenfield", verify step 1 displays
+- [ ] T045 [US4] Test walkthrough navigation: Next, Previous, jump to phase
+- [ ] T046 [US4] Test walkthrough decisions: Select decision, verify feedback (correct/incorrect)
+- [ ] T047 [US4] Test walkthrough completion: Complete all 5 phases, verify completion state
+- [ ] T048 [US4] Test US2 integration: Click US2 phase card → diagram node highlights
+- [ ] T049 [US4] Test US3 integration: Click US3 role → handoff arrows highlight
+
+### Accessibility Testing
+
+- [ ] T050 [US4] Run Lighthouse accessibility audit: Target ≥ 95/100
+- [ ] T051 [US4] Test keyboard navigation: Tab through diagram nodes, handoff arrows, gates
+- [ ] T052 [US4] Test screen reader: NVDA/Narrator reads diagram with proper ARIA labels
+- [ ] T053 [US4] Verify color contrast ≥ 4.5:1 for all diagram elements (use `variables.css` tokens)
+- [ ] T054 [US4] Test `aria-live` region: Walkthrough announcements work correctly
+
+### Performance Testing
+
+- [ ] T055 [US4] Test page load: Verify < 2 seconds on 3G throttling (Chrome DevTools)
+- [ ] T056 [US4] Test diagram interaction: Click response < 100ms on mid-range device (DevTools CPU throttling 4x)
+- [ ] T057 [US4] Test bundle size: Verify US4 adds < 50 KB to total site size
+- [ ] T058 [US4] Optimize SVGs: Remove unnecessary metadata, minimize file sizes
+
+**Checkpoint**: All tests pass - US4 ready for demo/deployment
+
+---
+
+## Phase 5: Polish & Cross-Cutting Concerns
+
+**Purpose**: Final improvements and documentation
+
+- [ ] T059 [P] [US4] Update `quickstart.md` with actual file paths and lessons learned during implementation
+- [ ] T060 [P] [US4] Add comments to `process-diagram.js` and `walkthrough.js` for maintainability
+- [ ] T061 [US4] Code cleanup: Remove console.logs, unused variables, verify vanilla JS best practices
+- [ ] T062 [US4] Browser compatibility: Test on Chrome, Firefox, Edge, Safari (latest versions)
+- [ ] T063 [US4] Responsive testing: Verify diagram and walkthrough work on mobile (320px width)
+- [ ] T064 [US4] Final Lighthouse run: Verify all scores (Performance, Accessibility, Best Practices, SEO)
 
 ---
 
@@ -128,93 +155,63 @@ description: "Task list for End-to-End SDD Process Visualization"
 
 ### Phase Dependencies
 
-- **Setup (Phase 1)**: No dependencies - can start immediately
-- **Foundational (Phase 2)**: Depends on Setup completion - BLOCKS US4 implementation
-- **User Story 4 (Phase 3)**: Depends on Foundational (Phase 2) completion
-- **Polish (Phase 4)**: Depends on User Story 4 completion
-
-### Task Dependencies Within US4
-
-- T005-T006 (data files) → T014-T018 (SVG rendering) → T019-T024 (interactivity)
-- T025-T030 (HTML integration) can run parallel with T014-T024 after T005-T006
-- T031-T033 (case studies) depends on T014+ (ProcessDiagram class)
-- T034-T039 (accessibility) can run in parallel, depends on T014-T030 being complete
-- T040-T043 (error handling) can run in parallel, depends on T014-T024
-- T044-T049 (polish) depends on all US4 tasks being complete
+- **Phase 1 (Setup)**: No dependencies - can start immediately
+- **Phase 2 (Foundational)**: Depends on Phase 1 completion - BLOCKS US4 implementation
+- **Phase 3 (US4)**: Depends on Phase 2 completion
+  - Subphases 3A, 3B, 3C, 3D can run in parallel (different files)
+  - Subphase 3E (Integration) depends on 3A, 3B, 3C, 3D completion
+- **Phase 4 (Testing)**: Depends on Phase 3 completion
+  - All tests marked [P] can run in parallel
+- **Phase 5 (Polish)**: Depends on Phase 4 completion
 
 ### Parallel Opportunities
 
-- All CSS tasks (T007-T013) can run in parallel [P]
-- Data JS files (T005-T006) can run in parallel [P]
-- SVG rendering methods (T015-T018) can run in parallel after T014 [P]
-- HTML structure (T025-T026) and script tags (T027-T030) can run in parallel [P]
-- Accessibility tasks (T034-T039) can run in parallel [P]
-- Error handling tasks (T040-T043) can run in parallel [P]
-
----
-
-## Parallel Example: User Story 4
-
-```bash
-# Launch all CSS tasks for US4 together:
-Task: "Create process section styles in src/css/process.css"
-Task: "Create diagram node styles in src/css/process.css"
-Task: "Create quality gate styles in src/css/process.css"
-Task: "Create phase detail panel styles in src/css/process.css"
-Task: "Create responsive breakpoints for process section in src/css/process.css"
-Task: "Create handoff arrow styles in src/css/process.css"
-Task: "Create case studies section styles in src/css/process.css"
-
-# Launch all data JS tasks for US4 together:
-Task: "Create src/js/process-data.js with SDD process phases data"
-Task: "Create src/js/case-studies-data.js with case study data"
-
-# Launch all accessibility tasks for US4 together:
-Task: "Add ARIA attributes to SVG diagram in src/js/process.js"
-Task: "Add ARIA attributes to phase nodes in src/js/process.js"
-Task: "Add aria-live to phase-detail panel in src/index.html"
-```
+- All Phase 1 tasks marked [P] can run in parallel
+- All Phase 2 tasks marked [P] can run in parallel
+- Within Phase 3:
+  - T012-T017 (3A: Diagram) can run in parallel
+  - T018-T023 (3B: Walkthrough) can run in parallel
+  - T024-T029 (3C: CSS) can run in parallel
+  - T030-T034 (3D: HTML) should run sequentially
+  - T035-T038 (3E: Integration) must run after 3A, 3B, 3D complete
+- All Phase 4 tests marked [P] can run in parallel
+- Phase 5 tasks marked [P] can run in parallel
 
 ---
 
 ## Implementation Strategy
 
-### MVP for User Story 4
+### Incremental Delivery
 
-1. Complete Phase 1: Setup (verify structure)
-2. Complete Phase 2: Foundational (data files T005-T006)
-3. Complete Phase 3.1: CSS styles (T007-T013)
-4. Complete Phase 3.2: SVG rendering (T014-T018)
-5. Complete Phase 3.3: Basic interactivity (T019-T024)
-6. Complete Phase 3.4: HTML integration (T025-T030)
-7. **STOP and VALIDATE**: Test acceptance scenarios 1 and 2
+1. Complete Phase 1: Setup → Verify prerequisites
+2. Complete Phase 2: Foundational → Data layer ready
+3. Complete Phase 3A: Diagram rendering → Visual diagram works
+4. Complete Phase 3B: Walkthrough → Interactive guide works
+5. Complete Phase 3C + 3D: Styling + HTML → Integrated in page
+6. Complete Phase 3E: Integration → Works with US2 & US3
+7. **STOP and VALIDATE**: Test US4 independently
+8. Complete Phase 4: Testing → All tests pass
+9. Complete Phase 5: Polish → Ready for PR
 
-### Incremental Delivery for US4
+### Commit Strategy
 
-1. Basic diagram renders (T014-T018 + T025-T030) → Visual validation
-2. Add interactivity (T019-T024) → Test scenario 1 (click phases)
-3. Add quality gates (T022, T024) → Test scenario 2 (toggle gates)
-4. Add case studies (T031-T033) → Test scenario 3 (case studies)
-5. Add accessibility (T034-T039) → Accessibility audit
-6. Add polish (T044-T049) → Final validation
+- Commit Phase 1: `git commit -m "[Spec Kit] Setup US4 prerequisites"`
+- Commit Phase 2: `git commit -m "[Spec Kit] Add US4 data layer"`
+- Commit Phase 3A: `git commit -m "[Spec Kit] Implement US4 process diagram"`
+- Commit Phase 3B: `git commit -m "[Spec Kit] Add US4 interactive walkthrough"`
+- Commit Phase 3C+D: `git commit -m "[Spec Kit] Style and integrate US4 in page"`
+- Commit Phase 3E: `git commit -m "[Spec Kit] Integrate US4 with US2 and US3"`
+- Commit Phase 4: `git commit -m "[Spec Kit] Add US4 tests and validation"`
+- Commit Phase 5: `git commit -m "[Spec Kit] Polish US4 implementation"`
 
 ---
 
 ## Notes
 
 - [P] tasks = different files, no dependencies
-- [US4] label maps task to User Story 4 for traceability
-- Each acceptance scenario should be independently testable
-- Verify diagram works on desktop (Chrome, Firefox, Edge) and mobile (320px+)
-- Commit after each logical group (CSS, JS methods, HTML)
-- All tasks follow Vanilla-First principle (no frameworks)
-
----
-
-## Task Summary
-
-- **Total Tasks**: 49
-- **US4 Tasks**: 47 (T003-T049)
-- **Setup Tasks**: 2 (T001-T002)
-- **Parallel Tasks**: 28 tasks marked [P]
-- **Independent Test**: User can describe end-to-end flow, identify 3+ quality controls, explain spec review failure
+- [US4] label maps task to User Story 4
+- Verify diagram works with both greenfield and brownfield data
+- Test keyboard navigation early (accessibility is mandatory per constitution)
+- Performance budget: US4 adds < 50 KB to total bundle
+- Integration with US2/US3 is critical - test thoroughly
+- Avoid: modifying US2/US3 files directly (extend via events)
