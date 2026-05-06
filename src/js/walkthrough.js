@@ -342,3 +342,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, 100);
 });
+
+// T044-T045: Handle walkthrough start buttons
+const startGreenfield = document.getElementById('walkthrough-start-greenfield');
+const startBrownfield = document.getElementById('walkthrough-start-brownfield');
+
+if (startGreenfield) {
+  startGreenfield.addEventListener('click', () => {
+    if (window.walkthrough) {
+      window.walkthrough.start('greenfield');
+    }
+  });
+}
+
+if (startBrownfield) {
+  startBrownfield.addEventListener('click', () => {
+    if (window.walkthrough) {
+      window.walkthrough.start('brownfield');
+    }
+  });
+}

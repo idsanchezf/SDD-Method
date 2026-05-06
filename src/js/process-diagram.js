@@ -526,4 +526,20 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('process-diagram-container')) {
     window.processDiagram = new ProcessDiagram('process-diagram-container');
   }
+
+  // T040: Handle toggle-quality-gates button
+  const toggleBtn = document.getElementById('toggle-quality-gates');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const isPressed = toggleBtn.getAttribute('aria-pressed') === 'true';
+      const newPressed = !isPressed;
+      toggleBtn.setAttribute('aria-pressed', newPressed.toString());
+      toggleBtn.textContent = newPressed ? 'Ocultar Puntos de Control' : 'Mostrar Puntos de Control';
+
+      // Toggle gate layer visibility
+      if (window.processDiagram) {
+        window.processDiagram.toggleGateLayer(newPressed);
+      }
+    });
+  }
 });
