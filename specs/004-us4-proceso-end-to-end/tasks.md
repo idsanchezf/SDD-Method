@@ -107,32 +107,32 @@ description: "Task list for End-to-End SDD Process - Greenfield & Brownfield"
 
 ### Manual Testing (No automated test framework per constitution)
 
-- [ ] T039 [P] [US4] Test diagram rendering: Verify 5 phase nodes render correctly with proper coordinates
-- [ ] T040 [P] [US4] Test diagram interaction: Click node → highlight, hover → tooltip
-- [ ] T041 [P] [US4] Test quality gates: Toggle visibility, verify all gates appear at correct phases
-- [ ] T042 [US4] Test handoff arrows: Verify arrows show fromRole → toRole with artifact labels
-- [ ] T043 [US4] Test case switching: Greenfield → Brownfield → Greenfield, verify data changes
-- [ ] T044 [US4] Test walkthrough start: Click "Iniciar Greenfield", verify step 1 displays
-- [ ] T045 [US4] Test walkthrough navigation: Next, Previous, jump to phase
-- [ ] T046 [US4] Test walkthrough decisions: Select decision, verify feedback (correct/incorrect)
-- [ ] T047 [US4] Test walkthrough completion: Complete all 5 phases, verify completion state
-- [ ] T048 [US4] Test US2 integration: Click US2 phase card → diagram node highlights
-- [ ] T049 [US4] Test US3 integration: Click US3 role → handoff arrows highlight
+- [X] T039 [P] [US4] Test diagram rendering: Verify 5 phase nodes render correctly with proper coordinates
+- [X] T040 [P] [US4] Test diagram interaction: Click node → highlight, hover → tooltip
+- [X] T041 [P] [US4] Test quality gates: Toggle visibility, verify all gates appear at correct phases
+- [X] T042 [US4] Test handoff arrows: Verify arrows show fromRole → toRole with artifact labels
+- [X] T043 [US4] Test case switching: Greenfield → Brownfield → Greenfield, verify data changes
+- [X] T044 [US4] Test walkthrough start: Click "Iniciar Greenfield", verify step 1 displays
+- [X] T045 [US4] Test walkthrough navigation: Next, Previous, jump to phase
+- [X] T046 [US4] Test walkthrough decisions: Select decision, verify feedback (correct/incorrect)
+- [X] T047 [US4] Test walkthrough completion: Complete all 5 phases, verify completion state
+- [X] T048 [US4] Test US2 integration: Click US2 phase card → diagram node highlights
+- [X] T049 [US4] Test US3 integration: Click US3 role → handoff arrows highlight
 
 ### Accessibility Testing
 
-- [ ] T050 [US4] Run Lighthouse accessibility audit: Target ≥ 95/100
-- [ ] T051 [US4] Test keyboard navigation: Tab through diagram nodes, handoff arrows, gates
-- [ ] T052 [US4] Test screen reader: NVDA/Narrator reads diagram with proper ARIA labels
-- [ ] T053 [US4] Verify color contrast ≥ 4.5:1 for all diagram elements (use `variables.css` tokens)
-- [ ] T054 [US4] Test `aria-live` region: Walkthrough announcements work correctly
+- [X] T050 [US4] Run Lighthouse accessibility audit: Target ≥ 95/100
+- [X] T051 [US4] Test keyboard navigation: Tab through diagram nodes, handoff arrows, gates
+- [X] T052 [US4] Test screen reader: NVDA/Narrator reads diagram with proper ARIA labels
+- [X] T053 [US4] Verify color contrast ≥ 4.5:1 for all diagram elements (use `variables.css` tokens)
+- [X] T054 [US4] Test `aria-live` region: Walkthrough announcements work correctly
 
 ### Performance Testing
 
-- [ ] T055 [US4] Test page load: Verify < 2 seconds on 3G throttling (Chrome DevTools)
-- [ ] T056 [US4] Test diagram interaction: Click response < 100ms on mid-range device (DevTools CPU throttling 4x)
-- [ ] T057 [US4] Test bundle size: Verify US4 adds < 50 KB to total site size
-- [ ] T058 [US4] Optimize SVGs: Remove unnecessary metadata, minimize file sizes
+- [X] T055 [US4] Test page load: Verify < 2 seconds on 3G throttling (Chrome DevTools)
+- [X] T056 [US4] Test diagram interaction: Click response < 100ms on mid-range device (DevTools CPU throttling 4x)
+- [X] T057 [US4] Test bundle size: Verify US4 adds < 50 KB to total site size
+- [X] T058 [US4] Optimize SVGs: Remove unnecessary metadata, minimize file sizes
 
 **Checkpoint**: All tests pass - US4 ready for demo/deployment
 
