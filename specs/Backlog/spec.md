@@ -1,8 +1,8 @@
 # Feature Specification: SDD Method Web App
 
-**Feature Branch**: `001-sdd-method-webapp`  
+**Feature Branch**: `sdd-method-webapp`  
 **Created**: 2026-05-05  
-**Status**: Draft  
+**Status**: In Progress  
 **Input**: User description: "generar el backlog para una aplicación web en la que se explique la metodologia de spec driven development, donde cada modulo o sección sea una hu con criterios de acptación y debe contemplar un contexto de que es la metodologia de SDD, que fases tiene, cuales son las entradas y salidas de cada fase, que roles intervienen tanto humaanos como IA y como es el proceso general. De igual forma se debe expplicar en alguna sección las responsabilidades y habilidades de cada rol tanto humano como IA"
 
 ## Clarifications
@@ -17,7 +17,7 @@
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Comprender qué es Spec Driven Development (Priority: P1)
-
+**Status**: Implemented
 Como visitante nuevo del sitio, quiero entender de forma clara y concisa qué es la metodología Spec Driven Development (SDD), sus beneficios y en qué se diferencia de otros enfoques de desarrollo de software, para poder evaluar si es aplicable a mis proyectos.
 
 **Why this priority**: Sin comprender los fundamentos de SDD, el usuario no puede aprovechar el resto del contenido. Es la base sobre la cual se construye todo el aprendizaje.
@@ -33,7 +33,7 @@ Como visitante nuevo del sitio, quiero entender de forma clara y concisa qué es
 ---
 
 ### User Story 2 - Explorar las fases del proceso SDD (Priority: P1)
-
+**Status**: Implemented
 Como profesional de desarrollo de software, quiero conocer cada fase del proceso SDD, sus entradas, salidas y objetivos, para poder aplicar la metodología paso a paso en mis proyectos.
 
 **Why this priority**: Las fases son el núcleo operativo de SDD. Sin este conocimiento, el usuario no puede ejecutar la metodología.
@@ -49,7 +49,7 @@ Como profesional de desarrollo de software, quiero conocer cada fase del proceso
 ---
 
 ### User Story 3 - Identificar roles y responsabilidades en SDD (Priority: P2)
-
+**Status**: Implemented
 Como líder de equipo o desarrollador, quiero entender qué roles participan en un proyecto SDD (tanto humanos como de IA), sus responsabilidades, habilidades requeridas y cómo colaboran entre sí, para poder estructurar mi equipo correctamente.
 
 **Why this priority**: La asignación de roles es fundamental para implementar SDD. Sin claridad en quién hace qué, el proceso se desorganiza.

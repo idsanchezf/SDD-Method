@@ -1,7 +1,7 @@
 # Implementation Plan: What is SDD - Hero Section
 
-**Branch**: `002-us1-what-is-sdd` | **Date**: 2026-05-05 | **Spec**: [spec.md](./spec.md)
-**Input**: Feature specification from `/specs/002-us1-what-is-sdd/spec.md`
+**Branch**: `001-us1-what-is-sdd` | **Date**: 2026-05-05 | **Spec**: [spec.md](./spec.md)
+**Input**: Feature specification from `/specs/001-us1-what-is-sdd/spec.md`
 
 **Note**: This template is filled in by the `/speckit.plan` command. See `.specify/templates/plan-template.md` for the execution workflow.
 
@@ -29,7 +29,7 @@ Implement the "What is SDD?" hero section — the first page visitors see on the
 | I. Vanilla-First | ✅ Pass | All interactivity uses native DOM APIs — no frameworks |
 | II. Semantic HTML & Accessible | ✅ Pass | HTML5 semantic elements, ARIA labels, keyboard navigation, WCAG AA contrast |
 | III. Professional CSS Architecture | ✅ Pass | CSS custom properties, mobile-first media queries, modular class naming |
-| IV. Feature Branch & PR Workflow | ✅ Pass | Working on `002-us1-what-is-sdd`, PR required for merge |
+| IV. Feature Branch & PR Workflow | ✅ Pass | Working on `001-us1-what-is-sdd`, PR required for merge |
 | V. CI/CD via GitHub Actions | ✅ Pass | Workflow will be configured at project level; this feature complies |
 
 ## Project Structure
