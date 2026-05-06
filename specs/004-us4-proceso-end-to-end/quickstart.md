@@ -23,7 +23,7 @@
 
 3. **Create US4 files**:
    ```bash
-   touch src/css/process.css src/js/process.js
+   touch src/css/process.css src/js/process-diagram.js
    mkdir -p src/js/data src/assets/diagrams
    ```
 
@@ -33,7 +33,7 @@
 
 Add handoffs and quality points to the phase data from US2.
 
-Edit `src/js/data/phases-enhanced.json` (create if not exists):
+Edit `src/js/data/phases-enhanced.js` (create if not exists):
 ```json
 [
   {
@@ -69,7 +69,7 @@ Edit `src/js/data/phases-enhanced.json` (create if not exists):
 
 ### Step 2: Create Process Diagram
 
-Create `src/js/process.js` with diagram rendering:
+Create `src/js/process-diagram.js` with diagram rendering:
 
 ```javascript
 // Import enhanced phase data (or load from JSON)
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### Step 3: Add Interactive Walkthrough
 
-Extend `process.js` with walkthrough state machine:
+Extend `ProcessDiagram.js` with walkthrough state machine:
 
 ```javascript
 class InteractiveWalkthrough {
@@ -247,7 +247,7 @@ Add to `src/index.html` after US3 section:
   </div>
 
   <div id="process-diagram-container">
-    <!-- SVG diagram rendered by process.js -->
+    <!-- SVG diagram rendered by ProcessDiagram.js -->
   </div>
 
   <div class="walkthrough-section">
