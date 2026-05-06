@@ -368,6 +368,40 @@ class ProcessDiagram {
         this.toggleGateHighlight(gate.phaseId);
       });
     });
+
+    // T037: Listen for phase:highlight from US2 (diagram → US2 sync)
+    document.addEventListener('phase:highlight', (e) => {
+      const { phaseId } = e.detail;
+      if (phaseId) {
+        this.selectNode(phaseId);
+      }
+    });
+
+    // T036: Listen for role:highlight from US3 (highlight handoffs for role)
+    document.addEventListener('role:highlight', (e) => {
+      const { roleSlug } = e.detail;
+      if (roleSlug) {
+        this.highlightHandoffsForRole(roleSlug);
+      }
+    });
+
+    // T038: Handoff arrow click → highlight US3 role card
+    const handoffArrows = this.gHandoffs.querySelectorAll('.diagram-handoff');
+    handoffArrows.forEach(arrow => {
+      arrow.addEventListener('click', () => {
+        const handoffId = arrow.getAttribute('data-handoff-id');
+        if (handoffId) {
+          // Find the handoff data to get the role slug
+          const handoffData = this.handoffsData.find(h => h.id === handoffId);
+          if (handoffData) {
+            // Dispatch role:highlight for the receiver role
+            document.dispatchEvent(new CustomEvent('role:highlight', {
+              detail: { roleSlug: handoffData.toRole, fromHandoff: handoffId }
+            }));
+          }
+        }
+      });
+    });
   }
 
   selectNode(phaseId) {

@@ -57,21 +57,21 @@ description: "Task list for End-to-End SDD Process - Greenfield & Brownfield"
 
 #### Subphase 3A: Process Diagram Rendering
 
-- [ ] T012 [P] [US4] Create `src/js/process-diagram.js` with ProcessDiagram class (SVG rendering, node creation)
-- [ ] T013 [P] [US4] Implement `renderNodes()` method in ProcessDiagram (use `diagram-layout.js` coordinates)
-- [ ] T014 [P] [US4] Implement `renderEdges()` method (phase connections with arrows)
-- [ ] T015 [US4] Implement `renderHandoffs()` method (curved arrows with role labels, artifact names)
-- [ ] T016 [US4] Implement `renderQualityGates()` method (diamond shapes, toggle visibility)
-- [ ] T017 [US4] Add event listeners: `phase:select`, `phase:hover`, `handoff:highlight` (depends on T012-T016)
+- [X] T012 [P] [US4] Create `src/js/process-diagram.js` with ProcessDiagram class (SVG rendering, node creation)
+- [X] T013 [P] [US4] Implement `renderNodes()` method in ProcessDiagram (use `diagram-layout.js` coordinates)
+- [X] T014 [P] [US4] Implement `renderEdges()` method (phase connections with arrows)
+- [X] T015 [US4] Implement `renderHandoffs()` method (curved arrows with role labels, artifact names)
+- [X] T016 [US4] Implement `renderQualityGates()` method (diamond shapes, toggle visibility)
+- [X] T017 [US4] Add event listeners: `phase:select`, `phase:hover`, `handoff:highlight` (depends on T012-T016)
 
 #### Subphase 3B: Interactive Walkthrough
 
-- [ ] T018 [US4] Create `src/js/walkthrough.js` with InteractiveWalkthrough class (state machine: currentCase, currentPhaseIndex, userDecisions)
-- [ ] T019 [US4] Implement `start(caseType)` method (initialize greenfield or brownfield walkthrough)
-- [ ] T020 [US4] Implement `showCurrentStep()` method (highlight node, show handoff, display artifact example)
-- [ ] T021 [US4] Implement `next()` and `previous()` methods for navigation
-- [ ] T022 [US4] Implement `promptUserDecision(phase)` method (render decision buttons, capture choice, show feedback)
-- [ ] T023 [US4] Add walkthrough event integration: `walkthrough:step` events to highlight diagram (depends on T017, T018)
+- [X] T018 [US4] Create `src/js/walkthrough.js` with InteractiveWalkthrough class (state machine: currentCase, currentPhaseIndex, userDecisions)
+- [X] T019 [US4] Implement `start(caseType)` method (initialize greenfield or brownfield walkthrough)
+- [X] T020 [US4] Implement `showCurrentStep()` method (highlight node, show handoff, display artifact example)
+- [X] T021 [US4] Implement `next()` and `previous()` methods for navigation
+- [X] T022 [US4] Implement `promptUserDecision(phase)` method (render decision buttons, capture choice, show feedback)
+- [X] T023 [US4] Add walkthrough event integration: `walkthrough:step` events to highlight diagram (depends on T017, T018)
 
 #### Subphase 3C: CSS Styling
 
@@ -92,10 +92,10 @@ description: "Task list for End-to-End SDD Process - Greenfield & Brownfield"
 
 #### Subphase 3E: Cross-Story Integration
 
-- [ ] T035 [US4] Implement US2 sync: When US2 phase card clicked → highlight diagram node (listen for `phase:highlight` event)
-- [ ] T036 [US4] Implement US3 sync: When US3 role selected → highlight handoff arrows for that role (listen for `role:highlight` event)
-- [ ] T037 [US4] Implement diagram → US2 sync: When diagram node clicked → highlight US2 phase card (dispatch `phase:highlight` event)
-- [ ] T038 [US4] Implement diagram → US3 sync: When handoff arrow clicked → highlight US3 role card
+- [X] T035 [US4] Implement US2 sync: When US2 phase card clicked → highlight diagram node (listen for `phase:highlight` event)
+- [X] T036 [US4] Implement US3 sync: When US3 role selected → highlight handoff arrows for that role (listen for `role:highlight` event)
+- [X] T037 [US4] Implement diagram → US2 sync: When diagram node clicked → highlight US2 phase card (dispatch `phase:highlight` event)
+- [X] T038 [US4] Implement diagram → US3 sync: When handoff arrow clicked → highlight US3 role card
 
 **Checkpoint**: At this point, US4 should be fully functional with all integrations working
 

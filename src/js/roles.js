@@ -108,6 +108,11 @@
 
     // Announce to screen readers
     announceToSR(`${data.name} - ${data.description}`);
+
+    // T036: Dispatch role:highlight event for US4 diagram sync
+    document.dispatchEvent(new CustomEvent('role:highlight', {
+      detail: { roleSlug: slug, roleName: data.name }
+    }));
   }
 
   function showDetail(data) {
