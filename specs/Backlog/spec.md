@@ -33,7 +33,7 @@ Como visitante nuevo del sitio, quiero entender de forma clara y concisa qué es
 ---
 
 ### User Story 2 - Explorar las fases del proceso SDD (Priority: P1)
-**Status**: Implemented
+**Status**: Edited
 Como profesional de desarrollo de software, quiero conocer cada fase del proceso SDD, sus entradas, salidas y objetivos, para poder aplicar la metodología paso a paso en mis proyectos.
 
 **Why this priority**: Las fases son el núcleo operativo de SDD. Sin este conocimiento, el usuario no puede ejecutar la metodología.
@@ -66,6 +66,7 @@ Como líder de equipo o desarrollador, quiero entender qué roles participan en 
 
 ### User Story 4 - Comprender el proceso general de SDD de extremo a extremo (Priority: P2)
 
+
 Como gerente de proyecto o tech lead, quiero visualizar el flujo completo de SDD desde la concepción de una feature hasta su entrega, incluyendo los handoffs entre roles y los puntos de control de calidad, para poder planificar y supervisar proyectos reales.
 
 **Why this priority**: Proporciona la visión holística necesaria para coordinar equipos completos y entender cómo encajan todas las piezas.
@@ -75,8 +76,29 @@ Como gerente de proyecto o tech lead, quiero visualizar el flujo completo de SDD
 **Acceptance Scenarios**:
 
 1. **Given** que el usuario accede a la sección de proceso general, **When** interactúa con el diagrama de flujo, **Then** puede hacer clic en cada paso y ver descripción, roles involucrados y artefactos producidos.
+
 2. **Given** que el usuario está viendo el diagrama, **When** activa la capa de "control de calidad", **Then** se resaltan los gates de revisión y aprobación del proceso.
+
 3. **Given** que el usuario completa la lectura, **When** accede a la sección de casos de estudio, **Then** puede elegir entre el caso greenfield (proyecto nuevo) o brownfield (legado existente), y ve el proyecto ficticio aplicado paso a paso con artefactos reales de cada fase.
+
+**Detalle adicional**: El diagrama debe mostrar:
+- Fases principales: Specify, Clarify, Plan, Tasks, Implement
+- Entradas y salidas de cada fase
+- Roles clave en cada paso (ej. Spec Writer, Developer, Reviewer)
+- Artefactos producidos (specs, plan, tasks, code)
+- Puntos de control: Review, Code Review, UAT
+- Handoffs entre roles (ej. Spec Writer → Developer, Developer → Tester)
+
+**Edge Cases**: Si una spec falla en revisión, debe mostrar:
+- Mensaje de error con razón del rechazo
+- Enlaces a documentación de cómo corregir la spec
+- Recomendaciones de roles para revisión
+
+**Requirements**: El flujo debe incluir:
+- Duración estimada de cada fase
+- Indicadores de progreso visual
+- Ejemplos de specs fallidas y cómo se corrigieron
+- Integración con casos de estudio para ver aplicaciones prácticas
 
 ---
 

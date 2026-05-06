@@ -3,7 +3,7 @@
 **Feature Branch**: `003-us2-sdd-phases`  
 **Created**: 2026-05-05  
 **Status**: Draft  
-**Input**: User Story 2 from `specs/001-sdd-method-webapp/spec.md` — "Explorar las fases del proceso SDD"
+**Input**: User Story 2 from `specs/backlog/spec.md` — "Explorar las fases del proceso SDD"
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -17,9 +17,9 @@ Como profesional de desarrollo de software, quiero conocer cada fase del proceso
 
 **Acceptance Scenarios**:
 
-1. **Given** que el usuario accede a la sección de fases, **When** selecciona una fase específica, **Then** ve su nombre, descripción, entradas, salidas y duración estimada.
-2. **Given** que el usuario está viendo una fase, **When** hace clic en "ver detalle", **Then** se expande información con ejemplos prácticos de artefactos reales.
-3. **Given** que el usuario completa la revisión de todas las fases, **When** accede al diagrama interactivo del flujo, **Then** puede visualizar cómo se conectan las fases entre sí.
+1. **Given** que el usuario accede a la sección de fases, **When** selecciona una fase específica, **Then** ve su nombre, descripción, entradas, salidas, duración estimada y los handoffs entre roles (quién entrega y quién recibe el trabajo).
+2. **Given** que el usuario está viendo una fase, **When** hace clic en "ver detalle", **Then** se expande información con ejemplos prácticos de artefactos reales, los puntos de calidad que debe cumplir la fase y los handoffs específicos entre roles participantes.
+3. **Given** que el usuario completa la revisión de todas las fases, **When** accede al diagrama interactivo del flujo, **Then** puede visualizar cómo se conectan las fases entre sí y las transiciones de roles con sus handoffs.
 
 ### Edge Cases
 
@@ -32,20 +32,23 @@ Como profesional de desarrollo de software, quiero conocer cada fase del proceso
 ### Functional Requirements
 
 - **FR-001**: La sección debe presentar las 5 fases de SDD (Specify, Clarify, Plan, Tasks, Implement) como tarjetas interactivas que el usuario puede seleccionar individualmente.
-- **FR-002**: Cada fase debe mostrar: nombre, número de orden, descripción breve (2-3 líneas), entradas requeridas, salidas producidas, duración estimada y roles principales.
-- **FR-003**: Al hacer clic en "ver detalle" en una fase, se debe expandir un panel con: descripción extendida, ejemplos de artefactos reales, preguntas frecuentes de la fase y consejos prácticos.
-- **FR-004**: La sección debe incluir un diagrama de flujo visual que muestre la secuencia de las 5 fases con flechas de conexión y animación opcional de recorrido.
-- **FR-005**: El diagrama de flujo debe ser interactivo: al hacer clic en una fase del diagrama, se resalta la tarjeta correspondiente y viceversa.
+- **FR-002**: Cada fase debe mostrar: nombre, número de orden, descripción breve (2-3 líneas), entradas requeridas, salidas producidas, duración estimada, roles principales y handoffs entre roles (quién entrega y quién recibe el trabajo).
+- **FR-003**: Al hacer clic en "ver detalle" en una fase, se debe expandir un panel con: descripción extendida, ejemplos de artefactos reales, preguntas frecuentes de la fase, consejos prácticos, puntos de calidad que debe cumplir la fase y handoffs específicos entre roles participantes.
+- **FR-004**: La sección debe incluir un diagrama de flujo visual que muestre la secuencia de las 5 fases con flechas de conexión, animación opcional de recorrido y transiciones de roles con sus handoffs.
+- **FR-005**: El diagrama de flujo debe ser interactivo: al hacer clic en una fase del diagrama, se resalta la tarjeta correspondiente y viceversa, mostrando también los handoffs de esa fase.
 - **FR-006**: La sección debe incluir un indicador visual de progreso de lectura para esta sección (barra o porcentaje visible durante la sesión).
 - **FR-007**: Todo el contenido debe ser accesible: cumple WCAG AA, estructura de headings semántica, elementos interactivos navegables por teclado, y el diagrama debe tener alternativa textual.
 - **FR-008**: La sección debe reutilizar las variables CSS del design system creado en US1 (`src/css/variables.css`).
 - **FR-009**: La sección debe cargar completamente en menos de 2 segundos en una conexión de 3G.
+- **FR-010**: Cada fase debe definir puntos de calidad específicos que deben cumplirse antes de pasar a la siguiente fase (ej. checklist de calidad).
 
 ### Key Entities
 
-- **Fase SDD**: Cada etapa del proceso. Contiene: número de orden (1-5), nombre, slug (ej. "specify"), descripción corta, descripción larga, entradas (string[]), salidas (string[]), duración estimada, roles principales (string[]), consejos (string[]), artefactos de ejemplo (string[]).
-- **Diagrama de Flujo**: Representación visual de la secuencia de fases. Contiene: nodos (uno por fase), conexiones (flechas direccionales entre nodos consecutivos), estado activo (fase seleccionada).
-- **Panel de Detalle**: Contenido expandible por fase. Contiene: referencia a fase, descripción extendida, FAQ items (pregunta + respuesta), consejos prácticos.
+- **Fase SDD**: Cada etapa del proceso. Contiene: número de orden (1-5), nombre, slug (ej. "specify"), descripción corta, descripción larga, entradas (string[]), salidas (string[]), duración estimada, roles principales (string[]), consejos (string[]), artefactos de ejemplo (string[]), puntos de calidad (string[]), handoffs (objeto con rol emisor, rol receptor, artefacto entregado).
+- **Handoff**: Transición de trabajo entre roles. Contiene: fase origen, rol emisor, rol receptor, artefacto entregado, criterios de aceptación del handoff.
+- **Punto de Calidad**: Criterio de calidad para una fase. Contiene: descripción, criterio de verificación, obligatorio (booleano).
+- **Diagrama de Flujo**: Representación visual de la secuencia de fases. Contiene: nodos (uno por fase), conexiones (flechas direccionales entre nodos consecutivos), estado activo (fase seleccionada), transiciones de roles con handoffs visualizados.
+- **Panel de Detalle**: Contenido expandible por fase. Contiene: referencia a fase, descripción extendida, FAQ items (pregunta + respuesta), consejos prácticos, puntos de calidad (string[]), handoffs específicos entre roles participantes.
 
 ## Success Criteria *(mandatory)*
 

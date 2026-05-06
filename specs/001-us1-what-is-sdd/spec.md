@@ -3,7 +3,7 @@
 **Feature Branch**: `002-us1-what-is-sdd`  
 **Created**: 2026-05-05  
 **Status**: Draft  
-**Input**: User Story 1 from `specs/001-sdd-method-webapp/spec.md` — "Comprender qué es Spec Driven Development"
+**Input**: User Story 1 from `specs/Backlog/spec.md` — "Comprender qué es Spec Driven Development"
 
 ## User Scenarios & Testing *(mandatory)*
 

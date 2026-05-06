@@ -1,14 +1,16 @@
 <!--
 ## Sync Impact Report
-- Version change: N/A → 1.0.0 (initial ratification)
-- Modified principles: All placeholders replaced with concrete principles
-- Added sections: Technology Stack Constraints, Collaborative Workflow, CI/CD & Deployment
+- Version change: 1.0.0 → 1.0.0 (no semantic change)
+- Modified principles: Backlog structure & specification cycles clarified
+- Added sections: User Story Folder Structure
 - Removed sections: None
 - Templates requiring updates:
-  - .specify/templates/plan-template.md ✅ compatible
-  - .specify/templates/spec-template.md ✅ compatible
-  - .specify/templates/tasks-template.md ✅ compatible
-- Follow-up TODOs: None
+  - ✅ .specify/templates/plan-template.md
+  - ✅ .specify/templates/spec-template.md
+  - ⚠ .specify/templates/tasks-template.md (task categorization needs review)
+- Follow-up TODOs:
+  - [ ] Verify task categorization alignment with new principles
+  - [ ] Update agent-specific guidance files (e.g., `commands/commands.md`)
 -->
 
 # WebApp Constitution
