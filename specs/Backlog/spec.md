@@ -33,7 +33,7 @@ Como visitante nuevo del sitio, quiero entender de forma clara y concisa qué es
 ---
 
 ### User Story 2 - Explorar las fases del proceso SDD (Priority: P1)
-**Status**: Edited
+**Status**: Implemented
 Como profesional de desarrollo de software, quiero conocer cada fase del proceso SDD, sus entradas, salidas y objetivos, para poder aplicar la metodología paso a paso en mis proyectos.
 
 **Why this priority**: Las fases son el núcleo operativo de SDD. Sin este conocimiento, el usuario no puede ejecutar la metodología.
@@ -65,7 +65,7 @@ Como líder de equipo o desarrollador, quiero entender qué roles participan en 
 ---
 
 ### User Story 4 - Comprender el proceso general de SDD de extremo a extremo (Priority: P2)
-
+**Status**: Implemented
 
 Como gerente de proyecto o tech lead, quiero visualizar el flujo completo de SDD desde la concepción de una feature hasta su entrega, incluyendo los handoffs entre roles y los puntos de control de calidad, para poder planificar y supervisar proyectos reales.
 
@@ -103,6 +103,7 @@ Como gerente de proyecto o tech lead, quiero visualizar el flujo completo de SDD
 ---
 
 ### User Story 5 - Navegar la aplicación de forma intuitiva (Priority: P3)
+**Status**: Implemented
 
 Como usuario del sitio web, quiero navegar entre secciones de forma intuitiva, con un menú claro, indicadores de progreso de lectura y enlaces cruzados entre conceptos relacionados, para poder aprender a mi propio ritmo sin perderme.
 
@@ -117,6 +118,182 @@ Como usuario del sitio web, quiero navegar entre secciones de forma intuitiva, c
 3. **Given** que el usuario abandona y regresa al sitio en una nueva sesión, **When** carga la página, **Then** el progreso se reinicia y el usuario comienza desde la página principal sin historial de lectura previa.
 
 ---
+
+---
+
+### User Story 6 - Conocer y aplicar la Constitución SDD (Priority: P1)
+**Status**: Proposed
+
+Como practitioner de SDD, quiero entender los principios constitucionales que rigen cada feature y disponer de un checklist interactivo para verificar que mi proyecto cumple antes de avanzar, para asegurar consistencia y calidad metodológica.
+
+**Why this priority**: La Constitución es el guardarraíl metodológico de SDD. Sin ella, el equipo no tiene criterios objetivos para evaluar si un feature está bien construido antes de avanzar a la siguiente fase.
+
+**Independent Test**: Un usuario puede listar los 5 principios constitucionales, explicar qué valida cada uno y usar el checker interactivo para evaluar un feature de ejemplo.
+
+**Acceptance Scenarios**:
+
+1. **Given** que el usuario accede a la sección "Constitución SDD", **When** lee el contenido, **Then** ve explicados los 5 principios: Vanilla-First, Semantic HTML & Accessible, Professional CSS Architecture, Feature Branch & PR Workflow, CI/CD via GitHub Actions.
+2. **Given** que el usuario abre el Constitution Checker, **When** selecciona una fase (Specify/Clarify/Plan/Tasks/Implement), **Then** ve un checklist de principios que deben verificarse antes de avanzar a esa fase.
+3. **Given** que el usuario marca un principio como no cumplido, **When** el checker detecta la violación, **Then** muestra una explicación de por qué es importante y cómo corregirlo.
+4. **Given** que el usuario completa el constitution check, **When** todos los principios pasan, **Then** ve un indicador visual "✓ CONSTITUTION PASSED" y puede continuar al siguiente paso.
+
+**Archivos**: `src/index.html` (nueva sección), `src/css/constitution.css`, `src/js/constitution.js`
+
+---
+
+### User Story 7 - Explorar el flujo de colaboración Humano-IA (Priority: P1)
+**Status**: Proposed
+
+Como usuario de SDD, quiero visualizar cómo humanos y asistentes de IA colaboran en cada fase, qué prompts usar y qué supervisión aplicar, para aprovechar la IA sin perder control de calidad.
+
+**Why this priority**: SDD es la primera metodología que integra roles de IA como ciudadanos de primera clase. Explicar este flujo es central a la propuesta de valor de SDD.
+
+**Independent Test**: Un usuario puede seguir el flujo de una feature desde Specify hasta Implement viendo en cada fase qué hace el humano, qué hace la IA y cómo se supervisa.
+
+**Acceptance Scenarios**:
+
+1. **Given** que el usuario accede a la sección "Flujo de Colaboración", **When** selecciona una fase, **Then** ve un diagrama que muestra: rol humano principal, rol IA asignado, artefacto producido y punto de supervisión.
+2. **Given** que el usuario está viendo un rol de IA (ej. AI Spec Assistant), **When** hace clic en "Ver prompts recomendados", **Then** ve ejemplos de prompts estructurados para esa fase.
+3. **Given** que el usuario selecciona "Ver supervisión requerida", **When** expande la sección, **Then** ve qué debe revisar el humano antes de aceptar el trabajo de la IA.
+4. **Given** que el usuario completa el flujo completo, **When** llega a Implement, **Then** ve un resumen de toda la colaboración humano-IA del feature.
+
+**Archivos**: `src/index.html`, `src/css/collab-flow.css`, `src/js/collab-flow.js`
+
+---
+
+### User Story 8 - Inspeccionar Quality Gates interactivamente (Priority: P2)
+**Status**: Proposed
+
+Como tech lead o developer, quiero hacer clic en los quality gates del diagrama de proceso para entender qué criterios verifican, qué sucede si no se pasan y cómo remediarlos, para asegurar la calidad en cada entrega.
+
+**Why this priority**: Los quality gates existen visualmente en el diagrama pero no son interactivos ni explican su propósito. Esto limita su utilidad como herramienta de calidad.
+
+**Independent Test**: Un usuario puede hacer clic en un quality gate del diagrama, ver sus criterios de verificación y simular un escenario donde el gate falla para entender la remediación.
+
+**Acceptance Scenarios**:
+
+1. **Given** que el usuario ve el diagrama de proceso E2E, **When** hace clic en un quality gate (ej. "Spec Review"), **Then** se abre un panel con: nombre, descripción, criterios de verificación y roles responsables.
+2. **Given** que el usuario activa "Simular fallo", **When** el gate muestra estado "FAILED", **Then** ve recomendaciones de remediación y enlaces a documentación relacionada.
+3. **Given** que el usuario cierra el panel, **When** el gate queda marcado como "explorado", **Then** el diagrama muestra un indicador visual de progreso.
+
+**Archivos**: Extiende `process.js`, `process.css`
+
+---
+
+### User Story 9 - Explorar y descargar plantillas SDD (Priority: P2)
+**Status**: Proposed
+
+Como desarrollador o spec writer, quiero una galería visual de plantillas SDD (spec, plan, tasks) con previsualización y descarga individual, para empezar proyectos rápidamente con la estructura correcta.
+
+**Why this priority**: Las plantillas existen como archivos estáticos pero no hay UI para explorarlas. Esto reduce su adopción.
+
+**Independent Test**: Un usuario puede ver las 3 plantillas (spec, plan, tasks), previsualizar su contenido y descargar la que necesita.
+
+**Acceptance Scenarios**:
+
+1. **Given** que el usuario accede a "Plantillas SDD", **When** ve la galería, **Then** identifica cada plantilla por tipo (spec/plan/tasks) con descripción y formato.
+2. **Given** que el usuario selecciona una plantilla, **When** hace clic en "Previsualizar", **Then** ve el contenido completo renderizado sin descargar.
+3. **Given** que el usuario decide descargar, **When** hace clic en "Descargar", **Then** recibe el archivo .md individual.
+4. **Given** que el usuario quiere todas las plantillas, **When** hace clic en "Descargar todas", **Then** recibe un zip con los 3 archivos.
+
+**Archivos**: Extiende `guide.js`/`guide.css`, sección de templates en `index.html`
+
+---
+
+### User Story 10 - Consultar el Glosario SDD (Priority: P2)
+**Status**: Proposed
+
+Como nuevo usuario de SDD, quiero un glosario con búsqueda en vivo donde pueda consultar términos específicos (Constitution, Quality Gate, Handoff, Spec, etc.) con definiciones y enlaces a secciones relacionadas, para resolver dudas rápidamente sin salir del flujo de aprendizaje.
+
+**Why this priority**: SDD introduce ~20 términos propios. Sin glosario, el usuario tiene que buscar en múltiples secciones o adivinar significados.
+
+**Independent Test**: Un usuario puede buscar un término, ver su definición y navegar a la sección relacionada en 1 clic.
+
+**Acceptance Scenarios**:
+
+1. **Given** que el usuario abre el glosario, **When** escribe en el campo de búsqueda, **Then** los resultados se filtran en vivo mostrando términos coincidentes.
+2. **Given** que el usuario selecciona un término, **When** hace clic en él, **Then** ve: definición completa, sinónimos, fase relacionada y enlace a la sección del sitio.
+3. **Given** que el usuario está en cualquier sección del sitio, **When** encuentra un término glosario, **Then** puede hacer hover para ver un tooltip con la definición breve.
+
+**Archivos**: `src/data/glossary.js`, `src/js/glossary.js`, `src/css/glossary.css`
+
+---
+
+### User Story 11 - Seguir una ruta de aprendizaje SDD (Priority: P2)
+**Status**: Proposed
+
+Como visitante nuevo, quiero una ruta de aprendizaje guiada que me lleve desde los conceptos básicos hasta la aplicación avanzada, con recomendaciones de siguiente paso, para aprender SDD de forma estructurada sin sentirme abrumado.
+
+**Why this priority**: El sitio actual asume cierto conocimiento. Una ruta guiada reduce la fricción para nuevos usuarios y aumenta la retención.
+
+**Independent Test**: Un usuario nuevo puede seguir la ruta desde "¿Qué es SDD?" hasta "Aplicar casos de estudio" sin saltos ni contenido que requiera prerrequisitos no cubiertos.
+
+**Acceptance Scenarios**:
+
+1. **Given** que el usuario accede al sitio por primera vez, **When** ve la sección "Comenzar aquí", **Then** se le presenta una ruta: Explorer (conceptos) → Practitioner (aplicar) → Advocate (enseñar).
+2. **Given** que el usuario completa un nivel, **When** avanza al siguiente, **Then** ve su progreso y el siguiente paso recomendado.
+3. **Given** que el usuario está en una sección avanzada sin haber completado las básicas, **When** detecta prerrequisitos faltantes, **Then** muestra un banner sugiriendo completar la ruta en orden.
+
+**Archivos**: `src/js/learning-path.js`, `src/css/learning-path.css`
+
+---
+
+### User Story 12 - Practicar con el Simulador de Specs (Priority: P3)
+**Status**: Proposed
+
+Como aprendiz de SDD, quiero un simulador donde pueda escribir una spec siguiendo la plantilla guiada y recibir feedback automático sobre su completitud y calidad, para practicar la habilidad central de SDD antes de usarla en proyectos reales.
+
+**Why this priority**: Cierra el ciclo teoría-práctica. El usuario no solo lee sobre specs sino que practica escribirlas con feedback inmediato.
+
+**Independent Test**: Un usuario puede escribir una spec en el simulador, recibir feedback sobre secciones faltantes y ver un ejemplo comparativo de spec buena vs mala.
+
+**Acceptance Scenarios**:
+
+1. **Given** que el usuario abre el simulador, **When** ve el editor, **Then** tiene una plantilla guiada con secciones: Goal, Requirements, Acceptance Criteria.
+2. **Given** que el usuario completa secciones, **When** hace clic en "Validar", **Then** recibe feedback sobre: secciones completadas, criterios medibles, y sugerencias de mejora.
+3. **Given** que el usuario quiere ver un ejemplo, **When** selecciona "Ver spec correcta", **Then** se muestra side-by-side una spec bien escrita vs una con errores comunes.
+
+**Archivos**: `src/js/spec-simulator.js`, `src/css/spec-simulator.css`
+
+---
+
+### User Story 13 - Calcular el impacto de SDD con métricas y ROI (Priority: P3)
+**Status**: Proposed
+
+Como líder técnico o gerente evaluando SDD, quiero una calculadora de ROI y visualizaciones de impacto (defectos evitados, tiempo ahorrado) para justificar la adopción de la metodología ante mi equipo o dirección.
+
+**Why this priority**: Ayuda en la decisión de adopción. Sin métricas, SDD compite en desventaja contra metodologías conocidas.
+
+**Independent Test**: Un usuario puede ajustar parámetros de su equipo (tamaño, velocidad actual) y ver una proyección del impacto de adoptar SDD.
+
+**Acceptance Scenarios**:
+
+1. **Given** que el usuario accede a "Métricas SDD", **When** ajusta los sliders (tamaño equipo, velocidad actual, defectos por sprint), **Then** ve una proyección de: reducción de defectos, tiempo ahorrado por sprint, mejora en calidad.
+2. **Given** que el usuario explora la sección, **When** ve los gráficos de impacto, **Then** puede alternar entre vistas: defectos evitados, velocidad de entrega, satisfacción del equipo.
+3. **Given** que el usuario quiere compartir los resultados, **When** hace clic en "Compartir", **Then** puede copiar un resumen texto de los hallazgos.
+
+**Archivos**: `src/js/metrics.js`, `src/css/metrics.css`
+
+---
+
+### User Story 14 - Navegar dentro de cada sección con menú interno (Priority: P2)
+**Status**: In Progress (Branch: `014-section-nav`)
+
+Como usuario del sitio, quiero un menú de navegación interno dentro de cada sección (Hero, Phases, Roles, Proceso, Guía) que muestre sus sub-secciones y permita saltar entre ellas sin hacer scroll manual, para encontrar contenido específico más rápido y entender la estructura de cada módulo.
+
+**Why this priority**: Las secciones principales tienen múltiples sub-secciones (ej. Hero: Definición, Principios, Beneficios, Comparación, Checklist). Sin un menú interno, el usuario debe scrollear para encontrar lo que busca o no sabe qué sub-contenidos existen.
+
+**Independent Test**: Un usuario puede identificar las sub-secciones de cualquier módulo desde su menú interno y saltar a cualquiera de ellas en 1 clic.
+
+**Acceptance Scenarios**:
+
+1. **Given** que el usuario está en una sección (ej. "Roles"), **When** ve el menú interno de la sección, **Then** lista todas las sub-secciones: Roles Humanos, Roles IA, Matriz de Colaboración.
+2. **Given** que el usuario hace clic en una sub-sección del menú interno, **When** se ejecuta la navegación, **Then** el scroll se desplaza suavemente hasta esa sub-sección y el ítem del menú se marca como activo.
+3. **Given** que el usuario hace scroll dentro de una sección, **When** una nueva sub-sección entra en el viewport, **Then** el menú interno actualiza automáticamente el ítem activo (scroll spy).
+4. **Given** que la sección tiene muchas sub-secciones, **When** el menú interno excede la altura de la ventana, **Then** el menú se vuelve scrollable internamente o colapsa sub-ítems.
+5. **Given** que el usuario está en móvil, **When** el menú interno ocuparía mucho espacio, **Then** se muestra como un selector desplegable (select) en lugar de lista vertical.
+
+**Archivos**: `src/js/section-nav.js`, `src/css/section-nav.css`, y actualización de `index.html` con `data-section` attributes en cada sub-sección
 
 ### Edge Cases
 
@@ -147,6 +324,32 @@ Como usuario del sitio web, quiero navegar entre secciones de forma intuitiva, c
 - **FR-013**: El sistema MUST incluir un resumen ejecutivo o "cheat sheet" descargable en formato PDF pre-generado con los puntos clave de SDD. El archivo se alojará como recurso estático y será accesible desde un botón visible en la página principal y en la sección introductoria.
 - **FR-014**: El sistema MUST permitir al usuario marcar secciones como "completadas" para trackear su progreso de aprendizaje durante la sesión activa. El progreso NO persiste entre sesiones del navegador (no usa localStorage ni cookies).
 
+- **FR-025** (US14): El sistema MUST incluir un menú de navegación interno por sección que liste sus sub-secciones, permita saltar a ellas con scroll suave, actualice el ítem activo mediante scroll spy, y se adapte a móvil como selector desplegable.
+
+### New Functional Requirements (Backlog US6-US14)
+
+- **FR-015** (US6): El sistema MUST incluir una sección "Constitución SDD" que explique los 5 principios constitucionales (Vanilla-First, Semantic HTML & Accessible, Professional CSS Architecture, Feature Branch & PR Workflow, CI/CD via GitHub Actions).
+- **FR-016** (US6): El sistema MUST incluir un Constitution Checker interactivo con checklist por fase que verifique principios antes de avanzar.
+- **FR-017** (US7): El sistema MUST incluir una sección "Flujo de Colaboración Humano-IA" con diagrama interactivo mostrando roles, artefactos y supervisión por fase.
+- **FR-018** (US7): El sistema MUST incluir una biblioteca de prompts recomendados organizados por fase y rol de IA.
+- **FR-019** (US8): Los quality gates del diagrama de proceso MUST ser interactivos: al hacer clic muestran criterios, estado y remediación.
+- **FR-020** (US9): El sistema MUST incluir una galería de plantillas SDD (spec, plan, tasks) con previsualización y descarga individual.
+- **FR-021** (US10): El sistema MUST incluir un glosario SDD con búsqueda en vivo y tooltips en todo el sitio.
+- **FR-022** (US11): El sistema MUST incluir una ruta de aprendizaje guiada con niveles (Explorer → Practitioner → Advocate).
+- **FR-023** (US12): El sistema MUST incluir un simulador de specs con editor guiado y validador automático.
+- **FR-024** (US13): El sistema MUST incluir una calculadora de ROI con visualizaciones de impacto de adopción SDD.
+
+### Key Entities (additionales para backlog)
+
+- **Principio Constitucional**: Regla fundamental que todo feature SDD debe cumplir (Vanilla-First, Semantic HTML, CSS Architecture, Feature Branch, CI/CD). Contiene: nombre, descripción, fases donde aplica, consecuencias de violación.
+- **Quality Gate**: Punto de control de calidad entre fases. Contiene: nombre, fase origen, criterios de verificación, roles responsables, acciones de remediación.
+- **Prompt de IA**: Instrucción estructurada para un rol de IA en una fase específica. Contiene: fase, rol destino, texto del prompt, nivel de supervisión requerido.
+- **Plantilla SDD**: Documento predefinido para artefactos SDD (spec, plan, tasks). Contiene: tipo, nombre, secciones, formato (markdown), ejemplo de contenido.
+- **Término Glosario**: Definición de un concepto SDD. Contiene: término, definición corta, definición larga, fase relacionada, enlace a sección del sitio.
+- **Ruta de Aprendizaje**: Secuencia guiada de secciones del sitio organizada por nivel de experiencia. Contiene: nivel (Explorer/Practitioner/Advocate), secciones incluidas, prerrequisitos, progreso.
+- **Simulación de Spec**: Ejercicio práctico de escritura de spec con validación. Contiene: plantilla guiada, criterios de validación, feedback automático, ejemplos comparativos.
+- **Métrica SDD**: Indicador de impacto de adopción de SDD. Contiene: nombre, fórmula, valores de entrada, proyección, visualización asociada.
+
 ### Key Entities
 
 - **Fase SDD**: Cada etapa del proceso (Specify, Clarify, Plan, Tasks, Implement). Contiene: nombre, descripción, entradas, salidas, roles participantes, duración estimada.
@@ -166,6 +369,27 @@ Como usuario del sitio web, quiero navegar entre secciones de forma intuitiva, c
 - **SC-004**: El 95% de los usuarios navegan exitosamente entre secciones sin requerir más de 2 clics para llegar a cualquier contenido principal.
 - **SC-005**: El sitio obtiene una puntuación de accesibilidad WCAG AA o superior en herramientas de auditoría automatizadas.
 - **SC-006**: Los usuarios califican la claridad del contenido con un promedio de 4/5 o superior en una encuesta de satisfacción integrada.
+
+## Backlog Prioritization Summary
+
+| US | Título | Prioridad | Status | Esfuerzo Est. |
+|----|--------|-----------|--------|---------------|
+| 1 | Comprender SDD | P1 | ✅ Implemented | Completado |
+| 2 | Explorar fases | P1 | ✅ Implemented | Completado |
+| 3 | Roles y responsabilidades | P2 | ✅ Implemented | Completado |
+| 4 | Proceso E2E | P2 | ✅ Implemented | Completado |
+| 5 | Navegación intuitiva | P3 | ✅ Implemented | Completado |
+| **6** | **Constitución SDD** | **P1** | **📋 Proposed** | **Medio (3-4 días)** |
+| **7** | **Flujo Colaboración Humano-IA** | **P1** | **📋 Proposed** | **Medio (3-4 días)** |
+| **8** | **Quality Gates Interactivos** | **P2** | **📋 Proposed** | **Pequeño (1-2 días)** |
+| **9** | **Galería de Plantillas** | **P2** | **📋 Proposed** | **Pequeño (1-2 días)** |
+| **10** | **Glosario SDD** | **P2** | **📋 Proposed** | **Pequeño (1-2 días)** |
+| **11** | **Ruta de Aprendizaje** | **P2** | **📋 Proposed** | **Medio (2-3 días)** |
+| **12** | **Simulador de Specs** | **P3** | **📋 Proposed** | **Grande (4-5 días)** |
+| **13** | **Métricas y ROI** | **P3** | **📋 Proposed** | **Grande (4-5 días)** |
+| **14** | **Menú interno por sección** | **P2** | **🔄 In Progress** | **Pequeño (1-2 días)** |
+
+**Recomendación**: Abordar US6 + US7 primero (P1) por ser los gaps metodológicos más críticos, luego US14 (P2) como mejora transversal de navegabilidad.
 
 ## Assumptions
 

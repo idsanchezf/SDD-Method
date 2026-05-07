@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="css/process.css">
   <!-- US5: Guide Styles -->
   <link rel="stylesheet" href="css/guide.css">
+  <!-- US14: Section Navigation Styles -->
+  <link rel="stylesheet" href="css/section-nav.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -29,7 +31,7 @@
       <div class="hero__container">
 
         <!-- Definition -->
-        <section class="hero__definition" data-trackable>
+        <section class="hero__definition" data-trackable data-section-nav="hero-definition" data-section-title="¿Qué es SDD?">
           <h1>¿Qué es Spec Driven Development?</h1>
           <p class="hero__subtitle">La metodología que pone las especificaciones en el centro del desarrollo</p>
           <p class="hero__text">
@@ -42,7 +44,7 @@
         </section>
 
         <!-- Principles -->
-        <section class="hero__principles" data-trackable>
+        <section class="hero__principles" data-trackable data-section-nav="hero-principles" data-section-title="Principios">
           <h2>Principios Fundamentales</h2>
           <div class="principles-grid" role="list">
             <article class="principle-card" role="listitem">
@@ -94,7 +96,7 @@
         </section>
 
         <!-- Benefits -->
-        <section class="hero__benefits" data-trackable>
+        <section class="hero__benefits" data-trackable data-section-nav="hero-benefits" data-section-title="Beneficios">
           <h2>Beneficios de SDD</h2>
           <div class="benefits-grid" role="list">
             <article class="benefit-card" role="listitem">
@@ -137,7 +139,7 @@
         </section>
 
         <!-- Comparison Table -->
-        <section class="hero__comparison" data-trackable>
+        <section class="hero__comparison" data-trackable data-section-nav="hero-comparison" data-section-title="Comparación">
           <h2>SDD vs Métodos Tradicionales</h2>
           <div class="table-wrapper">
             <table class="comparison-table">
@@ -180,7 +182,7 @@
         </section>
 
         <!-- Interactive Checklist -->
-        <section class="hero__checklist" data-trackable>
+        <section class="hero__checklist" data-trackable data-section-nav="hero-checklist" data-section-title="Verifica tu comprensión">
           <h2>Verifica tu Comprensión</h2>
           <p class="checklist__intro">Haz clic en cada concepto para confirmar que lo entiendes correctamente.</p>
 
@@ -250,7 +252,7 @@
         <p class="phases-section__intro">Cada fase tiene entradas, salidas y roles definidos. Haz clic en una fase para ver los detalles.</p>
 
         <!-- Phase Cards Grid -->
-        <div class="phases-grid" role="list">
+        <div class="phases-grid" role="list" data-section-nav="phases-grid" data-section-title="Las 5 Fases">
 
           <!-- Phase 1: Specify -->
           <div class="phase-card" data-phase="1" tabindex="0" role="button" aria-expanded="false" aria-controls="phase-detail-1">
@@ -346,7 +348,7 @@
         </div>
 
         <!-- Detail Panels -->
-        <div class="phase-details">
+        <div class="phase-details" data-section-nav="phase-details" data-section-title="Detalle de fases">
 
           <!-- Detail 1: Specify -->
           <details class="phase-detail" id="phase-detail-1">
@@ -488,7 +490,7 @@
         </div>
 
         <!-- Flow Diagram -->
-        <div class="flow-diagram" role="img" aria-label="Diagrama de flujo de las 5 fases de SDD: Specify → Clarify → Plan → Tasks → Implement">
+        <div class="flow-diagram" role="img" aria-label="Diagrama de flujo de las 5 fases de SDD: Specify → Clarify → Plan → Tasks → Implement" data-section-nav="flow-diagram" data-section-title="Diagrama de flujo">
           <svg class="flow-diagram__svg" viewBox="0 0 900 120" aria-hidden="true">
             <defs>
               <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
@@ -563,7 +565,7 @@
         <p class="roles-section__intro">Conoce los roles humanos y de IA que participan en el proceso SDD, sus responsabilidades y cómo colaboran entre sí.</p>
 
         <!-- Human Roles -->
-        <div class="roles-subsection">
+        <div class="roles-subsection" data-section-nav="roles-human" data-section-title="Roles Humanos">
           <div class="roles-subsection__header roles-subsection__header--human">
             <svg class="roles-subsection__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             <h3 class="roles-subsection__title">Roles Humanos</h3>
@@ -624,7 +626,7 @@
         </div>
 
         <!-- AI Roles -->
-        <div class="roles-subsection">
+        <div class="roles-subsection" data-section-nav="roles-ai" data-section-title="Roles de IA">
           <div class="roles-subsection__header roles-subsection__header--ai">
             <svg class="roles-subsection__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M16 14H8a4 4 0 0 0-4 4v2h16v-2a4 4 0 0 0-4-4z"/><circle cx="18" cy="6" r="2"/></svg>
             <h3 class="roles-subsection__title">Roles de IA</h3>
@@ -691,7 +693,7 @@
         </div>
 
         <!-- Collaboration Matrix -->
-        <div class="collab-matrix" data-trackable>
+        <div class="collab-matrix" data-trackable data-section-nav="collab-matrix" data-section-title="Matriz de Colaboración">
           <h3 class="collab-matrix__title">Matriz de Colaboración</h3>
           <p class="collab-matrix__desc">Haz clic en un rol o fase para resaltar las interacciones. Haz clic de nuevo para limpiar.</p>
 
@@ -894,11 +896,11 @@
           <button id="toggle-quality-gates" aria-pressed="false" type="button">Mostrar Puntos de Control</button>
         </div>
 
-        <div id="process-diagram-container">
+        <div id="process-diagram-container" data-section-nav="process-diagram" data-section-title="Diagrama de proceso">
           <!-- SVG diagram rendered by process-diagram.js -->
         </div>
 
-        <div class="walkthrough-section">
+        <div class="walkthrough-section" data-section-nav="process-walkthrough" data-section-title="Recorrido Interactivo">
           <h3>Recorrido Interactivo</h3>
           <p class="process__intro">Aplica SDD en proyectos reales. Elige entre un proyecto nuevo (greenfield) o uno legado (brownfield).</p>
           <div class="walkthrough-start-buttons">
@@ -923,11 +925,11 @@
           <button id="start-guide" type="button">Comenzar Guía</button>
         </div>
 
-        <div id="guide-container">
+        <div id="guide-container" data-section-nav="guide-interactive" data-section-title="Guía interactiva">
           <!-- Interactive Guide UI rendered by guide.js -->
         </div>
 
-        <div class="guide__examples">
+        <div class="guide__examples" data-section-nav="guide-examples" data-section-title="Ejemplos Prácticos">
           <h3>Ejemplos Prácticos</h3>
           <div class="example-selector">
             <button data-type="Greenfield" class="active" type="button">Ver Ejemplo Greenfield</button>
@@ -938,7 +940,7 @@
           </div>
         </div>
 
-        <div class="guide__templates">
+        <div class="guide__templates" data-section-nav="guide-templates" data-section-title="Plantillas Descargables">
           <h3>Plantillas Descargables</h3>
           <button id="download-templates" type="button">Descargar Plantillas SDD</button>
         </div>
@@ -963,5 +965,7 @@
   <!-- US4: Process Diagram & Walkthrough Logic -->
   <script src="js/process-diagram.js" defer></script>
   <script src="js/walkthrough.js" defer></script>
+  <!-- US14: Section Navigation Menu -->
+  <script src="js/section-nav.js" defer></script>
 </body>
 </html>
