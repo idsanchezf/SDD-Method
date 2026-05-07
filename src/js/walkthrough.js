@@ -259,11 +259,11 @@ class InteractiveWalkthrough {
     // Store decision
     this.userDecisions[phaseData.phaseId] = selectedOption;
 
-    // Get feedback
-    const isCorrect = selectedOption === allOptions[0].match(/^([A-C])\)/)?.[1]; // Correct answer is A
+    // Get feedback - CORREGIDO: usar correctAnswer del data
+    const isCorrect = selectedOption === phaseData.correctAnswer;
     const feedback = isCorrect
       ? phaseData.feedback.correct
-      : phaseData.feedback.incorrect[parseInt(selectedOption) - 2] || 'Respuesta incorrecta.';
+      : (phaseData.feedback.incorrect[parseInt(selectedOption) - 1] || 'Respuesta incorrecta.');
 
     // Show feedback
     const feedbackDiv = document.createElement('div');
@@ -344,19 +344,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // T044-T045: Handle walkthrough start buttons
-const startGreenfield = document.getElementById('walkthrough-start-greenfield');
-const startBrownfield = document.getElementById('walkthrough-start-brownfield');
+const startGreenfieldBtn = document.getElementById('walkthrough-start-greenfield');
+const startBrownfieldBtn = document.getElementById('walkthrough-start-brownfield');
 
-if (startGreenfield) {
-  startGreenfield.addEventListener('click', () => {
+if (startGreenfieldBtn) {
+  startGreenfieldBtn.addEventListener('click', () => {
     if (window.walkthrough) {
       window.walkthrough.start('greenfield');
     }
   });
 }
 
-if (startBrownfield) {
-  startBrownfield.addEventListener('click', () => {
+if (startBrownfieldBtn) {
+  startBrownfieldBtn.addEventListener('click', () => {
     if (window.walkthrough) {
       window.walkthrough.start('brownfield');
     }

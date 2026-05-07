@@ -28,6 +28,7 @@ const caseStudies = [
           "B) Descripción detallada de UI",
           "C) Lista completa de tecnologías a usar"
         ],
+        correctAnswer: "A",
         feedback: {
           correct: "¡Correcto! Los criterios de aceptación medibles son fundamentales para verificar el trabajo.",
           incorrect: [
@@ -54,6 +55,7 @@ const caseStudies = [
           "B) Clarificar que usuario crea sus propias",
           "C) Usar categorías predefinidas por el sistema"
         ],
+        correctAnswer: "B",
         feedback: {
           correct: "¡Correcto! La clarificación permite al usuario crear sus propias categorías, dando flexibilidad controlada.",
           incorrect: [
@@ -80,6 +82,7 @@ const caseStudies = [
           "B) Estimación de tiempos perfecta",
           "C) Lista de herramientas de desarrollo"
         ],
+        correctAnswer: "A",
         feedback: {
           correct: "¡Correcto! La descomposición de tareas con dependencias claras permite ejecución paralela y seguimiento.",
           incorrect: [
@@ -106,6 +109,7 @@ const caseStudies = [
           "B) Que funciona visualmente en el navegador",
           "C) Que usa las últimas características de JS"
         ],
+        correctAnswer: "A",
         feedback: {
           correct: "¡Correcto! El código debe cumplir estándares y tener pruebas. La revisión humana es crítica.",
           incorrect: [
@@ -132,6 +136,7 @@ const caseStudies = [
           "B) El código está escrito y compila",
           "C) La interfaz se ve como en el diseño"
         ],
+        correctAnswer: "A",
         feedback: {
           correct: "¡Correcto! El criterio final es que TODAS las pruebas de aceptación pasen. Eso define 'Done'.",
           incorrect: [
@@ -171,6 +176,7 @@ const caseStudies = [
           "B) Escribir la especificación como si fuera un proyecto nuevo",
           "C) Migrar todo el código a tecnologías modernas primero"
         ],
+        correctAnswer: "A",
         feedback: {
           correct: "¡Correcto! En brownfield es CRÍTICO analizar y documentar el comportamiento actual antes de especificar cambios.",
           incorrect: [
@@ -197,6 +203,7 @@ const caseStudies = [
           "B) Ignorarla, solo agregar la nueva funcionalidad",
           "C) Detener todo y refactorizar todo el sitio"
         ],
+        correctAnswer: "A",
         feedback: {
           correct: "¡Correcto! Documentar y planificar refactoring como parte de la tarea aborda seguridad sin bloquear el proyecto.",
           incorrect: [
@@ -223,6 +230,7 @@ const caseStudies = [
           "B) Usar las últimas características de PHP para mayor productividad",
           "C) Planificar migración completa a un framework moderno"
         ],
+        correctAnswer: "A",
         feedback: {
           correct: "¡Correcto! En brownfield, el refactoring necesario y la compatibilidad son prioritarios en el plan.",
           incorrect: [
@@ -249,6 +257,7 @@ const caseStudies = [
           "B) Nueva funcionalidad primero, refactoring después",
           "C) Todo en paralelo para ser más rápido"
         ],
+        correctAnswer: "A",
         feedback: {
           correct: "¡Correcto! En brownfield, arreglar vulnerabilidades de seguridad PRIMERO es crítico. Luego nueva funcionalidad.",
           incorrect: [
@@ -275,6 +284,7 @@ const caseStudies = [
           "B) Solo pruebas la nueva funcionalidad",
           "C) Pruebas unitarias son suficientes"
         ],
+        correctAnswer: "A",
         feedback: {
           correct: "¡Correcto! En brownfield, las pruebas de regresión son ESENCIALES para asegurar que no rompiste lo existente.",
           incorrect: [
