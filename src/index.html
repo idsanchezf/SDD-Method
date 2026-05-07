@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="css/roles.css">
   <!-- T027: Process Section Styles -->
   <link rel="stylesheet" href="css/process.css">
+  <!-- US5: Guide Styles -->
+  <link rel="stylesheet" href="css/guide.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -901,6 +903,39 @@
           <div id="walkthrough-container">
             <!-- Walkthrough UI rendered by walkthrough.js -->
           </div>
+        </div>
+         </div>
+      </section>
+    </main>
+
+    <!-- US5: Uso Práctico de SDD -->
+    <section class="guide-section" id="guide" data-trackable>
+      <div class="guide__container">
+        <h2>Uso Práctico de SDD</h2>
+        <p class="guide__intro">Aprende a aplicar la metodología SDD en proyectos reales con una guía paso a paso, ejemplos prácticos y plantillas descargables.</p>
+        
+        <div class="guide__controls">
+          <button id="start-guide" type="button">Comenzar Guía</button>
+        </div>
+
+        <div id="guide-container">
+          <!-- Interactive Guide UI rendered by guide.js -->
+        </div>
+
+        <div class="guide__examples">
+          <h3>Ejemplos Prácticos</h3>
+          <div class="example-selector">
+            <button data-type="Greenfield" class="active" type="button">Ver Ejemplo Greenfield</button>
+            <button data-type="Brownfield" type="button">Ver Ejemplo Brownfield</button>
+          </div>
+          <div id="example-container">
+            <!-- Example view rendered by guide.js -->
+          </div>
+        </div>
+
+        <div class="guide__templates">
+          <h3>Plantillas Descargables</h3>
+          <button id="download-templates" type="button">Descargar Plantillas SDD</button>
         </div>
       </div>
     </section>
