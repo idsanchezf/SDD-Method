@@ -358,8 +358,8 @@ class InteractiveWalkthrough {
         phaseName: 'Plan',
         completed: false,
         items: [
-          { id: 'wt-plan-tasks', text: 'Tareas identificadas', checked: false },
-          { id: 'wt-plan-estimate', text: 'Estimación realizada', checked: false }
+          { id: 'wt-plan-architecture', text: 'Arquitectura de componentes definida', checked: false },
+          { id: 'wt-plan-data-model', text: 'Modelo de datos y flujo diseñados', checked: false }
         ]
       },
       {
@@ -367,8 +367,8 @@ class InteractiveWalkthrough {
         phaseName: 'Tasks',
         completed: false,
         items: [
-          { id: 'wt-tasks-code', text: 'Código generado según plan', checked: false },
-          { id: 'wt-tasks-tests', text: 'Pruebas unitarias pasan', checked: false }
+          { id: 'wt-tasks-broken-down', text: 'Diseño descompuesto en tareas concretas', checked: false },
+          { id: 'wt-tasks-dependencies', text: 'Dependencias y estimaciones definidas', checked: false }
         ]
       },
       {
@@ -376,6 +376,8 @@ class InteractiveWalkthrough {
         phaseName: 'Implement',
         completed: false,
         items: [
+          { id: 'wt-impl-code', text: 'Código implementado según plan', checked: false },
+          { id: 'wt-impl-unit-tests', text: 'Pruebas unitarias pasan', checked: false },
           { id: 'wt-impl-acceptance', text: 'Pruebas de aceptación superadas', checked: false },
           { id: 'wt-impl-reviewed', text: 'Código revisado y aprobado', checked: false }
         ]
