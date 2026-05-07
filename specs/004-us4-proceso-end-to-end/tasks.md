@@ -151,6 +151,61 @@ description: "Task list for End-to-End SDD Process - Greenfield & Brownfield"
 
 ---
 
+## Phase 6: Enhancement - Unificar Estilo Visual con US5 (Priority: P1) 🎯
+
+**Goal**: Actualizar walkthrough de US4 para adoptar look & feel de US5, incluyendo banner de prerrequisito
+
+**Input**: User Story 4.1 de `spec.md` actualizado
+
+**Independent Test**: El walkthrough de US4 debe verse visualmente consistente con la guía de US5
+
+### HTML Updates
+
+- [ ] T065 [US4] Agregar banner prerrequisito a sección `#process-end-to-end` en `src/index.html`
+  - Agregar `prereq-banner` antes del título h2
+  - Mensaje: "¿No sabes qué es SDD? Lee la introducción primero" → enlaza a `#hero`
+
+### JavaScript Updates
+
+- [ ] T066 [US4] Actualizar estructura UI en `src/js/walkthrough.js` - método `setupUI()`
+  - Agregar header con título y selector de caso de estudio (Greenfield/Brownfield)
+  - Implementar progress bar con texto de porcentaje
+  - Implementar navegación visual por fases (como guide.js)
+
+- [ ] T067 [US4] Agregar método `renderPhaseNavigation()` en `src/js/walkthrough.js`
+  - Crear navegación de pills para las 5 fases
+  - Estados: active (borde accent, bg claro), completed (checkmark), default
+
+- [ ] T068 [US4] Agregar checklist por fase al walkthrough en `src/js/walkthrough.js`
+  - Crear método `renderChecklistForPhase(phaseId)`
+  - Items de checklist: completitud de artifact, decisiones tomadas, handoff verificado
+  - Persistir estado en localStorage
+
+- [ ] T069 [US4] Agregar persistencia de progreso en `src/js/walkthrough.js`
+  - Crear método `loadProgress()` - restaurar desde localStorage
+  - Crear método `saveProgress()` - guardar estado actual
+  - Keys: `sdd-walkthrough-progress`
+
+### CSS Updates
+
+- [ ] T070 [US4] Actualizar estilos en `src/css/process.css` para walkthrough
+  - Contenedor: white background (#fff), box-shadow (0 2px 8px rgba(0,0,0,0.1)), border-radius 8px
+  - Phase navigation: flexbox, pills con padding, border-radius 6px, transiciones
+  - Estados: `.phase-nav-item.active`, `.phase-nav-item.completed`, `.phase-nav-item:hover`
+  - Progress bar: barra + `.progress-text` con porcentaje
+  - Checklist: checkbox styling, label con strikethrough al completar
+  - Botones: estados hover, disabled, focus visibles
+
+### Testing
+
+- [ ] T071 [P] [US4] Test visual: Comparar walkthrough con guía US5 - verificar consistencia
+- [ ] T072 [P] [US4] Test navegación: Verificar pills de fases funcionan (click, keyboard)
+- [ ] T073 [US4] Test checklist: Marcar items, verificar strikethrough y progress %
+- [ ] T074 [US4] Test persistencia: Recargar página, verificar progreso restaurado
+- [ ] T075 [US4] Test banner prerrequisito: Verificar visibilidad y enlace correcto
+
+---
+
 ## Dependencies & Execution Order
 
 ### Phase Dependencies
@@ -163,6 +218,7 @@ description: "Task list for End-to-End SDD Process - Greenfield & Brownfield"
 - **Phase 4 (Testing)**: Depends on Phase 3 completion
   - All tests marked [P] can run in parallel
 - **Phase 5 (Polish)**: Depends on Phase 4 completion
+- **Phase 6 (Enhancement)**: Dependiente de US5 (guide.js) estar completa - requiere análisis previo del código de US5
 
 ### Parallel Opportunities
 
