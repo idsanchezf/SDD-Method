@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="css/guide.css">
   <!-- US14: Section Navigation Styles -->
   <link rel="stylesheet" href="css/section-nav.css">
+  <!-- US6: Constitution Styles -->
+  <link rel="stylesheet" href="css/constitution.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -88,6 +90,17 @@
             <li><a href="#guide-container" class="sidebar__link">Guía interactiva</a></li>
             <li><a href="#guide-examples" class="sidebar__link">Ejemplos Prácticos</a></li>
             <li><a href="#guide-templates" class="sidebar__link">Plantillas Descargables</a></li>
+          </ul>
+        </li>
+        <li class="sidebar__section" data-section-target="constitution">
+          <button class="sidebar__section-btn" type="button" aria-expanded="false">
+            <span>Constitución</span>
+            <svg class="sidebar__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <ul class="sidebar__submenu">
+            <li><a href="#principles-grid" class="sidebar__link">Principios</a></li>
+            <li><a href="#constitution-checker" class="sidebar__link">Constitution Checker</a></li>
+            <li><a href="#constitution-summary" class="sidebar__link">Progreso</a></li>
           </ul>
         </li>
       </ul>
@@ -1021,6 +1034,49 @@
         </div>
       </div>
     </section>
+
+    <!-- US6: Constitución SDD -->
+    <section class="constitution-section" id="constitution" data-trackable>
+      <div class="constitution__container">
+        <h2>Constitución SDD</h2>
+        <p class="constitution__intro">Una Constitución SDD define los aspectos fundamentales que todo proyecto debe contemplar para operar de manera predecible y mantenible. No es una lista de tecnologías específicas, sino un marco de gobierno que cubre stack tecnológico, arquitectura, workflow, calidad y documentación. Cada equipo adapta su constitución a su contexto.</p>
+
+        <div class="principles-grid" id="principles-grid">
+          <!-- Principle cards rendered by constitution.js -->
+        </div>
+
+        <div class="constitution-checker" id="constitution-checker">
+          <h3>Constitution Checker</h3>
+          <p class="checker__intro">Selecciona una fase del proceso SDD y verifica que tu proyecto cubre los aspectos constitucionales aplicables a esa etapa.</p>
+          <div class="checker__phase-selector" id="checker-phase-selector" role="tablist" aria-label="Selector de fase">
+            <!-- Phase pills rendered by constitution.js -->
+          </div>
+          <div class="checker__phase-content" id="checker-phase-content" role="tabpanel">
+            <!-- Checklist rendered by constitution.js -->
+          </div>
+          <div class="checker__actions">
+            <button id="checker-verify-btn" type="button" class="checker__btn checker__btn--verify">Verificar Aspectos</button>
+          </div>
+          <div class="checker__verdict" id="checker-verdict" aria-live="polite">
+            <!-- Verdict rendered by constitution.js -->
+          </div>
+        </div>
+
+        <div class="constitution-summary" id="constitution-summary">
+          <h3>Progreso de la Constitución</h3>
+          <div class="summary__progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso constitucional">
+            <div class="summary__progress-fill" id="summary-progress-fill"></div>
+            <span class="summary__progress-text" id="summary-progress-text">0%</span>
+          </div>
+          <div class="summary__phases" id="summary-phases">
+            <!-- Phase status cards rendered by constitution.js -->
+          </div>
+          <div class="summary__actions">
+            <button id="summary-reset-btn" type="button" class="checker__btn checker__btn--reset">Reiniciar</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script src="js/hero.js" defer></script>
@@ -1042,5 +1098,7 @@
   <script src="js/walkthrough.js" defer></script>
   <!-- US14: Section Navigation Menu -->
   <script src="js/section-nav.js" defer></script>
+  <!-- US6: Constitution Checker -->
+  <script src="js/constitution.js" defer></script>
 </body>
 </html>
