@@ -78,6 +78,34 @@
   background: var(--color-success, #10B981);
 }
 
+/* Prereq Banner */
+#process-end-to-end .prereq-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md, 1rem);
+  padding: var(--spacing-md, 1rem) var(--spacing-lg, 1.5rem);
+  background: var(--color-bg-secondary, #F9FAFB);
+  border-left: 4px solid var(--color-primary, #3B82F6);
+  border-radius: var(--border-radius-md, 0.375rem);
+  margin-bottom: var(--spacing-lg, 1.5rem);
+}
+
+#process-end-to-end .prereq-banner__icon {
+  font-size: var(--font-size-xl, 1.5rem);
+  flex-shrink: 0;
+}
+
+#process-end-to-end .prereq-banner__text {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--color-text-secondary, #6B7280);
+  margin: 0;
+}
+
+#process-end-to-end .prereq-banner__text a {
+  font-weight: 500;
+  color: var(--color-primary, #3B82F6);
+}
+
 /* ==============================
    Process Diagram (SVG)
    ============================== */
@@ -188,11 +216,54 @@
    ============================== */
 
 .walkthrough-section {
-  background: var(--color-bg-secondary, #F9FAFB);
-  border: 1px solid var(--color-border, #D1D5DB);
-  border-radius: var(--border-radius-lg, 0.5rem);
-  padding: var(--spacing-lg, 1.5rem);
-  margin-top: var(--spacing-xl, 2rem);
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: var(--bg-primary, #ffffff);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Walkthrough Header */
+.walkthrough-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.walkthrough-header h4 {
+  color: var(--text-primary, #1a1a2e);
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+/* Case Study Selector */
+.walkthrough-header .case-study-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 6px;
+}
+
+.walkthrough-header .case-study-selector label {
+  font-weight: 600;
+  color: var(--text-primary, #1a1a2e);
+}
+
+.walkthrough-header .case-study-selector select {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 4px;
+  background: var(--bg-primary, #fff);
+  color: var(--text-primary, #1a1a2e);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.walkthrough-header .case-study-selector select:focus {
+  outline: 2px solid var(--accent-color, #007bff);
+  outline-offset: 2px;
 }
 
 .walkthrough-section h3 {
@@ -218,6 +289,107 @@
   border-radius: 4px;
   transition: width 0.3s ease;
   width: 0%;
+}
+
+/* Phase Navigation */
+.phase-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 8px;
+  gap: 0.25rem;
+}
+
+.phase-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  text-align: center;
+  background: transparent;
+}
+
+.phase-nav-item:hover {
+  background: var(--bg-hover, #e9ecef);
+}
+
+.phase-nav-item.active {
+  border-color: var(--accent-color, #007bff);
+  background: var(--accent-bg, #e7f1ff);
+}
+
+.phase-nav-item.completed {
+  opacity: 0.7;
+}
+
+.phase-nav-item:focus-visible {
+  outline: 2px solid var(--accent-color, #007bff);
+  outline-offset: 2px;
+}
+
+.phase-nav-marker {
+  font-size: 1rem;
+  margin-bottom: 0.15rem;
+  font-weight: 600;
+}
+
+.phase-nav-name {
+  font-size: 0.75rem;
+  color: var(--text-secondary, #666);
+}
+
+/* Checklist */
+.walkthrough-checklist {
+  margin-top: 1rem;
+}
+
+.walkthrough-checklist h5 {
+  font-size: var(--font-size-md, 1rem);
+  color: var(--color-text-primary, #111827);
+  margin-bottom: var(--spacing-sm, 0.5rem);
+}
+
+.checklist {
+  margin-top: 0.5rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background: var(--color-bg-secondary, #F9FAFB);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.checklist-item:hover {
+  background: var(--color-bg-hover, #F3F4F6);
+}
+
+.checklist-item input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.checklist-item label {
+  cursor: pointer;
+  flex: 1;
+  color: var(--color-text-primary, #111827);
+}
+
+.checklist-item input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: var(--color-text-secondary, #6B7280);
 }
 
 /* Step Content */

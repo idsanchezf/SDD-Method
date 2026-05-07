@@ -885,6 +885,11 @@
       <div class="process__container">
         <h2 id="process-heading">Proceso End-to-End SDD</h2>
 
+        <div class="prereq-banner">
+          <span class="prereq-banner__icon" aria-hidden="true">ℹ️</span>
+          <p class="prereq-banner__text">¿No sabes qué es SDD? <a href="#hero">Lee la introducción primero</a></p>
+        </div>
+
         <div class="process-controls">
           <button id="toggle-quality-gates" aria-pressed="false" type="button">Mostrar Puntos de Control</button>
         </div>
@@ -949,6 +954,12 @@
   <!-- US5: Uso Práctico Scripts (need caseStudies data) -->
   <script src="js/download-manager.js" defer></script>
   <script src="js/guide.js" defer></script>
+  <!-- US4: Data Files (must load before process-diagram.js) -->
+  <script src="js/data/phases-enhanced.js" defer></script>
+  <script src="js/data/diagram-layout.js" defer></script>
+  <script src="js/data/handoffs.js" defer></script>
+  <script src="js/data/quality-points.js" defer></script>
+  <script src="js/data/roles-integration.js" defer></script>
   <!-- US4: Process Diagram & Walkthrough Logic -->
   <script src="js/process-diagram.js" defer></script>
   <script src="js/walkthrough.js" defer></script>
