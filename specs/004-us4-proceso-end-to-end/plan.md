@@ -9,6 +9,9 @@
 
 Crear una sección interactiva que visualice el flujo completo de SDD aplicado a casos greenfield (proyecto nuevo) y brownfield (legado existente). Incluye diagrama de flujo interactivo, puntos de control de calidad, handoffs entre roles y recorridos interactivos paso a paso para ambos casos de estudio.
 
+### Enhancement (User Story 4.1)
+Actualizar el walkthrough de US4 para adoptar el look & feel de la guía US5, logrando consistencia visual entre ambas secciones. Incluye banner de prerrequisito, header con selector de caso, progress bar con porcentaje, navegación por fases pills, y checklist por fase.
+
 ## Technical Context
 
 <!--
@@ -110,3 +113,17 @@ Tasks will include:
 6. Integration testing with US2 and US3
 7. Accessibility audit and fixes
 8. Performance optimization (3G load test)
+
+## Enhancement (Phase 6 - User Story 4.1)
+
+**Status**: Pending - Requires US5 completion for reference implementation
+
+After US5 (guide.js) is complete, implement the following enhancements:
+
+1. Add prerequisite banner to US4 section in `index.html`
+2. Update walkthrough.js UI structure (header, case selector, progress %)
+3. Implement phase navigation pills (like guide.js)
+4. Add checklist per phase with localStorage persistence
+5. Update process.css for consistent styling with guide.css
+
+See `tasks.md` Phase 6 for detailed task breakdown (T065-T075).

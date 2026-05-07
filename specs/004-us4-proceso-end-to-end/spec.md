@@ -56,3 +56,46 @@ Un usuario puede describir el flujo end-to-end de SDD para un caso greenfield y 
   - En cada fase del recorrido: visualización de artefactos, decisiones simuladas del usuario, y feedback inmediato
   - Comparativa visual entre ambos casos resaltando diferencias clave
   - Controles de navegación en el recorrido: anterior, siguiente, saltar a fase específica
+
+---
+
+## User Story 4.1 - Enhancement: Unificar Look & Feel con US5 (Priority: P1)
+
+Como usuario, quiero que el recorrido interactivo (walkthrough) de la US4 tenga el mismo estilo visual y UX que la guía paso a paso de la US5, para tener una experiencia consistente al navegar entre ambas secciones.
+
+**Why this priority**: La consistencia visual es crítica para la experiencia de usuario. Ambas secciones permiten navegar por las fases de SDD, por lo que el usuario espera un estilo unificado.
+
+**Independent Test**: Puede ser probado comparando visualmente el walkthrough (US4) con la guía (US5) y verificando que comparten: header con selector de caso, progress bar con porcentaje, navegación por fases, y checklist por fase.
+
+### Acceptance Scenarios
+
+1. **Given** que el usuario accede al recorrido interactivo (US4), **When** visualiza el walkthrough, **Then** ve una interfaz con:
+   - Header completo con título y selector de caso de estudio (Greenfield/Brownfield)
+   - Progress bar con indicador de porcentaje
+   - Navegación visual por fases (Specify → Clarify → Plan → Tasks → Implement)
+   - Checklist por cada fase con checkboxes interactivos
+   - Controles de navegación (Atrás/Siguiente) con estados claros
+
+2. **Given** que el usuario está en la sección proceso (US4), **When** no ha completado las secciones previas (hero/phases/roles), **Then** ve un banner de prerrequisito indicando qué debe leer primero
+
+3. **Given** que el usuario completa una fase en el walkthrough, **When** marca los items del checklist, **Then** el progreso se guarda en localStorage y se refleja en la barra de progreso
+
+### Detalle adicional
+- Elementos a unificar con US5:
+  - Contenedor: white background, box-shadow, border-radius 8px
+  - Phase navigation: pills horizontales con estados active/completed/hover
+  - Progress bar: barra + texto de porcentaje (ej: "60% completado")
+  - Checklist: checkbox con label, strikethrough al completar
+  - Botones: disabled state, hover, focus visibles
+
+### Edge Cases
+- Si el usuario recarga la página a mitad del walkthrough → restaurar estado desde localStorage
+- Si el usuario cambia de caso (Greenfield → Brownfield) → resetear progreso del walkthrough
+
+### Requirements
+- FR-U4-001: Walkthrough DEBE tener header con selector de caso de estudio
+- FR-U4-002: Walkthrough DEBE mostrar progress bar con porcentaje texto
+- FR-U4-003: Walkthrough DEBE tener navegación visual por fases (pills)
+- FR-U4-004: Walkthrough DEBE incluir checklist por fase
+- FR-U4-005: Walkthrough DEBE guardar progreso en localStorage
+- FR-U4-006: Sección US4 DEBE tener banner de prerrequisito cuando aplica
