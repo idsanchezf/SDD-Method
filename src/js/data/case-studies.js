@@ -298,7 +298,6 @@ const caseStudies = [
           artifact: "Deliverable product + test-report.md"
         }
       }
-      }
     ]
   }
 ];
