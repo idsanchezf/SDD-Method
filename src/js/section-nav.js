@@ -1,115 +1,89 @@
-class SectionNav {
-  constructor(sectionEl) {
-    this.section = sectionEl;
-    this.items = [];
-    this.currentActive = null;
-    this.observer = null;
-    this.container = null;
-  }
+const Sidebar = {
+  sidebar: null,
+  toggleBtn: null,
+  overlay: null,
+  body: null,
+  isOpen: false,
+  desktopBreakpoint: 1024,
+  activeSection: null,
 
-  detectSubsections() {
-    const subs = this.section.querySelectorAll('[data-section-nav]');
-    this.items = [];
-    subs.forEach((el) => {
-      const id = el.getAttribute('data-section-nav');
-      const title = el.getAttribute('data-section-title') || id;
-      if (id && title) {
-        this.items.push({ id, title, element: el });
+  init() {
+    this.sidebar = document.getElementById('sidebar');
+    this.toggleBtn = document.getElementById('sidebar-toggle');
+    this.overlay = document.getElementById('sidebar-overlay');
+    this.body = document.body;
+
+    if (!this.sidebar || !this.toggleBtn) return;
+
+    this.setupToggle();
+    this.setupSectionToggles();
+    this.setupOverlayClose();
+    this.setupLinkClicks();
+    this.setupScrollSpy();
+    this.handleResize();
+
+    if (window.innerWidth >= this.desktopBreakpoint) {
+      this.open();
+    }
+  },
+
+  setupToggle() {
+    this.toggleBtn.addEventListener('click', () => {
+      if (this.isOpen) {
+        this.close();
+      } else {
+        this.open();
       }
     });
-    return this.items.length > 1;
-  }
 
-  render() {
-    if (this.items.length < 2) return;
-
-    this.container = document.createElement('nav');
-    this.container.className = 'section-nav';
-    this.container.setAttribute('aria-label', 'Navegación interna de sección');
-
-    this.renderList();
-    this.renderSelect();
-
-    const sectionContainer = this.section.querySelector('.hero__container, .phases-container, .roles-container, .process__container, .guide__container');
-    const insertTarget = sectionContainer || this.section.querySelector('div:first-child') || this.section;
-    if (insertTarget) {
-      insertTarget.insertBefore(this.container, insertTarget.firstChild);
+    const closeBtn = this.sidebar.querySelector('.sidebar__close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => this.close());
     }
-  }
 
-  renderList() {
-    const list = document.createElement('ul');
-    list.className = 'section-nav__list';
-    list.setAttribute('role', 'list');
-
-    this.items.forEach((item) => {
-      const li = document.createElement('li');
-      li.className = 'section-nav__item';
-
-      const btn = document.createElement('button');
-      btn.className = 'section-nav__link';
-      btn.textContent = item.title;
-      btn.setAttribute('type', 'button');
-      btn.setAttribute('data-nav-id', item.id);
-      btn.addEventListener('click', () => this.handleClick(item.id));
-
-      li.appendChild(btn);
-      list.appendChild(li);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.isOpen && window.innerWidth < this.desktopBreakpoint) {
+        this.close();
+      }
     });
+  },
 
-    this.listEl = list;
-    this.container.appendChild(list);
-  }
+  setupSectionToggles() {
+    const btns = this.sidebar.querySelectorAll('.sidebar__section-btn');
+    btns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const section = btn.closest('.sidebar__section');
+        if (!section) return;
 
-  renderSelect() {
-    const select = document.createElement('select');
-    select.className = 'section-nav__select';
-    select.setAttribute('aria-label', 'Navegar a sub-sección');
-
-    this.items.forEach((item) => {
-      const option = document.createElement('option');
-      option.value = item.id;
-      option.textContent = item.title;
-      select.appendChild(option);
-    });
-
-    select.addEventListener('change', (e) => {
-      this.handleClick(e.target.value);
-      select.blur();
-    });
-
-    this.selectEl = select;
-    this.container.appendChild(select);
-  }
-
-  handleClick(id) {
-    const item = this.items.find((i) => i.id === id);
-    if (!item) return;
-
-    item.element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    this.setActive(id);
-  }
-
-  setActive(id) {
-    this.currentActive = id;
-
-    if (this.listEl) {
-      const links = this.listEl.querySelectorAll('.section-nav__link');
-      links.forEach((btn) => {
-        btn.classList.toggle('section-nav__link--active', btn.getAttribute('data-nav-id') === id);
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isExpanded));
+        section.classList.toggle('sidebar__section--expanded', !isExpanded);
       });
+    });
+  },
+
+  setupOverlayClose() {
+    if (this.overlay) {
+      this.overlay.addEventListener('click', () => this.close());
     }
+  },
 
-    if (this.selectEl) {
-      this.selectEl.value = id;
-    }
-  }
+  setupLinkClicks() {
+    const links = this.sidebar.querySelectorAll('.sidebar__link');
+    links.forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < this.desktopBreakpoint) {
+          this.close();
+        }
+      });
+    });
+  },
 
-  initScrollSpy() {
-    const elements = this.items.map((i) => i.element).filter(Boolean);
-    if (elements.length === 0) return;
+  setupScrollSpy() {
+    const sections = document.querySelectorAll('[data-trackable]');
+    if (!sections.length) return;
 
-    this.observer = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
         let best = null;
         let bestRatio = 0;
@@ -117,61 +91,97 @@ class SectionNav {
         entries.forEach((entry) => {
           if (entry.intersectionRatio > bestRatio) {
             bestRatio = entry.intersectionRatio;
-            const id = entry.target.getAttribute('data-section-nav');
-            if (id) best = id;
+            best = entry.target;
           }
         });
 
-        if (best && best !== this.currentActive) {
-          this.setActive(best);
+        if (best) {
+          const sectionId = best.id || best.getAttribute('id');
+          if (sectionId) {
+            this.setActiveSection(sectionId);
+          }
+
+          const sectionTarget = best.getAttribute('data-trackable')
+            ? this.getSectionTarget(best)
+            : null;
+          if (sectionTarget) {
+            this.highlightSection(sectionTarget);
+          }
         }
       },
       {
-        rootMargin: '-20% 0px -40% 0px',
+        rootMargin: '-30% 0px -50% 0px',
         threshold: [0, 0.25, 0.5, 0.75, 1],
       }
     );
 
-    elements.forEach((el) => this.observer.observe(el));
-  }
+    sections.forEach((el) => observer.observe(el));
+  },
 
-  init() {
-    if (!this.detectSubsections()) return;
-    this.render();
-    this.initScrollSpy();
-  }
+  getSectionTarget(el) {
+    if (el.classList.contains('hero')) return 'hero';
+    if (el.id === 'phases') return 'phases';
+    if (el.id === 'roles') return 'roles';
+    if (el.id === 'process-end-to-end') return 'process-end-to-end';
+    if (el.id === 'guide') return 'guide';
+    return null;
+  },
 
-  destroy() {
-    if (this.observer) {
-      this.observer.disconnect();
-      this.observer = null;
-    }
-    if (this.container) {
-      this.container.remove();
-      this.container = null;
-    }
-    this.items = [];
-    this.currentActive = null;
-  }
-}
+  highlightSection(target) {
+    const items = this.sidebar.querySelectorAll('.sidebar__section');
+    items.forEach((item) => {
+      const isActive = item.getAttribute('data-section-target') === target;
+      item.classList.toggle('sidebar__section--active', isActive);
 
-function initSectionNavs() {
-  const sections = document.querySelectorAll('.hero, #phases, #roles, #process-end-to-end, #guide');
-  const navs = [];
+      if (isActive) {
+        const btn = item.querySelector('.sidebar__section-btn');
+        if (btn) {
+          btn.setAttribute('aria-expanded', 'true');
+          item.classList.add('sidebar__section--expanded');
+        }
+      }
+    });
+  },
 
-  sections.forEach((section) => {
-    if (section) {
-      const nav = new SectionNav(section);
-      nav.init();
-      navs.push(nav);
-    }
-  });
+  setActiveSection(id) {
+    const links = this.sidebar.querySelectorAll('.sidebar__link');
+    links.forEach((link) => {
+      const href = link.getAttribute('href');
+      link.classList.toggle('sidebar__link--active', href === `#${id}`);
+    });
+  },
 
-  return navs;
-}
+  open() {
+    this.isOpen = true;
+    this.sidebar.classList.add('sidebar--open');
+    this.toggleBtn.setAttribute('aria-expanded', 'true');
+  },
+
+  close() {
+    this.isOpen = false;
+    this.sidebar.classList.remove('sidebar--open');
+    this.toggleBtn.setAttribute('aria-expanded', 'false');
+  },
+
+  handleResize() {
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const isDesktop = window.innerWidth >= this.desktopBreakpoint;
+        if (isDesktop) {
+          this.open();
+          if (this.overlay) this.overlay.style.display = 'none';
+        } else {
+          if (this.overlay) this.overlay.style.display = '';
+        }
+      }, 150);
+    });
+  },
+};
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initSectionNavs);
+  document.addEventListener('DOMContentLoaded', () => Sidebar.init());
 } else {
-  initSectionNavs();
+  Sidebar.init();
 }

@@ -276,24 +276,26 @@ Como líder técnico o gerente evaluando SDD, quiero una calculadora de ROI y vi
 
 ---
 
-### User Story 14 - Navegar dentro de cada sección con menú interno (Priority: P2)
+### User Story 14 - Navegación lateral global con submenús por sección (Priority: P2)
 **Status**: In Progress (Branch: `014-section-nav`)
 
-Como usuario del sitio, quiero un menú de navegación interno dentro de cada sección (Hero, Phases, Roles, Proceso, Guía) que muestre sus sub-secciones y permita saltar entre ellas sin hacer scroll manual, para encontrar contenido específico más rápido y entender la estructura de cada módulo.
+Como usuario del sitio, quiero un menú de navegación lateral (sidebar) en el lado izquierdo que muestre las 5 secciones principales con submenús expandibles, colapsable en móvil y con scroll spy, para navegar entre secciones y sub-secciones sin scrollear manualmente.
 
-**Why this priority**: Las secciones principales tienen múltiples sub-secciones (ej. Hero: Definición, Principios, Beneficios, Comparación, Checklist). Sin un menú interno, el usuario debe scrollear para encontrar lo que busca o no sabe qué sub-contenidos existen.
+**Why this priority**: El sitio tiene 5 secciones con 2-5 sub-secciones cada una. Sin navegación global estructurada, el usuario depende de scroll manual o banners de prerrequisito. Un sidebar mejora la navegabilidad (SC-004 del backlog) y la experiencia general.
 
-**Independent Test**: Un usuario puede identificar las sub-secciones de cualquier módulo desde su menú interno y saltar a cualquiera de ellas en 1 clic.
+**Independent Test**: Un usuario puede identificar las 5 secciones desde el sidebar, expandir cualquier sección para ver sus sub-secciones, y navegar con 1 clic.
 
 **Acceptance Scenarios**:
 
-1. **Given** que el usuario está en una sección (ej. "Roles"), **When** ve el menú interno de la sección, **Then** lista todas las sub-secciones: Roles Humanos, Roles IA, Matriz de Colaboración.
-2. **Given** que el usuario hace clic en una sub-sección del menú interno, **When** se ejecuta la navegación, **Then** el scroll se desplaza suavemente hasta esa sub-sección y el ítem del menú se marca como activo.
-3. **Given** que el usuario hace scroll dentro de una sección, **When** una nueva sub-sección entra en el viewport, **Then** el menú interno actualiza automáticamente el ítem activo (scroll spy).
-4. **Given** que la sección tiene muchas sub-secciones, **When** el menú interno excede la altura de la ventana, **Then** el menú se vuelve scrollable internamente o colapsa sub-ítems.
-5. **Given** que el usuario está en móvil, **When** el menú interno ocuparía mucho espacio, **Then** se muestra como un selector desplegable (select) en lugar de lista vertical.
+1. **Given** que el usuario carga el sitio, **When** ve el sidebar, **Then** lista: ¿Qué es SDD?, Las 5 Fases, Roles, Proceso E2E, Uso Práctico.
+2. **Given** que el usuario hace clic en una sección del sidebar, **When** tiene sub-secciones, **Then** se expande mostrando las sub-secciones con animación.
+3. **Given** que el usuario hace clic en una sub-sección, **When** navega, **Then** el scroll se desplaza suavemente y el link se marca activo.
+4. **Given** que el usuario hace scroll, **When** una sección entra en viewport, **Then** el sidebar resalta la sección y expande su submenú (scroll spy).
+5. **Given** que el usuario está en móvil (< 1024px), **When** el sidebar está oculto, **Then** ve un botón hamburger para abrirlo.
+6. **Given** que el sidebar está abierto en móvil, **When** el usuario hace clic fuera o presiona Escape, **Then** se cierra.
+7. **Given** que el usuario está en desktop (>= 1024px), **When** carga el sitio, **Then** el sidebar es visible permanentemente.
 
-**Archivos**: `src/js/section-nav.js`, `src/css/section-nav.css`, y actualización de `index.html` con `data-section` attributes en cada sub-sección
+**Archivos**: `src/js/section-nav.js`, `src/css/section-nav.css`, `src/index.html` (sidebar markup + IDs en sub-secciones)
 
 ### Edge Cases
 

@@ -1,159 +1,72 @@
 ---
-description: "Task list for Menú de navegación interna por sección"
+description: "Task list for Menú de navegación lateral global"
 ---
 
-# Tasks: Menú de navegación interna por sección
+# Tasks: Menú de navegación lateral global
 
 **Input**: Design documents from `/specs/014-section-nav/`
 **Prerequisites**: plan.md, spec.md
-**Dependencies**: index.html (existing sections), variables.css (design tokens)
 
-**Note**: This feature adds intra-section navigation menus to all 5 main sections.
+## Phase 1: Setup (Research)
 
-## Format: `[ID] [P?] [Story] Description`
+- [X] T001 Analyze existing section structure (5 sections, sub-sections)
+- [X] T002 Identify all sub-sections needing anchor IDs
+- [X] T003 Review variables.css for design tokens
 
-- **[P]**: Can run in parallel (different files, no dependencies)
-- **[Story]**: Which user story this task belongs to (US1)
-- Include exact file paths in descriptions
+## Phase 2: HTML Changes
 
----
+- [X] T004 Add `id` attributes to Hero sub-sections (5 items)
+- [X] T005 Add `id` attributes to Phases sub-sections (3 items)
+- [X] T006 Add `id` attributes to Roles sub-sections (3 items)
+- [X] T007 Add `id` attributes to Process E2E sub-sections (2 items)
+- [X] T008 Add `id` attributes to Guide sub-sections (3 items)
+- [X] T009 Add sidebar markup (aside.sidebar + nav + ul with 5 sections + submenus)
+- [X] T010 Add sidebar toggle button (.sidebar-toggle)
+- [X] T011 Add sidebar overlay div (#sidebar-overlay)
 
-## Phase 1: Setup (Research & Analysis)
+## Phase 3: CSS - Sidebar Styles
 
-**Purpose**: Analyze existing code to understand implementation requirements
+- [X] T012 `.sidebar` - Fixed left, 280px, full height, translateX transition
+- [X] T013 `.sidebar__header` - Title + close button
+- [X] T014 `.sidebar__nav` - Scrollable nav area
+- [X] T015 `.sidebar__section-btn` - Section toggle buttons with arrow
+- [X] T016 `.sidebar__submenu` - Expandable with max-height transition
+- [X] T017 `.sidebar__link` - Sub-section links with hover/active states
+- [X] T018 `.sidebar-toggle` - Fixed hamburger button (mobile only)
+- [X] T019 `.sidebar-overlay` - Dark overlay for mobile
+- [X] T020 Desktop (>1024px) layout: sidebar visible, main content margin-left
+- [X] T021 Mobile (<1024px) layout: sidebar hidden, toggle visible, overlay active
 
-- [ ] T001 [P] Analyze `src/index.html` to identify all sub-sections and their HTML structure
-- [ ] T002 [P] Analyze `src/css/variables.css` to identify design tokens to reuse
-- [ ] T003 Analyze existing scroll behavior (hero.js progress bar IntersectionObserver) for scroll spy pattern
+## Phase 4: JS - Sidebar Logic
 
----
+- [X] T022 Sidebar object with init, open, close methods
+- [X] T023 Toggle button click handler
+- [X] T024 Close button (X) click handler
+- [X] T025 Escape key handler
+- [X] T026 Overlay click handler
+- [X] T027 Section toggle buttons (aria-expanded, expand/collapse submenu)
+- [X] T028 Link click handler (close sidebar on mobile)
+- [X] T029 Scroll spy via IntersectionObserver
+- [X] T030 Desktop auto-open on init
+- [X] T031 Resize handler
 
-## Phase 2: Data Attributes in HTML
+## Phase 5: Testing & Polish
 
-**Purpose**: Mark sub-sections with data-section-nav attributes for auto-detection
-
-- [ ] T004 Mark Hero sub-sections: `hero__definition`, `hero__principles`, `hero__benefits`, `hero__comparison`, `hero__checklist`
-- [ ] T005 Mark Phases sub-sections: phase cards container, phase details, flow diagram
-- [ ] T006 Mark Roles sub-sections: roles humanos, roles IA, matriz de colaboración
-- [ ] T007 Mark Process E2E sub-sections: diagrama, walkthrough
-- [ ] T008 Mark Guide sub-sections: guía interactiva, ejemplos, plantillas
-- [ ] T009 Add `src/css/section-nav.css` link and `src/js/section-nav.js` script to index.html
-
----
-
-## Phase 3: CSS - Section Navigation Styles
-
-**Purpose**: Create responsive styles for the section navigation menu
-
-**Independent Test**: Menu renders correctly on desktop (vertical list) and mobile (select dropdown)
-
-### Implementation
-
-- [ ] T010 [P] Create `src/css/section-nav.css` - Base container and layout styles
-- [ ] T011 [P] `src/css/section-nav.css` - Desktop vertical list styles (position: sticky, left side)
-- [ ] T012 [P] `src/css/section-nav.css` - Active/completed item states using `var(--color-accent)`
-- [ ] T013 [P] `src/css/section-nav.css` - Mobile select dropdown styles (< 768px)
-- [ ] T014 `src/css/section-nav.css` - Scrollable menu when items exceed viewport height
-- [ ] T015 `src/css/section-nav.css` - Focus and hover states for keyboard accessibility
-
----
-
-## Phase 4: JS - SectionNav Class
-
-**Purpose**: Implement the core SectionNav logic
-
-**Independent Test**: SectionNav detects sub-sections, renders menu, handles click navigation and scroll spy
-
-### Implementation
-
-- [ ] T016 [P] Create `src/js/section-nav.js` - `SectionNav` class constructor and initialization
-- [ ] T017 [P] `src/js/section-nav.js` - `detectSubsections()` method: read `data-section-nav` attributes
-- [ ] T018 [P] `src/js/section-nav.js` - `render()` method: create DOM elements for menu (list or select)
-- [ ] T019 [P] `src/js/section-nav.js` - `handleClick()` method: smooth scroll to sub-section + set active
-- [ ] T020 [P] `src/js/section-nav.js` - `initScrollSpy()` method: IntersectionObserver for active tracking
-- [ ] T021 [P] `src/js/section-nav.js` - `handleResize()` method: switch between list and select based on viewport
-- [ ] T022 [P] `src/js/section-nav.js` - `init()` orchestrator: detect → render → scroll spy → resize handler
-- [ ] T023 `src/js/section-nav.js` - Initialize SectionNav for all 5 sections on DOMContentLoaded
-
----
-
-## Phase 5: Integration & Polish
-
-**Purpose**: Ensure all components work together and meet quality standards
-
-### Cross-Section Integration
-
-- [ ] T024 [P] Test Hero section: Verify all 5 sub-sections appear in menu
-- [ ] T025 [P] Test Phases section: Verify all sub-sections appear in menu
-- [ ] T026 [P] Test Roles section: Verify all sub-sections appear in menu
-- [ ] T027 [P] Test Process E2E section: Verify all sub-sections appear in menu
-- [ ] T028 [P] Test Guide section: Verify all sub-sections appear in menu
-
-### Scroll Spy Testing
-
-- [ ] T029 [P] Test scroll spy: Scroll through sub-sections, verify active item updates
-- [ ] T030 [P] Test click navigation: Click each item, verify smooth scroll + active state
-
-### Mobile Testing
-
-- [ ] T031 [P] Test mobile: Resize to < 768px, verify select dropdown appears
-- [ ] T032 [P] Test mobile: Select option from dropdown, verify navigation works
-
-### Accessibility Testing
-
-- [ ] T033 [P] Test keyboard: Tab through menu items, verify focus visibility
-- [ ] T034 [P] Test ARIA: Verify `nav` landmark, `aria-label`, `role="list"`, `role="link"` present
-- [ ] T035 [P] Test screen reader: Verify sub-section list is announced
-
-### Visual Consistency
-
-- [ ] T036 [P] Verify menu uses design tokens from variables.css
-- [ ] T037 [P] Verify no layout breakage on desktop, tablet, mobile
-- [ ] T038 [P] Verify menu does not overlap with existing sidebar/progress bar
-
----
-
-## Dependencies & Execution Order
-
-### Phase Dependencies
-
-- **Phase 1 (Setup)**: No dependencies
-- **Phase 2 (HTML)**: Depends on Phase 1
-- **Phase 3 (CSS)**: Depends on Phase 2 (needs HTML structure for selectors)
-- **Phase 4 (JS)**: Depends on Phase 2 (needs data-section-nav attributes)
-- **Phase 5 (Integration)**: Depends on Phases 3-4
-
-### Parallel Opportunities
-
-- Phase 1 tasks T001-T002 can run in parallel
-- Phase 3 tasks T010-T013 can run in parallel
-- Phase 4 tasks T016-T022 can run in parallel
-
-## Implementation Strategy
-
-### Incremental Delivery
-
-1. Complete Phase 1: Setup → Analysis complete
-2. Complete Phase 2: HTML → All data attributes in place
-3. Complete Phase 3: CSS → Menu styling complete
-4. **STOP and VALIDATE**: Verify CSS renders correctly with HTML attributes
-5. Complete Phase 4: JS → SectionNav class complete
-6. Complete Phase 5: Integration → Full feature verified
-
-### Commit Strategy
-
-- Commit Phase 1-2: `git commit -m "[US14] Add data-section-nav attributes to index.html"`
-- Commit Phase 3: `git commit -m "[US14] Add section-nav.css responsive styles"`
-- Commit Phase 4: `git commit -m "[US14] Add SectionNav class with scroll spy"`
-- Commit Phase 5: `git commit -m "[US14] Integration and polish"`
-
----
+- [ ] T032 [P] Verify sidebar renders on all 5 main sections
+- [ ] T033 [P] Test section expand/collapse
+- [ ] T034 [P] Test sub-section link navigation (smooth scroll)
+- [ ] T035 [P] Test scroll spy highlights active section
+- [ ] T036 [P] Test mobile toggle (hamburger open/close)
+- [ ] T037 [P] Test overlay + Escape key close
+- [ ] T038 [P] Test keyboard navigation (Tab, Enter, Escape)
+- [ ] T039 [P] Test ARIA labels and roles
+- [ ] T040 [P] Test responsive: desktop sidebar visible, mobile hidden
+- [ ] T041 [P] Verify no layout breakage with progress bar and existing styles
 
 ## Notes
 
-- [P] tasks = different files, no dependencies
-- All styling must use CSS custom properties from variables.css
-- IntersectionObserver pattern already exists in hero.js for progress bar - reuse pattern
-- Must not interfere with sidebar navigation (global menu)
-- Accessibility is mandatory per constitution (WCAG AA)
-- Scroll spy rootMargin: `-20% 0px -40% 0px` for reliable detection
+- [P] tasks can run in parallel
+- Scroll spy rootMargin: -30% 0px -50% 0px
+- Sidebar width: 280px
+- Breakpoint: 1024px (not 768px - sidebar needs more space)
+- All CSS uses variables.css design tokens

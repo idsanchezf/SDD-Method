@@ -1,59 +1,69 @@
-# Implementation Plan: Menú de navegación interna por sección
+# Implementation Plan: Menú de navegación lateral global
 
 **Branch**: `014-section-nav` | **Date**: 2026-05-07 | **Spec**: `specs/014-section-nav/spec.md`
 **Input**: Feature specification from `/specs/014-section-nav/spec.md`
 
-**Note**: This template follows the Spec Kit workflow.
-
 ## Summary
 
-Agregar un menú de navegación interna dentro de cada sección principal (Hero, Phases, Roles, Process E2E, Guide) que detecte sub-secciones mediante `data-section` attributes y permita saltar entre ellas con scroll spy, scroll suave, y adaptación a móvil como selector desplegable.
+Reemplazar los menús internos por sección con un **menú lateral global colapsable** (sidebar) que lista las 5 secciones principales. Cada sección tiene un submenú expandible con sus sub-secciones. El sidebar es visible permanentemente en desktop y se oculta detrás de un toggle hamburger en móvil. Incluye scroll spy para resaltar la sección activa.
 
 ## Technical Context
 
 **Language/Version**: HTML5, CSS3, Vanilla JavaScript (ES6+)
-**Primary Dependencies**: Ninguna (vanilla web technologies per constitution)
-**Storage**: N/A (static site, no persistence needed)
+**Primary Dependencies**: Ninguna (vanilla web technologies)
+**Storage**: N/A (static site)
 **Testing**: Manual testing
 **Target Platform**: Web browser (GitHub Pages static hosting)
-**Project Type**: Web application (static site - enhancement)
-**Performance Goals**: No changes to existing performance profile
-**Constraints**: No frameworks (React/Vue/Angular), solo vanilla JS; semantic HTML; CSS custom properties; WCAG AA
-**Scale/Scope**: 3 archivos nuevos (section-nav.js, section-nav.css), modificaciones en index.html
+**Constraints**: No frameworks, vanilla JS, semantic HTML, CSS custom properties, WCAG AA
 
 ## Constitution Check
 
-*GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
-
 | Constitution Principle | Status | Notes |
 |------------------------|--------|-------|
-| I. Vanilla-First | ✓ PASS | Solo HTML5, CSS3, Vanilla JS (ES6+) - sin frameworks |
-| II. Semantic HTML & Accessible | ✓ PASS | Usar `nav` ARIA landmark, `role="list"`, `role="link"`, scroll spy accesible |
-| III. Professional CSS Architecture | ✓ PASS | CSS custom properties en variables.css, mobile-first responsive |
-| IV. Feature Branch & PR Workflow | ✓ PASS | Branch: `014-section-nav`, PR requerido para merge |
-| V. CI/CD via GitHub Actions | ✓ PASS | GitHub Actions workflow para linting y despliegue a GitHub Pages |
+| I. Vanilla-First | ✓ PASS | Solo HTML5, CSS3, Vanilla JS |
+| II. Semantic HTML & Accessible | ✓ PASS | `aside` landmark, `nav` ARIA, `aria-expanded`, keyboard navigable |
+| III. Professional CSS Architecture | ✓ PASS | CSS custom properties desde variables.css, diseño responsive |
+| IV. Feature Branch & PR Workflow | ✓ PASS | Branch: `014-section-nav`, PR requerido |
+| V. CI/CD via GitHub Actions | ✓ PASS | Sin cambios en CI existente |
 
 ## Project Structure
 
-### Documentation (this feature)
+### Documentation
 
 ```text
 specs/014-section-nav/
-├── spec.md              # Feature specification
-└── plan.md              # This file
-└── tasks.md             # Task breakdown
+├── spec.md       # Feature specification (updated)
+├── plan.md       # This file (updated)
+└── tasks.md      # Task breakdown (updated)
 ```
 
-### Source Code (repository root)
+### Source Code
 
 ```text
 src/
-├── index.html           # Add data-section attributes to sub-sections
+├── index.html              # + Sidebar markup, + IDs a sub-secciones
 ├── css/
-│   └── section-nav.css  # NEW: Section navigation menu styles
+│   └── section-nav.css     # REWRITTEN: Sidebar styles
 └── js/
-    └── section-nav.js   # NEW: Section navigation menu logic
+    └── section-nav.js      # REWRITTEN: Sidebar logic
 ```
+
+## Phases
+
+### Phase 0: Research
+- Analyzed 5 main sections and their sub-sections
+- IDs added to all sub-sections for anchor navigation
+- Sidebar breakpoint: 1024px
+
+### Phase 1: Design
+- Sidebar: fixed left, 280px wide, full height
+- Desktop: always visible, main content gets margin-left: 280px
+- Mobile: hidden behind hamburger toggle, overlay closes on click
+- Sub-menus: expand/collapse with rotate arrow animation
+- Scroll spy: IntersectionObserver highlights active section
+
+### Phase 2: HTML + CSS + JS
+All implemented in a single iteration.
 
 ## Complexity Tracking
 
@@ -63,56 +73,9 @@ No constitution violations detected.
 |-----------|------------|-------------------------------------|
 | N/A | N/A | N/A |
 
-## Phase 0: Research Complete
+## Next Steps
 
-✓ Research completed — explored all 5 main sections and their sub-sections
-✓ Technology decisions documented with rationale
-
-### Sub-section inventory for data-section attributes
-
-**Hero** (`#hero`, class `.hero`):
-- `hero__definition` → "¿Qué es SDD?"
-- `hero__principles` → "Principios"
-- `hero__benefits` → "Beneficios"
-- `hero__comparison` → "Comparación"
-- `hero__checklist` → "Verifica tu comprensión"
-
-**Phases** (`#phases`):
-- `phases-container > h2` → "Las 5 Fases" (section title)
-- `.phases-grid` → "Fases" (the 5 phase cards)
-- `.phase-details` → "Detalle de fases"
-- `.flow-diagram` → "Diagrama de flujo"
-
-**Roles** (`#roles`):
-- `.roles-subsection__header--human` → "Roles Humanos"
-- `.roles-subsection__header--ai` → "Roles de IA"
-- `.collab-matrix` → "Matriz de Colaboración"
-
-**Process E2E** (`#process-end-to-end`):
-- `#process-heading` → "Proceso End-to-End"
-- `#process-diagram-container` → "Diagrama de proceso"
-- `.walkthrough-section` → "Recorrido Interactivo"
-
-**Guide** (`#guide`):
-- `#start-guide` → "Guía interactiva"
-- `.guide__examples` → "Ejemplos Prácticos"
-- `.guide__templates` → "Plantillas Descargables"
-
-## Phase 1: Design Complete
-
-### Data Model
-
-- **SectionNav**: Class managing one section's menu. Properties: `sectionEl`, `items[]`, `currentActive`, `observer`, `isMobile`.
-- **SectionNavConfig**: `{ sections: NodeList, mobileBreakpoint: 768 }`
-
-### Key Design Decisions
-
-1. **Sticky positioning**: Menu sticks to the left side of each section container on desktop
-2. **Mobile adaptation**: `<select>` dropdown replaces vertical list below 768px
-3. **Scroll spy**: Uses `IntersectionObserver` with `rootMargin` to detect active sub-section
-4. **Data attributes**: Sub-sections marked with `data-section-nav="section-id"` and `data-section-title="Display Title"`
-5. **Accessibility**: `nav` landmark with `aria-label`, `role="list"` and `role="link"` for items
-
-## Phase 2: Implementation Tasks
-
-See `tasks.md` for detailed task breakdown.
+1. Review and test sidebar behavior in browser
+2. Commit changes and create PR
+3. Verify scroll spy works across all sections
+4. Verify mobile toggle, overlay, and keyboard navigation

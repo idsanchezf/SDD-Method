@@ -1,75 +1,76 @@
-# Feature Specification: Menú de navegación interna por sección
+# Feature Specification: Menú de navegación lateral global
 
 **Feature Branch**: `014-section-nav`
 **Created**: 2026-05-07
-**Status**: Draft
-**Input**: User story US14 del backlog: "Navegar dentro de cada sección con menú interno"
+**Status**: In Progress
+**Input**: User story US14 del backlog: "Menú interno por sección" (re-definido como menú lateral global)
+
+## Clarifications
+
+- **2026-05-07**: El alcance original era un menú interno por sección. Se re-definió a un menú lateral global colapsable con submenús para mejorar la navegabilidad general del sitio.
 
 ## User Scenarios & Testing *(mandatory)*
 
-### User Story 1 - Menú interno de sub-secciones (Priority: P1)
+### User Story 1 - Menú lateral global colapsable con submenús (Priority: P1)
 
-Como usuario del sitio, quiero un menú de navegación interno dentro de cada sección principal (Hero, Phases, Roles, Proceso E2E, Guía) que liste las sub-secciones disponibles y permita saltar directamente a ellas, para encontrar contenido específico más rápido y entender la estructura de cada módulo.
+Como usuario del sitio, quiero un menú de navegación lateral (sidebar) en el lado izquierdo que liste todas las secciones principales y sus sub-secciones, que sea colapsable en móvil y permita navegar a cualquier contenido del sitio con 1-2 clics, para encontrar información rápidamente sin tener que scrollear.
 
-**Why this priority**: Las 5 secciones principales tienen entre 4 y 7 sub-secciones cada una. Sin un menú interno, el usuario debe scrollear manualmente para encontrar lo que busca o ignora que existen ciertos sub-contenidos. Esto impacta directamente la navegabilidad (SC-004 del backlog).
+**Why this priority**: El sitio tiene 5 secciones principales con 2-5 sub-secciones cada una. Sin una navegación global estructurada, el usuario depende de scrollear o de banners de prerrequisito para ubicarse. Un sidebar mejora la navegabilidad (SC-004 del backlog) y la experiencia general.
 
-**Independent Test**: Un usuario puede identificar las sub-secciones de cualquier sección desde su menú interno y saltar a cualquiera de ellas en 1 clic.
+**Independent Test**: Un usuario puede identificar las 5 secciones principales desde el sidebar, expandir cualquier sección para ver sus sub-secciones, y navegar a cualquiera con 1 clic.
 
 **Acceptance Scenarios**:
 
-1. **Given** que el usuario está en una sección (ej. "Roles"), **When** ve el menú interno de la sección, **Then** lista todas las sub-secciones: Roles Humanos, Roles IA, Matriz de Colaboración.
-2. **Given** que el usuario hace clic en un ítem del menú interno, **When** se ejecuta la navegación, **Then** el scroll se desplaza suavemente hasta esa sub-sección y el ítem del menú se marca como activo.
-3. **Given** que el usuario hace scroll dentro de una sección, **When** una nueva sub-sección entra en el viewport, **Then** el menú interno actualiza automáticamente el ítem activo (scroll spy).
-4. **Given** que el menú interno excede la altura de la ventana, **When** hay más de 6 ítems, **Then** el menú se vuelve scrollable internamente con `overflow-y: auto`.
-5. **Given** que el usuario está en móvil (viewport < 768px), **When** el menú interno ocuparía espacio vertical, **Then** se muestra como un `<select>` desplegable en lugar de lista vertical.
-6. **Given** que la sección no tiene sub-secciones o tiene una sola, **When** se evalúa el menú, **Then** el menú interno no se renderiza (no ocupa espacio innecesario).
+1. **Given** que el usuario carga el sitio, **When** ve el sidebar, **Then** lista las 5 secciones principales: ¿Qué es SDD?, Las 5 Fases, Roles, Proceso E2E, Uso Práctico.
+2. **Given** que el usuario hace clic en una sección del sidebar, **When** la sección tiene sub-secciones, **Then** se expande mostrando las sub-secciones con animación suave y el arrow gira 90°.
+3. **Given** que el usuario hace clic en una sub-sección, **When** se ejecuta la navegación, **Then** el scroll se desplaza suavemente hasta esa sub-sección y el link se marca como activo.
+4. **Given** que el usuario hace scroll en la página, **When** una sección principal entra en viewport, **Then** el sidebar resalta la sección correspondiente y expande sus sub-menús automáticamente (scroll spy).
+5. **Given** que el usuario está en móvil (< 1024px), **When** el sidebar está oculto, **Then** ve un botón hamburger en la esquina superior izquierda para abrirlo.
+6. **Given** que el sidebar está abierto en móvil, **When** el usuario hace clic fuera del sidebar (overlay), presiona Escape, o selecciona un link, **Then** el sidebar se cierra.
+7. **Given** que el usuario está en desktop (>= 1024px), **When** carga el sitio, **Then** el sidebar está visible permanentemente y el contenido principal tiene margen izquierdo para no solaparse.
+8. **Given** que el sidebar excede la altura de la ventana, **When** hay muchas secciones, **Then** el área de navegación es scrollable internamente.
 
 ## Edge Cases
 
-- Si el usuario está en una sección sin sub-secciones (ej. contenido plano) → el menú no se muestra
-- Si el usuario recarga la página → el scroll spy reinicia; el menú muestra el primer ítem como activo si la sección está en viewport
-- Si el menú está en un iframe o contexto embebido → scroll spy usa el viewport padre (no aplica en este sitio estático)
-- Si el usuario navega con teclado (Tab) → los ítems del menú deben ser focusables con `role="link"` y `tabindex="0"`
-- Colisión con el menú lateral existente: el menú interno es complementario (navegación intra-sección), no reemplaza la navegación global
+- Si el usuario recarga la página → el sidebar mantiene su estado visual (abierto/cerrado según viewport)
+- Colisión con el progress bar existente: el sidebar y el progress bar coexisten; el progress bar se desplaza con el margen del contenido
+- Si el usuario usa teclado (Tab) → los botones y links del sidebar deben ser focusables
+- En móvil, el sidebar debe tener un botón de cierre (X) además del overlay y Escape
+- El sidebar no debe interferir con el skip-link (accesibilidad)
 
 ## Requirements *(mandatory)*
 
 ### Functional Requirements
 
-- **FR-001**: Cada sección principal (Hero, Phases, Roles, Process, Guide) DEBE detectar automáticamente sus sub-secciones mediante `data-section` attributes en el HTML
-- **FR-002**: El menú interno DEBE posicionarse como sticky dentro del contenedor de la sección o como sidebar inline
-- **FR-003**: El menú DEBE implementar scroll spy via IntersectionObserver para marcar el ítem activo
-- **FR-004**: El menú DEBE hacer scroll suave a la sub-sección al hacer clic en un ítem
-- **FR-005**: En móvil (< 768px) el menú DEBE convertirse en un `<select>` desplegable
-- **FR-006**: Si la sección tiene 0 o 1 sub-sección, el menú NO DEBE renderizarse
-- **FR-007**: El menú DEBE ser accesible por teclado con roles ARIA apropiados (`navigation`, `list`, `listitem`, `link`)
-
-### Design System Integration
-
-- Usar colores del sistema: `var(--color-accent)` para ítem activo, `var(--color-text)` para default
-- Usar tipografía del sistema: `var(--font-body)` y `var(--font-size-sm)` para ítems
-- El menú debe integrarse visualmente con el diseño existente (sin romper layout)
-- No requiere frameworks externos (vanilla JS + CSS)
+- **FR-001**: El sidebar DEBE listar las 5 secciones principales: Hero (¿Qué es SDD?), Phases, Roles, Process E2E, Guide
+- **FR-002**: Cada sección con sub-secciones DEBE tener un botón expandible con indicador visual (flecha/chevron)
+- **FR-003**: El sidebar DEBE ser colapsable: en móvil se oculta detrás de un toggle (hamburger), en desktop es visible permanentemente
+- **FR-004**: El sidebar DEBE implementar scroll spy: resalta la sección activa y expande su submenú automáticamente
+- **FR-005**: El sidebar DEBE cerrarse al hacer clic en un link (en móvil)
+- **FR-006**: El sidebar DEBE cerrarse con el overlay (clic fuera) y con tecla Escape (en móvil)
+- **FR-007**: El sidebar DEBE tener un botón de cierre visible (X) en su header
+- **FR-008**: El contenido principal DEBE tener `margin-left` igual al ancho del sidebar en desktop
+- **FR-009**: El sidebar DEBE ser accesible por teclado con roles ARIA (`navigation`, `aria-expanded`, `aria-label`)
 
 ### Key Entities
 
-- **SectionNavMenu**: Componente de menú interno para una sección. Atributos: sectionElement (HTMLElement), items (array de {id, title, element}), currentActive (string), isMobile (boolean)
-- **SectionNavConfig**: Configuración global. Atributos: sections (NodeList de section elements), mobileBreakpoint (number, default 768)
+- **Sidebar**: Componente de navegación lateral. Estado: isOpen, activeSection, activeSubsection
+- **SidebarSection**: Una sección principal en el menú. Atributos: id, title, subSections[], isExpanded
+- **SidebarSubSection**: Una sub-sección dentro de una sección. Atributos: id, title, anchor (href)
 
 ## Success Criteria *(mandatory)*
 
 ### Measurable Outcomes
 
-- **SC-001**: El 100% de las secciones principales con >= 2 sub-secciones muestran menú interno
-- **SC-002**: El scroll spy actualiza el ítem activo en menos de 100ms después de que una sub-sección cruza el viewport
-- **SC-003**: El menú es completamente operativo por teclado (Tab + Enter)
-- **SC-004**: En móvil, el selector desplegable ocupa menos de 60px de altura vertical
+- **SC-001**: El 100% de las secciones principales son accesibles desde el sidebar en 1 clic
+- **SC-002**: El scroll spy actualiza la sección activa en menos de 100ms
+- **SC-003**: El sidebar es completamente operativo por teclado (Tab + Enter + Escape)
+- **SC-004**: En móvil, el sidebar se abre/cierra en menos de 300ms (transición CSS)
 
 ## Assumptions
 
-- Las secciones principales ya existen y tienen sub-secciones identificables por headings (h2/h3)
-- Se requiere marcar sub-secciones con `data-section` en el HTML (no detección automática por headings)
-- No se requiere animación de entrada/salida del menú
-- El menú lateral global existente (US5) permanece intacto
-- El sticky positioning del menú se maneja con CSS position: sticky
-- No hay conflicto con el progress bar global existente
+- El ancho del sidebar es fijo: 280px
+- El breakpoint para mobile/desktop es 1024px
+- No se requiere persistencia del estado del sidebar entre sesiones
+- El sidebar usa anchor links (#) para navegación; el smooth scroll viene del CSS global (`scroll-behavior: smooth`)
+- Los IDs de sub-secciones ya existen en el HTML (añadidos como parte de esta US)
