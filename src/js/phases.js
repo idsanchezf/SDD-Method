@@ -37,7 +37,7 @@
   /**
    * Select a phase by number, highlighting card and diagram node.
    */
-  function selectPhase(phaseNum) {
+    function selectPhase(phaseNum) {
     activePhase = phaseNum;
 
     // Update cards
@@ -74,6 +74,13 @@
         step.classList.remove('is-active');
       }
     });
+
+    // T035: Dispatch phase:highlight event for US4 diagram sync
+    var phaseIds = ['specify', 'clarify', 'plan', 'tasks', 'implement'];
+    var phaseId = phaseIds[phaseNum - 1] || 'specify';
+    document.dispatchEvent(new CustomEvent('phase:highlight', {
+      detail: { phaseId: phaseId, phaseNum: phaseNum }
+    }));
   }
 
   /**

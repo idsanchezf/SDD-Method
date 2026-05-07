@@ -3,7 +3,7 @@
 **Feature Branch**: `004-us3-roles-responsibilities`  
 **Created**: 2026-05-05  
 **Status**: Draft  
-**Input**: User Story 3 from `specs/001-sdd-method-webapp/spec.md` — "Identificar roles y responsabilidades en SDD"
+**Input**: User Story 3 from `specs/Backlog/spec.md` — "Identificar roles y responsabilidades en SDD"
 
 ## User Scenarios & Testing *(mandatory)*
 
