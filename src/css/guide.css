@@ -1,0 +1,861 @@
+/**
+ * Guide Styles - US5 Step-by-Step Guide
+ * Reuses US2/US4 CSS variables
+ */
+
+/* === OUTER SECTION (HTML) === */
+.guide-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+#guide-container {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+.guide-section h2 {
+  color: var(--text-primary, #1a1a2e);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.guide__intro {
+  color: var(--text-secondary, #666);
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.guide__controls {
+  margin-bottom: 2rem;
+}
+
+.guide__controls button {
+  padding: 0.75rem 2rem;
+  background: var(--accent-color, #007bff);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.guide__controls button:hover {
+  background: var(--accent-hover, #0056b3);
+  transform: translateY(-1px);
+}
+
+.guide__controls button:focus {
+  outline: 2px solid var(--accent-color, #007bff);
+  outline-offset: 2px;
+}
+
+.guide__examples {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 8px;
+}
+
+.guide__examples h3 {
+  color: var(--text-primary, #1a1a2e);
+  margin-bottom: 1rem;
+}
+
+.example-selector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.example-selector button {
+  padding: 0.5rem 1.5rem;
+  background: var(--bg-primary, #fff);
+  border: 2px solid var(--border-color, #ddd);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.example-selector button.active {
+  border-color: var(--accent-color, #007bff);
+  background: var(--accent-bg, #e7f1ff);
+}
+
+.example-selector button:hover:not(.active) {
+  border-color: var(--text-secondary, #666);
+}
+
+.guide__templates {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 8px;
+}
+
+.guide__templates h3 {
+  color: var(--text-primary, #1a1a2e);
+  margin-bottom: 1rem;
+}
+
+.guide__templates button {
+  padding: 0.75rem 2rem;
+  background: var(--accent-color, #007bff);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.guide__templates button:hover {
+  background: var(--accent-hover, #0056b3);
+}
+
+/* === INNER GUIDE (rendered by JS) === */
+#guide-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: var(--bg-primary, #ffffff);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Guide Header */
+.guide-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.guide-header h3 {
+  color: var(--text-primary, #1a1a2e);
+  margin-bottom: 1rem;
+}
+
+/* Case Study Selector */
+.case-study-selector {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 6px;
+}
+
+.case-study-selector label {
+  margin-right: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary, #1a1a2e);
+}
+
+.case-study-selector select {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 4px;
+  background: var(--bg-primary, #fff);
+  color: var(--text-primary, #1a1a2e);
+  font-size: 0.9rem;
+}
+
+/* Progress Bar */
+.guide-progress {
+  margin-top: 1rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent-color, #007bff);
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #666);
+}
+
+/* Phase Navigation */
+.guide-phases {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 8px;
+}
+
+.phase-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.phase-nav-item:hover {
+  background: var(--bg-hover, #e9ecef);
+}
+
+.phase-nav-item.active {
+  border-color: var(--accent-color, #007bff);
+  background: var(--accent-bg, #e7f1ff);
+}
+
+.phase-nav-item.completed {
+  opacity: 0.7;
+}
+
+.phase-nav-marker {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.phase-nav-name {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #666);
+}
+
+/* Phase Content */
+.guide-content {
+  min-height: 300px;
+  padding: 1.5rem;
+  background: var(--bg-primary, #fff);
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.phase-detail {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-left: 4px solid var(--accent-color, #007bff);
+}
+
+.artifact-review {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--code-bg, #f8f9fa);
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.artifact-review pre {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+}
+
+/* Checklist */
+.checklist {
+  margin-top: 1.5rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.checklist-item:hover {
+  background: var(--bg-hover, #e9ecef);
+}
+
+.checklist-item input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.checklist-item label {
+  cursor: pointer;
+  flex: 1;
+  color: var(--text-primary, #1a1a2e);
+}
+
+.checklist-item input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: var(--text-secondary, #666);
+}
+
+/* Guide Controls */
+.guide-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.guide-controls button {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--accent-color, #007bff);
+  color: white;
+}
+
+.guide-controls button:hover:not(:disabled) {
+  background: var(--accent-hover, #0056b3);
+  transform: translateY(-1px);
+}
+
+.guide-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#guide-back {
+  background: var(--bg-secondary, #6c757d);
+}
+
+#guide-back:hover:not(:disabled) {
+  background: var(--bg-hover, #5a6268);
+}
+
+.download-artifact {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent-color, #007bff);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.download-artifact:hover {
+  background: var(--accent-hover, #0056b3);
+}
+
+.download-artifact:focus {
+  outline: 2px solid var(--accent-color, #007bff);
+  outline-offset: 2px;
+}
+
+/* Completion Message */
+.guide-complete {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: var(--success-bg, #d4edda);
+  border: 2px solid var(--success-color, #28a745);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.guide-complete h4 {
+  color: var(--success-color, #28a745);
+  margin-bottom: 1rem;
+}
+
+.guide-complete p {
+  color: var(--text-primary, #1a1a2e);
+  line-height: 1.6;
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .guide-phases {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .phase-nav-item {
+    flex: 1 0 40%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .guide-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .guide-controls button {
+    width: 100%;
+  }
+  
+  .case-study-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .case-study-selector select {
+    width: 100%;
+  }
+}
+
+/* Guide Header */
+.guide-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.guide-header h3 {
+  color: var(--text-primary, #1a1a2e);
+  margin-bottom: 1rem;
+}
+
+/* Case Study Selector */
+.case-study-selector {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 6px;
+}
+
+.case-study-selector label {
+  margin-right: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary, #1a1a2e);
+}
+
+.case-study-selector select {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 4px;
+  background: var(--bg-primary, #fff);
+  color: var(--text-primary, #1a1a2e);
+  font-size: 0.9rem;
+}
+
+/* Progress Bar */
+.guide-progress {
+  margin-top: 1rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent-color, #007bff);
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #666);
+}
+
+/* Phase Navigation */
+.guide-phases {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 8px;
+}
+
+.phase-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.phase-nav-item:hover {
+  background: var(--bg-hover, #e9ecef);
+}
+
+.phase-nav-item.active {
+  border-color: var(--accent-color, #007bff);
+  background: var(--accent-bg, #e7f1ff);
+}
+
+.phase-nav-item.completed {
+  opacity: 0.7;
+}
+
+.phase-nav-marker {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.phase-nav-name {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #666);
+}
+
+/* Phase Content */
+.guide-content {
+  min-height: 300px;
+  padding: 1.5rem;
+  background: var(--bg-primary, #fff);
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.phase-detail {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-left: 4px solid var(--accent-color, #007bff);
+}
+
+.artifact-review {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--code-bg, #f8f9fa);
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.artifact-review pre {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+}
+
+/* Checklist */
+.checklist {
+  margin-top: 1.5rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.checklist-item:hover {
+  background: var(--bg-hover, #e9ecef);
+}
+
+.checklist-item input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.checklist-item label {
+  cursor: pointer;
+  flex: 1;
+  color: var(--text-primary, #1a1a2e);
+}
+
+.checklist-item input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: var(--text-secondary, #666);
+}
+
+/* Guide Header */
+.guide-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.guide-header h3 {
+  color: var(--text-primary, #1a1a2e);
+  margin-bottom: 1rem;
+}
+
+/* Case Study Selector */
+.case-study-selector {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 6px;
+}
+
+.case-study-selector label {
+  margin-right: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary, #1a1a2e);
+}
+
+.case-study-selector select {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 4px;
+  background: var(--bg-primary, #fff);
+  color: var(--text-primary, #1a1a2e);
+  font-size: 0.9rem;
+}
+
+/* Progress Bar */
+.guide-progress {
+  margin-top: 1rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--accent-color, #007bff);
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #666);
+}
+
+/* Phase Navigation */
+.guide-phases {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 8px;
+}
+
+.phase-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.phase-nav-item:hover {
+  background: var(--bg-hover, #e9ecef);
+}
+
+.phase-nav-item.active {
+  border-color: var(--accent-color, #007bff);
+  background: var(--accent-bg, #e7f1ff);
+}
+
+.phase-nav-item.completed {
+  opacity: 0.7;
+}
+
+.phase-nav-marker {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.phase-nav-name {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #666);
+}
+
+/* Phase Content */
+.guide-content {
+  min-height: 300px;
+  padding: 1.5rem;
+  background: var(--bg-primary, #fff);
+  border: 1px solid var(--border-color, #ddd);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.phase-detail {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-left: 4px solid var(--accent-color, #007bff);
+}
+
+.artifact-review {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--code-bg, #f8f9fa);
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.artifact-review pre {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+}
+
+/* Checklist */
+.checklist {
+  margin-top: 1.5rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background: var(--bg-secondary, #f5f5f5);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.checklist-item:hover {
+  background: var(--bg-hover, #e9ecef);
+}
+
+.checklist-item input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.checklist-item label {
+  cursor: pointer;
+  flex: 1;
+  color: var(--text-primary, #1a1a2e);
+}
+
+.checklist-item input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: var(--text-secondary, #666);
+}
+
+/* Guide Controls */
+.guide-controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.guide-controls button {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--accent-color, #007bff);
+  color: white;
+}
+
+.guide-controls button:hover:not(:disabled) {
+  background: var(--accent-hover, #0056b3);
+  transform: translateY(-1px);
+}
+
+.guide-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#guide-back {
+  background: var(--bg-secondary, #6c757d);
+}
+
+#guide-back:hover:not(:disabled) {
+  background: var(--bg-hover, #5a6268);
+}
+
+.download-artifact {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent-color, #007bff);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.download-artifact:hover {
+  background: var(--accent-hover, #0056b3);
+}
+
+.download-artifact:focus {
+  outline: 2px solid var(--accent-color, #007bff);
+  outline-offset: 2px;
+}
+
+/* Completion Message */
+.guide-complete {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: var(--success-bg, #d4edda);
+  border: 2px solid var(--success-color, #28a745);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.guide-complete h4 {
+  color: var(--success-color, #28a745);
+  margin-bottom: 1rem;
+}
+
+.guide-complete p {
+  color: var(--text-primary, #1a1a2e);
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .guide-phases {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .phase-nav-item {
+    flex: 1 0 40%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .guide-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .guide-controls button {
+    width: 100%;
+  }
+}
