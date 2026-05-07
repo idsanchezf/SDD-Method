@@ -542,21 +542,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-
-  // T044-T045: Handle case-selector buttons (Greenfield/Brownfield)
-  const caseButtons = document.querySelectorAll('.case-selector button[data-case]');
-  caseButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const selectedCase = btn.getAttribute('data-case');
-      
-      // Update active state
-      caseButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      
-      // Start walkthrough with selected case
-      if (window.walkthrough) {
-        window.walkthrough.start(selectedCase);
-      }
-    });
-  });
 });
