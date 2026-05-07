@@ -5,9 +5,16 @@
 **Status**: Draft  
 **Input**: User description: "US5: Uso Práctico de SDD - Guía paso a paso para aplicar la metodología en proyectos reales"
 
+## Clarifications
+
+### Session 2026-05-06
+
+- Q: ¿Debe la guía interactiva y plantillas cumplir con WCAG AA? → A: Sí - Cumplir WCAG AA (como US2/US4) para consistencia de experiencia de usuario.
+- Q: ¿Qué términos preferís para consistencia? → B: "Greenfield" y "Brownfield" (términos técnicos originales).
+
 ## User Scenarios & Testing *(mandatory)*
 
-### User Story 1 - Guía paso a paso interactiva (Priority: P1)
+### User Story1 - Guía paso a paso interactiva (Priority: P1)
 
 Como desarrollador principiante, quiero seguir una guía paso a paso de cómo aplicar SDD, para poder implementar la metodología correctamente en mi proyecto.
 
@@ -23,9 +30,9 @@ Como desarrollador principiante, quiero seguir una guía paso a paso de cómo ap
 
 ---
 
-### User Story 2 - Ejemplos prácticos con casos reales (Priority: P2)
+### User Story2 - Ejemplos prácticos con casos reales (Priority: P2)
 
-Como desarrollador, quiero ver ejemplos prácticos aplicados a proyectos greenfield y brownfield, para entender cómo se ve SDD en la realidad.
+Como desarrollador, quiero ver ejemplos prácticos aplicados a proyectos Greenfield y Brownfield, para entender cómo se ve SDD en la realidad.
 
 **Why this priority**: Los ejemplos ayudan a conectar la teoría con la práctica, pero requieren la guía base (P1) para tener contexto.
 
@@ -33,13 +40,13 @@ Como desarrollador, quiero ver ejemplos prácticos aplicados a proyectos greenfi
 
 **Acceptance Scenarios**:
 
-1. **Given** que el usuario está en US5, **When** selecciona "Ver Ejemplo Proyecto Nuevo", **Then** ve un proyecto desde cero aplicando SDD.
-2. **Given** que el usuario está en US5, **When** selecciona "Ver Ejemplo Proyecto Legado", **Then** ve un proyecto con código existente aplicando SDD.
+1. **Given** que el usuario está en US5, **When** selecciona "Ver Ejemplo Greenfield", **Then** ve un proyecto desde cero aplicando SDD.
+2. **Given** que el usuario está en US5, **When** selecciona "Ver Ejemplo Brownfield", **Then** ve un proyecto con código existente aplicando SDD.
 3. **Given** que el usuario ve un ejemplo, **When** hace clic en "Ver artefactos generados", **Then** puede descargar spec.md, plan.md, tasks.md de ese caso.
 
 ---
 
-### User Story 3 - Plantillas descargables listas para usar (Priority: P3)
+### User Story3 - Plantillas descargables listas para usar (Priority: P3)
 
 Como desarrollador, quiero descargar plantillas de documentos SDD (spec.md, plan.md, etc.), para poder aplicar la metodología sin empezar desde cero.
 
@@ -67,16 +74,17 @@ Como desarrollador, quiero descargar plantillas de documentos SDD (spec.md, plan
 
 - **FR-001**: Sistema DEBE mostrar una guía paso a paso interactiva con las 5 fases de SDD (Specify, Clarify, Plan, Tasks, Implement).
 - **FR-002**: Sistema DEBE permitir al usuario avanzar y retroceder en la guía paso a paso.
-- **FR-003**: Sistema DEBE mostrar ejemplos prácticos de proyectos greenfield y brownfield aplicando SDD.
+- **FR-003**: Sistema DEBE mostrar ejemplos prácticos de proyectos Greenfield y Brownfield aplicando SDD.
 - **FR-004**: Sistema DEBE permitir descargar plantillas de documentos SDD (spec.md, plan.md, tasks.md) en formato .md o .zip.
 - **FR-005**: Usuarios DEBEN poder marcar checklists de verificación por cada fase en la guía.
-- **FR-006**: Sistema DEBE integrar los casos de estudio de US4 (case-studies.js) como ejemplos prácticos.
+- **FR-006**: Sistema DEBE integrar los casos de estudio de US4 (case-studies.js) como ejemplos prácticos Greenfield/Brownfield.
 - **FR-007**: Sistema DEBE mostrar un resumen final cuando el usuario complete la guía paso a paso.
+- **FR-008**: Guía interactiva y plantillas DEBEN cumplir con estándares WCAG AA (como US2/US4).
 
 ### Key Entities *(include if feature involves data)*
 
 - **Guía Interactiva**: Representa el recorrido paso a paso. Atributos: fase actual, progreso (%), checklist por fase.
-- **Ejemplo Práctico**: Caso de estudio (greenfield/brownfield). Atributos: tipo, descripción, artefactos generados.
+- **Ejemplo Práctico**: Caso de estudio (Greenfield/Brownfield). Atributos: tipo, descripción, artefactos generados.
 - **Plantilla**: Documento .md descargable. Atributos: tipo (spec/plan/tasks), contenido, versión.
 
 ## Success Criteria *(mandatory)*
@@ -87,6 +95,7 @@ Como desarrollador, quiero descargar plantillas de documentos SDD (spec.md, plan
 - **SC-002**: Usuarios pueden descargar plantillas en menos de 5 segundos.
 - **SC-003**: 85% de usuarios que ven los ejemplos prácticos reportan "entienden cómo aplicar SDD en proyectos reales" (encuesta post-ejemplo).
 - **SC-004**: Sistema soporta 100 usuarios simultáneos usando la guía sin degradación.
+- **SC-005**: Guía interactiva y plantillas cumplen con estándares WCAG AA (como US2/US4).
 
 ## Assumptions
 
