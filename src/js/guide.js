@@ -14,8 +14,25 @@ class InteractiveGuide {
     this.lastVisit = null;
     
     this.loadProgress();
-    this.render();
-    this.attachEvents();
+    // Don't render immediately - wait for start button
+    this.attachStartButton();
+  }
+  
+  attachStartButton() {
+    const startBtn = document.getElementById('start-guide');
+    if (startBtn) {
+      startBtn.addEventListener('click', () => {
+        this.render();
+        startBtn.style.display = 'none';
+      });
+      startBtn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.render();
+          startBtn.style.display = 'none';
+        }
+      });
+    }
   }
 
   initializeChecklists() {
