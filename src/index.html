@@ -85,14 +85,12 @@
             <li><a href="#process-walkthrough" class="sidebar__link">Recorrido Interactivo</a></li>
           </ul>
         </li>
-        <li class="sidebar__section" data-section-target="guide">
+        <li class="sidebar__section" data-section-target="templates">
           <button class="sidebar__section-btn" type="button" aria-expanded="false">
-            <span>Uso Práctico</span>
+            <span>Plantillas</span>
             <svg class="sidebar__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
           </button>
           <ul class="sidebar__submenu">
-            <li><a href="#guide-container" class="sidebar__link">Guía interactiva</a></li>
-            <li><a href="#guide-examples" class="sidebar__link">Ejemplos Prácticos</a></li>
             <li><a href="#guide-templates" class="sidebar__link">Plantillas Descargables</a></li>
           </ul>
         </li>
@@ -129,7 +127,7 @@
 
   <main id="main-content">
     <!-- Hero Section: What is SDD -->
-    <section class="hero" data-trackable>
+    <section class="hero" id="hero" data-trackable>
       <div class="hero__container">
 
         <!-- Definition -->
@@ -1012,49 +1010,30 @@
             </div>
           </div>
         </div>
-
-        <div class="walkthrough-section" id="process-walkthrough" data-section-nav="process-walkthrough" data-section-title="Recorrido Interactivo">
-          <h3>Recorrido Interactivo</h3>
-          <p class="process__intro">Aplica SDD en proyectos reales. Elige entre un proyecto nuevo (greenfield) o uno legado (brownfield).</p>
-          <div class="walkthrough-start-buttons">
-            <button id="walkthrough-start-greenfield" type="button">Iniciar Greenfield</button>
-            <button id="walkthrough-start-brownfield" type="button">Iniciar Brownfield</button>
-          </div>
-          <div id="walkthrough-container">
-            <!-- Walkthrough UI rendered by walkthrough.js -->
-          </div>
-        </div>
          </div>
       </section>
     </main>
 
-    <!-- US5: Uso Práctico de SDD -->
-    <section class="guide-section" id="guide" data-trackable>
+    <div class="walkthrough-section" id="process-walkthrough" data-section-nav="process-walkthrough" data-section-title="Recorrido Interactivo">
+      <h3>Recorrido Interactivo</h3>
+      <p class="process__intro">Aplica SDD en proyectos reales. Elige entre un proyecto nuevo (greenfield) o uno legado (brownfield).</p>
+      <div class="walkthrough-start-buttons">
+        <button id="walkthrough-start-greenfield" type="button">Iniciar Greenfield</button>
+        <button id="walkthrough-start-brownfield" type="button">Iniciar Brownfield</button>
+      </div>
+      <div id="walkthrough-container">
+        <!-- Walkthrough UI rendered by walkthrough.js -->
+      </div>
+    </div>
+
+    <!-- US5: Plantillas Descargables -->
+    <section class="guide-section" id="templates" data-trackable>
       <div class="guide__container">
-        <h2>Uso Práctico de SDD</h2>
-        <p class="guide__intro">Aprende a aplicar la metodología SDD en proyectos reales con una guía paso a paso, ejemplos prácticos y plantillas descargables.</p>
-        
-        <div class="guide__controls">
-          <button id="start-guide" type="button">Comenzar Guía</button>
-        </div>
+        <h2>Plantillas Descargables</h2>
+        <p class="guide__intro">Descarga las plantillas SDD para aplicar la metodología en tus proyectos.</p>
 
-        <div id="guide-container" data-section-nav="guide-interactive" data-section-title="Guía interactiva">
-          <!-- Interactive Guide UI rendered by guide.js -->
-        </div>
-
-        <div class="guide__examples" id="guide-examples" data-section-nav="guide-examples" data-section-title="Ejemplos Prácticos">
-          <h3>Ejemplos Prácticos</h3>
-          <div class="example-selector">
-            <button data-type="Greenfield" class="active" type="button">Ver Ejemplo Greenfield</button>
-            <button data-type="Brownfield" type="button">Ver Ejemplo Brownfield</button>
-          </div>
-          <div id="example-container">
-            <!-- Example view rendered by guide.js -->
-          </div>
-        </div>
-
-        <div class="guide__templates" id="guide-templates" data-section-nav="guide-templates" data-section-title="Plantillas Descargables">
-          <h3>Plantillas Descargables</h3>
+        <div class="guide__templates" id="guide-templates">
+          <h3>Plantillas SDD</h3>
           <button id="download-templates" type="button">Descargar Plantillas SDD</button>
         </div>
       </div>
@@ -1127,11 +1106,10 @@
   <script src="js/hero.js" defer></script>
   <script src="js/phases.js" defer></script>
   <script src="js/roles.js" defer></script>
-  <!-- US4: Data Files (must load before US5 guide.js) -->
+  <!-- US4: Data Files (case studies for walkthrough + process diagram) -->
   <script src="js/data/case-studies.js" defer></script>
-  <!-- US5: Uso Práctico Scripts (need caseStudies data) -->
+  <!-- US5: Template Download Script -->
   <script src="js/download-manager.js" defer></script>
-  <script src="js/guide.js" defer></script>
   <!-- US4: Data Files (must load before process-diagram.js) -->
   <script src="js/data/phases-enhanced.js" defer></script>
   <script src="js/data/diagram-layout.js" defer></script>

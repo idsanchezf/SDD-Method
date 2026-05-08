@@ -306,3 +306,8 @@ const caseStudies = [
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = caseStudies;
 }
+
+// Also expose on window for scripts that reference window.caseStudies
+if (typeof window !== 'undefined') {
+  window.caseStudies = caseStudies;
+}

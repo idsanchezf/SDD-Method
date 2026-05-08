@@ -1,7 +1,10 @@
 .collab-flow-section {
-  padding: var(--space-2xl) var(--space-lg);
-  max-width: var(--max-width);
-  margin: 0 auto;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: var(--bg-primary, #ffffff);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .collab-flow__container {
