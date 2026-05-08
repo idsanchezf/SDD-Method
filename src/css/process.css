@@ -211,6 +211,21 @@
   stroke: var(--color-danger-dark, #DC2626);
 }
 
+.diagram-gate--explored .diagram-gate-polygon {
+  fill: var(--color-gate-explored, #10B981);
+  stroke: var(--color-gate-explored-border, #059669);
+}
+
+.diagram-gate--explored.diagram-gate--failed .diagram-gate-polygon {
+  fill: var(--color-gate-failed, #EF4444);
+  stroke: var(--color-danger-dark, #DC2626);
+}
+
+.diagram-gate--selected .diagram-gate-polygon {
+  stroke: var(--color-primary, #2563eb);
+  stroke-width: 3;
+}
+
 /* ==============================
    Walkthrough Section
    ============================== */

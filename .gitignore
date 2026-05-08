@@ -34,3 +34,9 @@ coverage/
 dist/
 build/
 out/
+
+# Dependencies (if npm added later)
+node_modules/
+
+# Tool state
+.opencode/

@@ -17,6 +17,10 @@
   --color-warning: #f59e0b;
   --color-error: #ef4444;
 
+  /* Quality Gates */
+  --color-gate-explored: #10B981;
+  --color-gate-explored-border: #059669;
+
   /* Typography */
   --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-family-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

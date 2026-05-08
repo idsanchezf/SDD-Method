@@ -96,12 +96,21 @@ const diagramLayout = {
   ],
 
   // Quality gates (diamond shapes at top)
+  // IDs match quality-points.js entries for gate panel lookup
   gates: [
-    { id: "spec-review", phaseId: "specify", x: 170, y: 80, label: "Review" },
-    { id: "clarify-review", phaseId: "clarify", x: 390, y: 80, label: "Review" },
-    { id: "plan-review", phaseId: "plan", x: 610, y: 80, label: "Review" },
-    { id: "tasks-code-review", phaseId: "tasks", x: 830, y: 80, label: "Code Review" },
-    { id: "implement-uat", phaseId: "implement", x: 1050, y: 80, label: "UAT" }
+    { id: "spec-complete", phaseId: "specify", x: 150, y: 55, label: "Spec Review" },
+    { id: "spec-testable", phaseId: "specify", x: 190, y: 80, label: "Testable" },
+    { id: "spec-consistent", phaseId: "specify", x: 170, y: 110, label: "Consistency" },
+    { id: "clarify-ambiguities-resolved", phaseId: "clarify", x: 370, y: 60, label: "Ambiguities" },
+    { id: "clarify-scope-clear", phaseId: "clarify", x: 410, y: 90, label: "Scope Clear" },
+    { id: "plan-tasks-identified", phaseId: "plan", x: 590, y: 55, label: "Tasks Identified" },
+    { id: "plan-dependencies-mapped", phaseId: "plan", x: 630, y: 80, label: "Dependencies" },
+    { id: "plan-estimates-realistic", phaseId: "plan", x: 610, y: 110, label: "Estimates" },
+    { id: "tasks-code-quality", phaseId: "tasks", x: 810, y: 60, label: "Code Quality" },
+    { id: "tasks-tested", phaseId: "tasks", x: 850, y: 90, label: "Tested" },
+    { id: "implement-acceptance-tests-pass", phaseId: "implement", x: 1030, y: 55, label: "Acceptance Tests" },
+    { id: "implement-code-review-done", phaseId: "implement", x: 1070, y: 80, label: "Code Review" },
+    { id: "implement-docs-complete", phaseId: "implement", x: 1050, y: 110, label: "Docs Complete" }
   ],
 
   // Responsive breakpoints (mobile layout adjustments)
