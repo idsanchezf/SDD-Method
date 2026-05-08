@@ -1,5 +1,5 @@
 <!-- SPECKIT START -->
 For additional context about technologies to be used, project structure,
 shell commands, and other important information, read the current plan:
-`specs/017-quality-gates/plan.md`
+`specs/018-spec-anatomy/plan.md`
 <!-- SPECKIT END -->
