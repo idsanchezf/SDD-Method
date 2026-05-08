@@ -297,8 +297,8 @@ class ProcessDiagram {
         'data-gate-id': gateData.id,
         'data-phase-id': gateData.phaseId,
         tabindex: '0',
-        role: 'img',
-        'aria-label': `Quality Gate: ${gateData.label}`
+        role: 'button',
+        'aria-label': `Quality Gate: ${gateData.label}. Presiona Enter para ver detalles.`
       });
 
       // Diamond shape for gate
@@ -362,10 +362,19 @@ class ProcessDiagram {
       });
     });
 
-    // Gate click events (for toggling visibility)
+    // Gate click/keydown events (dispatch gate:select for GatePanel)
     this.gates.forEach(gate => {
-      gate.element.addEventListener('click', () => {
-        this.toggleGateHighlight(gate.phaseId);
+      gate.element.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.dispatchEvent('gate:select', { gateId: gate.gateId, phaseId: gate.phaseId });
+      });
+
+      gate.element.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          this.dispatchEvent('gate:select', { gateId: gate.gateId, phaseId: gate.phaseId });
+        }
       });
     });
 
@@ -510,7 +519,7 @@ class ProcessDiagram {
   }
 
   dispatchEvent(eventName, detail) {
-    const event = new CustomEvent(eventName, { detail });
+    const event = new CustomEvent(eventName, { bubbles: true, detail });
     this.svg.dispatchEvent(event);
   }
 

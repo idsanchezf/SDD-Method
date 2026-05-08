@@ -21,6 +21,8 @@
   <link rel="stylesheet" href="css/constitution.css">
   <!-- US7: Collaboration Flow Styles -->
   <link rel="stylesheet" href="css/collab-flow.css">
+  <!-- US8: Quality Gates Panel Styles -->
+  <link rel="stylesheet" href="css/gate-panel.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -1000,6 +1002,17 @@
           <!-- SVG diagram rendered by process-diagram.js -->
         </div>
 
+        <!-- US8: Quality Gates Panel -->
+        <div id="gate-panel" class="gate-panel" role="dialog" aria-labelledby="gate-panel-title" aria-hidden="true">
+          <div class="gate-panel__overlay"></div>
+          <div class="gate-panel__content">
+            <button class="gate-panel__close" type="button" aria-label="Cerrar panel">&times;</button>
+            <div class="gate-panel__body">
+              <!-- Rendered by GatePanel -->
+            </div>
+          </div>
+        </div>
+
         <div class="walkthrough-section" id="process-walkthrough" data-section-nav="process-walkthrough" data-section-title="Recorrido Interactivo">
           <h3>Recorrido Interactivo</h3>
           <p class="process__intro">Aplica SDD en proyectos reales. Elige entre un proyecto nuevo (greenfield) o uno legado (brownfield).</p>
@@ -1134,5 +1147,7 @@
   <script src="js/constitution.js" defer></script>
   <!-- US7: Collaboration Flow -->
   <script src="js/collab-flow.js" defer></script>
+  <!-- US8: Quality Gates Panel -->
+  <script src="js/gate-panel.js" defer></script>
 </body>
 </html>
