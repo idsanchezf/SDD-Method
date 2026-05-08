@@ -125,6 +125,7 @@ const Sidebar = {
     if (el.id === 'process-end-to-end') return 'process-end-to-end';
     if (el.id === 'guide') return 'guide';
     if (el.id === 'constitution') return 'constitution';
+    if (el.id === 'collab-flow') return 'collab-flow';
     return null;
   },
 
