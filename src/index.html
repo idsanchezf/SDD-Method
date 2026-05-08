@@ -23,6 +23,8 @@
   <link rel="stylesheet" href="css/collab-flow.css">
   <!-- US8: Quality Gates Panel Styles -->
   <link rel="stylesheet" href="css/gate-panel.css">
+  <!-- US15: Spec Anatomy Styles -->
+  <link rel="stylesheet" href="css/spec-anatomy.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -113,6 +115,18 @@
             <li><a href="#principles-grid" class="sidebar__link">Principios</a></li>
             <li><a href="#constitution-checker" class="sidebar__link">Constitution Checker</a></li>
             <li><a href="#constitution-summary" class="sidebar__link">Progreso</a></li>
+          </ul>
+        </li>
+        <li class="sidebar__section" data-section-target="spec-anatomy">
+          <button class="sidebar__section-btn" type="button" aria-expanded="false">
+            <span>Anatomía de Specs</span>
+            <svg class="sidebar__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <ul class="sidebar__submenu">
+            <li><a href="#spec-anatomy-overview" class="sidebar__link">Anatomía</a></li>
+            <li><a href="#spec-anatomy-gwt" class="sidebar__link">Given/When/Then</a></li>
+            <li><a href="#spec-anatomy-edgecases" class="sidebar__link">Edge Cases</a></li>
+            <li><a href="#spec-anatomy-examples" class="sidebar__link">Ejemplos</a></li>
           </ul>
         </li>
       </ul>
@@ -1101,6 +1115,74 @@
         </div>
       </div>
     </section>
+
+    <!-- US15: Spec Anatomy Section -->
+    <section class="spec-anatomy-section" id="spec-anatomy" data-trackable>
+      <div class="spec-anatomy__container">
+        <h2>Anatomía de una Spec SDD</h2>
+        <p class="section-intro">Una especificación SDD tiene una estructura estándar con 6 secciones principales. Cada una cumple un propósito específico. Haz clic en cada sección para ver su detalle.</p>
+
+        <!-- US1: Anatomy Overview -->
+        <div id="spec-anatomy-overview" data-section-nav="spec-anatomy-overview" data-section-title="Anatomía">
+          <h3 class="spec-anatomy__subtitle">Estructura del spec.md</h3>
+          <div class="spec-anatomy__diagram" id="anatomy-diagram">
+            <!-- Rendered by spec-anatomy.js -->
+          </div>
+        </div>
+
+        <!-- US2: GWT Examples -->
+        <div id="spec-anatomy-gwt" data-section-nav="spec-anatomy-gwt" data-section-title="Given/When/Then">
+          <h3 class="spec-anatomy__subtitle">Formato Given / When / Then</h3>
+          <p class="section-intro">Compara escenarios bien escritos vs mal escritos. Una buena spec siempre tiene precondiciones claras (Given), acciones concretas (When) y resultados verificables (Then).</p>
+          <div class="spec-anatomy__gwt" id="gwt-examples">
+            <!-- Rendered by spec-anatomy.js -->
+          </div>
+          <div class="gwt-patterns" id="gwt-patterns">
+            <h4>Patrones Avanzados</h4>
+            <!-- Rendered by spec-anatomy.js -->
+          </div>
+        </div>
+
+        <!-- US3: Edge Cases -->
+        <div id="spec-anatomy-edgecases" data-section-nav="spec-anatomy-edgecases" data-section-title="Edge Cases">
+          <h3 class="spec-anatomy__subtitle">Técnicas para Descubrir Edge Cases</h3>
+          <p class="section-intro">Usa estas 5 técnicas sistemáticas para asegurar que tu spec cubre todos los escenarios importantes antes de pasar a implementación.</p>
+          <div class="spec-anatomy__edgecases" id="edgecase-techniques">
+            <!-- Rendered by spec-anatomy.js -->
+          </div>
+        </div>
+
+        <!-- US4: Annotated Examples -->
+        <div id="spec-anatomy-examples" data-section-nav="spec-anatomy-examples" data-section-title="Ejemplos">
+          <h3 class="spec-anatomy__subtitle">Ejemplos Anotados</h3>
+          <p class="section-intro">Selecciona una spec para ver su contenido completo con anotaciones. Activa "Comparar" para ver ambas lado a lado.</p>
+          <div class="examples-tabs" role="tablist" aria-label="Selector de ejemplo">
+            <button class="examples-tab examples-tab--active" data-type="good" role="tab" aria-selected="true" type="button">Spec Correcta</button>
+            <button class="examples-tab" data-type="bad" role="tab" aria-selected="false" type="button">Spec Incorrecta</button>
+            <button class="examples-tab" data-type="both" role="tab" aria-selected="false" type="button">Comparar</button>
+          </div>
+          <div class="examples-content" id="examples-content">
+            <!-- Rendered by spec-anatomy.js -->
+          </div>
+        </div>
+
+        <!-- Section Footer -->
+        <div class="spec-anatomy__footer">
+          <span>Versión: 1.0.0</span>
+          <span>Última actualización: 2026-05-08</span>
+        </div>
+
+        <!-- Cross-links -->
+        <div class="cross-links">
+          <h4>Aprende más</h4>
+          <ul>
+            <li><a href="#guide-templates">Plantillas SDD</a></li>
+            <li><a href="#phases-grid">Las 5 Fases</a></li>
+            <li><a href="#hero-definition">¿Qué es SDD?</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
   </main>
 
   <script src="js/hero.js" defer></script>
@@ -1127,5 +1209,7 @@
   <script src="js/collab-flow.js" defer></script>
   <!-- US8: Quality Gates Panel -->
   <script src="js/gate-panel.js" defer></script>
+  <!-- US15: Spec Anatomy -->
+  <script src="js/spec-anatomy.js" defer></script>
 </body>
 </html>

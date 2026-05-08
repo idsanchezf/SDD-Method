@@ -122,6 +122,7 @@ const Sidebar = {
     if (el.id === 'templates') return 'templates';
     if (el.id === 'constitution') return 'constitution';
     if (el.id === 'collab-flow') return 'collab-flow';
+    if (el.id === 'spec-anatomy') return 'spec-anatomy';
     return null;
   },
 
