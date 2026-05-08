@@ -372,6 +372,88 @@ Como usuario del sitio, quiero un menú de navegación lateral (sidebar) en el l
 - **SC-005**: El sitio obtiene una puntuación de accesibilidad WCAG AA o superior en herramientas de auditoría automatizadas.
 - **SC-006**: Los usuarios califican la claridad del contenido con un promedio de 4/5 o superior en una encuesta de satisfacción integrada.
 
+---
+
+### User Story 15 - Anatomía y escritura de Specs SDD (Priority: P1)
+**Status**: Proposed
+
+Como practitioner de SDD, quiero entender la estructura completa de un spec.md (frontmatter, secciones, formato Given/When/Then, edge cases), para poder escribir especificaciones claras y verificables desde el primer intento.
+
+**Why this priority**: Las 5 fases existen pero el *core skill* de SDD —escribir una buena spec— no se enseña explícitamente. El sitio menciona spec.md como artefacto pero no explica su anatomía interna.
+
+**Independent Test**: Un usuario puede escribir una spec desde cero siguiendo la plantilla aprendida, incluyendo: frontmatter con metadatos, contexto, user story con acceptance criteria en Given/When/Then, y al menos 2 edge cases documentados.
+
+**Acceptance Scenarios**:
+
+1. **Given** que el usuario accede a la sección "Anatomía de una Spec", **When** lee el contenido, **Then** ve la estructura completa de un spec.md: frontmatter (feature, autor, fecha, versión), secciones (goal, contexto, user stories, acceptance criteria, edge cases, preguntas abiertas).
+2. **Given** que el usuario quiere entender Given/When/Then, **When** ve la sección de ejemplos, **Then** encuentra ejemplos concretos de escenarios bien escritos vs mal escritos, con explicación de por qué.
+3. **Given** que el usuario necesita identificar edge cases, **When** revisa la guía, **Then** aprende técnicas sistemáticas para descubrir edge cases (límites, negaciones, estados vacíos, errores).
+4. **Given** que el usuario quiere practicar, **When** accede a la sección interactiva, **Then** puede ver spec de ejemplo anotada con explicaciones de cada sección.
+
+**Archivos**: Nueva sección en `src/index.html`, `src/css/spec-anatomy.css`, `src/js/spec-anatomy.js`
+
+---
+
+### User Story 16 - Definition of Done, Feedback Loop y Versionado de Specs (Priority: P2)
+**Status**: Proposed
+
+Como líder técnico adoptando SDD, quiero criterios formales de Definition of Done por fase y entender el ciclo de feedback Implement→Specify, para asegurar que el proceso no se vuelve una cascada rígida y que las specs evolucionan con el aprendizaje de la implementación.
+
+**Why this priority**: El sitio presenta SDD como un flujo lineal (Specify→Implement). En la práctica, SDD es iterativo: la implementación descubre ambigüedades que requieren volver a la spec. Sin este concepto, los equipos aplican SDD como waterfall disfrazado.
+
+**Independent Test**: Un usuario puede explicar cuándo una fase está "done", cómo una spec se actualiza durante implementación, y cómo versionar cambios sin perder trazabilidad.
+
+**Acceptance Scenarios**:
+
+1. **Given** que el usuario accede a "DoD y Feedback Loop", **When** selecciona una fase, **Then** ve los criterios de Definition of Done específicos para esa fase (ej. Specify done cuando: todas las user stories tienen acceptance criteria medibles, edge cases documentados, glossary terms definidos).
+2. **Given** que el usuario entiende el ciclo de feedback, **When** explora el diagrama interactivo, **Then** ve flechas de retroalimentación desde Implement hacia Specify y Clarify, con explicación de cuándo y por qué se retrocede.
+3. **Given** que el usuario trabaja en un equipo multi-LLM, **When** revisa la sección de versionado, **Then** aprende cómo versionar specs (semver para specs), cómo hacer diff entre versiones, y cómo documentar decisiones de cambio.
+4. **Given** que un equipo necesita manejar cambios durante implementación, **When** consulta la guía, **Then** ve un protocolo: (1) documentar el hallazgo, (2) evaluar impacto en spec, (3) actualizar spec con changelog, (4) notificar a revisores.
+
+**Archivos**: Nueva sección en `src/index.html`, extensión de `process.css`/`process-diagram.js` para flechas de feedback
+
+---
+
+### User Story 17 - Testing, No-Funcionales y Failure Modes en SDD (Priority: P3)
+**Status**: Proposed
+
+Como desarrollador o QA en un equipo SDD, quiero entender cómo los acceptance criteria se traducen en tests automatizados, cómo especificar requisitos no funcionales y cómo responder cuando un quality gate falla, para cerrar el ciclo calidad-verificación de SDD.
+
+**Why this priority**: SDD promete "calidad por diseño" pero el sitio no explica el mecanismo concreto: acceptance criteria → tests → gates. Tampoco cubre cómo especificar performance, seguridad o accesibilidad, que son las preguntas más frecuentes de equipos adoptando SDD.
+
+**Independent Test**: Un usuario puede convertir un acceptance criterion en un test, especificar un requisito no funcional en una spec, y seguir el protocolo de remediación cuando un quality gate falla.
+
+**Acceptance Scenarios**:
+
+1. **Given** que el usuario está en la sección "Testing SDD", **When** ve un acceptance criterion en Given/When/Then, **Then** se muestra su correspondiente test automatizado (ej. Jest/Vitest) con explicación línea por línea de la correspondencia.
+2. **Given** que el usuario necesita especificar rendimiento, **When** consulta la guía de no-funcionales, **Then** ve cómo incluir criterios de performance (ej. "La respuesta debe ser < 200ms p95"), seguridad (ej. "El endpoint debe rechazar peticiones sin token") y accesibilidad (ej. "El formulario debe ser navegable por teclado") en el formato de spec.
+3. **Given** que el usuario simula un quality gate fallido, **When** el panel muestra FAILED, **Then** ve un protocolo de remediación estructurado: (1) diagnosticar causa raíz, (2) decidir si es problema de spec o de implementación, (3) corregir y re-verificar, (4) documentar lección aprendida.
+4. **Given** que el usuario quiere entender modos de fallo comunes, **When** explora la sección de failure modes, **Then** ve casos típicos: spec ambigua que pasa revisión, implementación que cumple la letra pero no el espíritu, cambio de contexto de negocio que invalida la spec, con ejemplos de cada uno y cómo recuperarse.
+
+**Archivos**: Nueva sección en `src/index.html`, extensión de `gate-panel.js`/`gate-panel.css` para protocolo de remediación
+
+---
+
+### User Story 18 - Prerrequisitos para adoptar SDD (Priority: P1)
+**Status**: Proposed
+
+Como líder técnico evaluando SDD para mi equipo, quiero una sección que liste los prerrequisitos técnicos y culturales necesarios antes de adoptar la metodología, para evaluar si mi equipo está preparado y qué brechas cerrar primero.
+
+**Why this priority**: El sitio actual asume que el visitante ya sabe Git, Markdown, testing y tiene una mentalidad spec-first. En la práctica, equipos que quieren adoptar SDD fracasan porque les faltan estas bases. Sin esta sección, el equipo intenta SDD sin estar listo y abandona por frustración.
+
+**Independent Test**: Un líder técnico puede evaluar si su equipo cumple los prerrequisitos usando un checklist interactivo, identificar las brechas y acceder a recursos recomendados para cerrarlas antes de comenzar con SDD.
+
+**Acceptance Scenarios**:
+
+1. **Given** que el usuario accede a "Prerrequisitos SDD", **When** lee la sección, **Then** ve organizados por categoría: — **Técnicos**: Git (feature branches, PRs, commits), Markdown (encabezados, listas, tablas, code blocks), testing (unitario, integración, Given/When/Then), CLI básico. — **Metodológicos**: experiencia previa con Agile/iteraciones, familiaridad con code review, apertura a trabajo asistido por IA. — **Herramientas**: editor de texto (VS Code recomendado), linter de Markdown, CI/CD básico (GitHub Actions u equivalente).
+2. **Given** que el usuario quiere evaluar a su equipo, **When** interactúa con el checklist, **Then** puede marcar qué prerrequisitos cumple su equipo y ver un veredicto: "Ready para SDD", "Casi listo (X brechas)" o "Faltan bases (revisar Y recursos)".
+3. **Given** que un prerrequisito no se cumple, **When** el usuario hace clic en él, **Then** se expande con recursos recomendados: tutoriales, documentación externa, ejemplos prácticos para cerrar esa brecha.
+4. **Given** que el equipo no cumple varios prerrequisitos, **When** el usuario completa el checklist, **Then** recibe una ruta sugerida de preparación ordenada por dependencias (ej. "Primero Git, luego Markdown, luego testing").
+
+**Archivos**: Nueva sección en `src/index.html` (después de hero, antes de phases), `src/css/prerequisites.css`, `src/js/prerequisites.js`
+
+---
+
 ## Backlog Prioritization Summary
 
 | US | Título | Prioridad | Status | Esfuerzo Est. |
@@ -390,8 +472,12 @@ Como usuario del sitio, quiero un menú de navegación lateral (sidebar) en el l
 | **12** | **Simulador de Specs** | **P3** | **📋 Proposed** | **Grande (4-5 días)** |
 | **13** | **Métricas y ROI** | **P3** | **📋 Proposed** | **Grande (4-5 días)** |
 | **14** | **Menú interno por sección** | **P2** | **🔄 In Progress** | **Pequeño (1-2 días)** |
+| **15** | **Anatomía y escritura de Specs** | **P1** | **📋 Proposed** | **Medio (3-4 días)** |
+| **16** | **DoD, Feedback Loop y Versionado** | **P2** | **📋 Proposed** | **Medio (2-3 días)** |
+| **17** | **Testing, No-Funcionales y Failure Modes** | **P3** | **📋 Proposed** | **Grande (4-5 días)** |
+| **18** | **Prerrequisitos para adoptar SDD** | **P1** | **📋 Proposed** | **Pequeño (1-2 días)** |
 
-**Recomendación**: Abordar US6 + US7 primero (P1) por ser los gaps metodológicos más críticos, luego US14 (P2) como mejora transversal de navegabilidad.
+**Recomendación**: Abordar US6 + US7 + US15 + US18 primero (P1) por ser los gaps metodológicos más críticos. US14 + US16 (P2) como mejoras de navegabilidad e iteratividad. US17 (P3) para cerrar el ciclo calidad-verificación.
 
 ## Assumptions
 
