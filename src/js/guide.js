@@ -507,4 +507,69 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.interactiveGuide = new InteractiveGuide(caseStudies);
   }
+
+  // Initialize example buttons (Greenfield / Brownfield)
+  const exampleContainer = document.getElementById('example-container');
+  const exampleButtons = document.querySelectorAll('.example-selector button');
+  if (exampleContainer && exampleButtons.length > 0) {
+    exampleButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const type = btn.getAttribute('data-type').toLowerCase();
+        exampleButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderExample(type);
+      });
+    });
+
+    function renderExample(type) {
+      const allCaseStudies = window.caseStudies || [];
+      const cs = allCaseStudies.find(c => c.id === type);
+      if (!cs) {
+        exampleContainer.innerHTML = '<p>No hay datos disponibles para este ejemplo.</p>';
+        return;
+      }
+
+      exampleContainer.innerHTML = `
+        <div class="example-card">
+          <h4>${cs.title}</h4>
+          <p class="example-description">${cs.description}</p>
+          <div class="example-context">
+            <h5>Contexto del Proyecto</h5>
+            <p>${cs.projectContext}</p>
+          </div>
+          <div class="example-highlights">
+            <h5>Aspectos Destacados</h5>
+            <ul>
+              ${cs.highlights.map(h => `<li>${h}</li>`).join('')}
+            </ul>
+          </div>
+          <div class="example-phases">
+            <h5>Fases del Proceso SDD</h5>
+            ${cs.phases.map(phase => `
+              <div class="example-phase">
+                <h6>Fase: ${phase.phaseId.charAt(0).toUpperCase() + phase.phaseId.slice(1)}</h6>
+                <p>${phase.situation}</p>
+                <div class="example-artifact">
+                  <strong>Artefacto: ${phase.artifactExample.name}</strong>
+                  <pre><code>${escapeHtml(phase.artifactExample.content.substring(0, 300))}...</code></pre>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // Render default (Greenfield)
+    const defaultBtn = document.querySelector('.example-selector button.active');
+    if (defaultBtn) {
+      renderExample(defaultBtn.getAttribute('data-type').toLowerCase());
+    }
+  }
 });

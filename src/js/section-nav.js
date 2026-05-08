@@ -22,9 +22,7 @@ const Sidebar = {
     this.setupScrollSpy();
     this.handleResize();
 
-    if (window.innerWidth >= this.desktopBreakpoint) {
-      this.open();
-    }
+    // Desktop sidebar starts closed (open via toggle button)
   },
 
   setupToggle() {
@@ -42,7 +40,7 @@ const Sidebar = {
     }
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && this.isOpen && window.innerWidth < this.desktopBreakpoint) {
+      if (e.key === 'Escape' && this.isOpen) {
         this.close();
       }
     });
@@ -72,9 +70,7 @@ const Sidebar = {
     const links = this.sidebar.querySelectorAll('.sidebar__link');
     links.forEach((link) => {
       link.addEventListener('click', () => {
-        if (window.innerWidth < this.desktopBreakpoint) {
-          this.close();
-        }
+        this.close();
       });
     });
   },
@@ -123,7 +119,7 @@ const Sidebar = {
     if (el.id === 'phases') return 'phases';
     if (el.id === 'roles') return 'roles';
     if (el.id === 'process-end-to-end') return 'process-end-to-end';
-    if (el.id === 'guide') return 'guide';
+    if (el.id === 'templates') return 'templates';
     if (el.id === 'constitution') return 'constitution';
     if (el.id === 'collab-flow') return 'collab-flow';
     return null;
@@ -157,12 +153,14 @@ const Sidebar = {
     this.isOpen = true;
     this.sidebar.classList.add('sidebar--open');
     this.toggleBtn.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('sidebar-visible');
   },
 
   close() {
     this.isOpen = false;
     this.sidebar.classList.remove('sidebar--open');
     this.toggleBtn.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('sidebar-visible');
   },
 
   handleResize() {
@@ -172,10 +170,10 @@ const Sidebar = {
       resizeTimer = setTimeout(() => {
         const isDesktop = window.innerWidth >= this.desktopBreakpoint;
         if (isDesktop) {
-          this.open();
           if (this.overlay) this.overlay.style.display = 'none';
         } else {
           if (this.overlay) this.overlay.style.display = '';
+          this.close();
         }
       }, 150);
     });

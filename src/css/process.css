@@ -7,10 +7,13 @@
    Process Section
    ============================== */
 
-#process {
-  padding: var(--spacing-xxl, 3rem) var(--spacing-lg, 1.5rem);
-  max-width: 1200px;
-  margin: 0 auto;
+#process-end-to-end {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: var(--bg-primary, #ffffff);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 #process-heading {
