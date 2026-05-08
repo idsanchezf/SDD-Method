@@ -19,6 +19,8 @@
   <link rel="stylesheet" href="css/section-nav.css">
   <!-- US6: Constitution Styles -->
   <link rel="stylesheet" href="css/constitution.css">
+  <!-- US7: Collaboration Flow Styles -->
+  <link rel="stylesheet" href="css/collab-flow.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -90,6 +92,16 @@
             <li><a href="#guide-container" class="sidebar__link">Guía interactiva</a></li>
             <li><a href="#guide-examples" class="sidebar__link">Ejemplos Prácticos</a></li>
             <li><a href="#guide-templates" class="sidebar__link">Plantillas Descargables</a></li>
+          </ul>
+        </li>
+        <li class="sidebar__section" data-section-target="collab-flow">
+          <button class="sidebar__section-btn" type="button" aria-expanded="false">
+            <span>Colaboración</span>
+            <svg class="sidebar__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <ul class="sidebar__submenu">
+            <li><a href="#collab-flow-diagram" class="sidebar__link">Diagrama</a></li>
+            <li><a href="#collab-flow-panel" class="sidebar__link">Detalle por fase</a></li>
           </ul>
         </li>
         <li class="sidebar__section" data-section-target="constitution">
@@ -1077,6 +1089,26 @@
         </div>
       </div>
     </section>
+
+    <!-- US7: Collaboration Flow -->
+    <section class="collab-flow-section" id="collab-flow" data-trackable>
+      <div class="collab-flow__container">
+        <h2>Colaboración Humano-IA</h2>
+        <p class="collab-flow__intro">Cada fase del proceso SDD tiene una combinación específica de roles humanos y de IA. Selecciona una fase para ver quién hace qué, qué prompts usar y qué supervisar.</p>
+
+        <div class="collab-flow__storage-notice" id="collab-flow-storage-notice" role="alert">
+          ⚠ El almacenamiento local no está disponible. El progreso de supervisión no se guardará entre sesiones.
+        </div>
+
+        <div class="collab-flow__diagram" id="collab-flow-diagram">
+          <!-- Diagram rendered by collab-flow.js -->
+        </div>
+
+        <div class="collab-flow__panel" id="collab-flow-panel">
+          <!-- Panel content rendered by collab-flow.js -->
+        </div>
+      </div>
+    </section>
   </main>
 
   <script src="js/hero.js" defer></script>
@@ -1100,5 +1132,7 @@
   <script src="js/section-nav.js" defer></script>
   <!-- US6: Constitution Checker -->
   <script src="js/constitution.js" defer></script>
+  <!-- US7: Collaboration Flow -->
+  <script src="js/collab-flow.js" defer></script>
 </body>
 </html>
