@@ -2,7 +2,7 @@
 
 **Feature Branch**: `sdd-method-webapp`  
 **Created**: 2026-05-05  
-**Status**: In Progress  
+**Status**: In Progress — 12/18 US implementadas (67%)  
 **Input**: User description: "generar el backlog para una aplicación web en la que se explique la metodologia de spec driven development, donde cada modulo o sección sea una hu con criterios de acptación y debe contemplar un contexto de que es la metodologia de SDD, que fases tiene, cuales son las entradas y salidas de cada fase, que roles intervienen tanto humaanos como IA y como es el proceso general. De igual forma se debe expplicar en alguna sección las responsabilidades y habilidades de cada rol tanto humano como IA"
 
 ## Clarifications
@@ -122,7 +122,7 @@ Como usuario del sitio web, quiero navegar entre secciones de forma intuitiva, c
 ---
 
 ### User Story 6 - Conocer y aplicar la Constitución SDD (Priority: P1)
-**Status**: Proposed
+**Status**: ✅ Implemented
 
 Como practitioner de SDD, quiero entender los principios constitucionales que rigen cada feature y disponer de un checklist interactivo para verificar que mi proyecto cumple antes de avanzar, para asegurar consistencia y calidad metodológica.
 
@@ -142,7 +142,7 @@ Como practitioner de SDD, quiero entender los principios constitucionales que ri
 ---
 
 ### User Story 7 - Explorar el flujo de colaboración Humano-IA (Priority: P1)
-**Status**: Proposed
+**Status**: ✅ Implemented
 
 Como usuario de SDD, quiero visualizar cómo humanos y asistentes de IA colaboran en cada fase, qué prompts usar y qué supervisión aplicar, para aprovechar la IA sin perder control de calidad.
 
@@ -162,7 +162,7 @@ Como usuario de SDD, quiero visualizar cómo humanos y asistentes de IA colabora
 ---
 
 ### User Story 8 - Inspeccionar Quality Gates interactivamente (Priority: P2)
-**Status**: Proposed
+**Status**: ✅ Implemented
 
 Como tech lead o developer, quiero hacer clic en los quality gates del diagrama de proceso para entender qué criterios verifican, qué sucede si no se pasan y cómo remediarlos, para asegurar la calidad en cada entrega.
 
@@ -277,7 +277,7 @@ Como líder técnico o gerente evaluando SDD, quiero una calculadora de ROI y vi
 ---
 
 ### User Story 14 - Navegación lateral global con submenús por sección (Priority: P2)
-**Status**: In Progress (Branch: `014-section-nav`)
+**Status**: ✅ Implemented
 
 Como usuario del sitio, quiero un menú de navegación lateral (sidebar) en el lado izquierdo que muestre las 5 secciones principales con submenús expandibles, colapsable en móvil y con scroll spy, para navegar entre secciones y sub-secciones sin scrollear manualmente.
 
@@ -375,7 +375,7 @@ Como usuario del sitio, quiero un menú de navegación lateral (sidebar) en el l
 ---
 
 ### User Story 15 - Anatomía y escritura de Specs SDD (Priority: P1)
-**Status**: Proposed
+**Status**: ✅ Implemented
 
 Como practitioner de SDD, quiero entender la estructura completa de un spec.md (frontmatter, secciones, formato Given/When/Then, edge cases), para poder escribir especificaciones claras y verificables desde el primer intento.
 
@@ -435,7 +435,7 @@ Como desarrollador o QA en un equipo SDD, quiero entender cómo los acceptance c
 ---
 
 ### User Story 18 - Prerrequisitos para adoptar SDD (Priority: P1)
-**Status**: Proposed
+**Status**: ✅ Implemented
 
 Como líder técnico evaluando SDD para mi equipo, quiero una sección que liste los prerrequisitos técnicos y culturales necesarios antes de adoptar la metodología, para evaluar si mi equipo está preparado y qué brechas cerrar primero.
 
@@ -463,21 +463,28 @@ Como líder técnico evaluando SDD para mi equipo, quiero una sección que liste
 | 3 | Roles y responsabilidades | P2 | ✅ Implemented | Completado |
 | 4 | Proceso E2E | P2 | ✅ Implemented | Completado |
 | 5 | Navegación intuitiva | P3 | ✅ Implemented | Completado |
-| **6** | **Constitución SDD** | **P1** | **📋 Proposed** | **Medio (3-4 días)** |
-| **7** | **Flujo Colaboración Humano-IA** | **P1** | **📋 Proposed** | **Medio (3-4 días)** |
-| **8** | **Quality Gates Interactivos** | **P2** | **📋 Proposed** | **Pequeño (1-2 días)** |
+| **6** | **Constitución SDD** | **P1** | **✅ Implemented** | **Completado** |
+| **7** | **Flujo Colaboración Humano-IA** | **P1** | **✅ Implemented** | **Completado** |
+| **8** | **Quality Gates Interactivos** | **P2** | **✅ Implemented** | **Completado** |
 | **9** | **Galería de Plantillas** | **P2** | **📋 Proposed** | **Pequeño (1-2 días)** |
 | **10** | **Glosario SDD** | **P2** | **📋 Proposed** | **Pequeño (1-2 días)** |
 | **11** | **Ruta de Aprendizaje** | **P2** | **📋 Proposed** | **Medio (2-3 días)** |
 | **12** | **Simulador de Specs** | **P3** | **📋 Proposed** | **Grande (4-5 días)** |
 | **13** | **Métricas y ROI** | **P3** | **📋 Proposed** | **Grande (4-5 días)** |
-| **14** | **Menú interno por sección** | **P2** | **🔄 In Progress** | **Pequeño (1-2 días)** |
-| **15** | **Anatomía y escritura de Specs** | **P1** | **📋 Proposed** | **Medio (3-4 días)** |
+| **14** | **Menú interno por sección** | **P2** | **✅ Implemented** | **Completado** |
+| **15** | **Anatomía y escritura de Specs** | **P1** | **✅ Implemented** | **Completado** |
 | **16** | **DoD, Feedback Loop y Versionado** | **P2** | **📋 Proposed** | **Medio (2-3 días)** |
 | **17** | **Testing, No-Funcionales y Failure Modes** | **P3** | **📋 Proposed** | **Grande (4-5 días)** |
-| **18** | **Prerrequisitos para adoptar SDD** | **P1** | **📋 Proposed** | **Pequeño (1-2 días)** |
+| **18** | **Prerrequisitos para adoptar SDD** | **P1** | **✅ Implemented** | **Completado** |
 
-**Recomendación**: Abordar US6 + US7 + US15 + US18 primero (P1) por ser los gaps metodológicos más críticos. US14 + US16 (P2) como mejoras de navegabilidad e iteratividad. US17 (P3) para cerrar el ciclo calidad-verificación.
+**Progreso**: 12/18 implementados (67%)
+
+**Pendientes por prioridad**:
+- **P1**: Ninguna pendiente
+- **P2**: US9 (Plantillas), US10 (Glosario), US11 (Ruta Aprendizaje), US16 (DoD/Feedback)
+- **P3**: US12 (Simulador Specs), US13 (Métricas ROI), US17 (Testing/Failure Modes)
+
+**Recomendación**: Abordar US9 + US10 (P2, esfuerzo pequeño) para mejorar adopción inmediata. Luego US16 (P2, feedback loop) para cerrar el ciclo iterativo. US11, US12, US13, US17 como fase siguiente.
 
 ## Assumptions
 
