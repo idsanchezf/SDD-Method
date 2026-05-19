@@ -36,12 +36,14 @@ class DownloadManager {
       this.downloadIndividualTemplate('spec');
       this.downloadIndividualTemplate('plan');
       this.downloadIndividualTemplate('tasks');
+      this.downloadIndividualTemplate('checklist');
+      this.downloadIndividualTemplate('constitution');
       return;
     }
 
     try {
       const zip = new JSZip();
-      const templates = ['spec', 'plan', 'tasks'];
+      const templates = ['spec', 'plan', 'tasks', 'checklist', 'constitution'];
       
       templates.forEach(type => {
         const content = this.getTemplateContent(type);
@@ -156,6 +158,181 @@ class DownloadManager {
 
 ## Testing
 - [ ] T003: [Test task]
+`,
+      'checklist': `# [CHECKLIST TYPE] Checklist: [FEATURE NAME]
+
+**Purpose**: [Brief description of what this checklist covers]
+**Created**: [DATE]
+**Feature**: [Link to spec.md or relevant documentation]
+
+## [Category 1]
+
+- [ ] CHK001 First checklist item with clear action
+- [ ] CHK002 Second checklist item
+- [ ] CHK003 Third checklist item
+
+## [Category 2]
+
+- [ ] CHK004 Another category item
+- [ ] CHK005 Item with specific criteria
+- [ ] CHK006 Final item in this category
+
+## Notes
+
+- Check items off as completed: \`[x]\`
+- Add comments or findings inline
+- Link to relevant resources or documentation
+- Items are numbered sequentially for easy reference
+`,
+      'constitution': `# [PROJECT_NAME] Constitution
+
+## Core Principles
+
+### I. [PRINCIPLE_1_NAME] (NON-NEGOTIABLE)
+
+[PRINCIPLE_1_DESCRIPTION]
+
+**Purpose**: [Why this principle exists and what problem it solves]
+
+**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement]
+
+**Violation consequences**: [What happens if this principle is violated]
+
+**Compliance examples**: [Concrete examples of following this principle]
+
+---
+
+### II. [PRINCIPLE_2_NAME]
+
+[PRINCIPLE_2_DESCRIPTION]
+
+**Purpose**: [Why this principle exists]
+
+**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement]
+
+**Violation consequences**: [What happens if violated]
+
+**Compliance examples**: [Concrete examples of compliance]
+
+---
+
+### III. [PRINCIPLE_3_NAME]
+
+[PRINCIPLE_3_DESCRIPTION]
+
+**Purpose**: [Why this principle exists]
+
+**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement]
+
+**Violation consequences**: [What happens if violated]
+
+**Compliance examples**: [Concrete examples of compliance]
+
+---
+
+### IV. [PRINCIPLE_4_NAME] (NON-NEGOTIABLE)
+
+[PRINCIPLE_4_DESCRIPTION]
+
+**Purpose**: [Why this principle exists]
+
+**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement]
+
+**Violation consequences**: [What happens if violated]
+
+**Compliance examples**: [Concrete examples of compliance]
+
+---
+
+### V. [PRINCIPLE_5_NAME]
+
+[PRINCIPLE_5_DESCRIPTION]
+
+**Purpose**: [Why this principle exists]
+
+**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement]
+
+**Violation consequences**: [What happens if violated]
+
+**Compliance examples**: [Concrete examples of compliance]
+
+---
+
+## Constitution Checker
+
+### Specify Phase
+
+- [ ] Principle I: [Name] — [Brief verification criterion]
+- [ ] Principle II: [Name] — [Brief verification criterion]
+- [ ] Principle III: [Name] — [Brief verification criterion]
+
+**Verdict**: [ ] PASS / [ ] FAIL
+
+---
+
+### Clarify Phase
+
+- [ ] Principle I: [Name] — [Brief verification criterion]
+- [ ] Principle II: [Name] — [Brief verification criterion]
+
+**Verdict**: [ ] PASS / [ ] FAIL
+
+---
+
+### Plan Phase
+
+- [ ] Principle I: [Name] — [Brief verification criterion]
+- [ ] Principle II: [Name] — [Brief verification criterion]
+- [ ] Principle III: [Name] — [Brief verification criterion]
+- [ ] Principle IV: [Name] — [Brief verification criterion]
+
+**Verdict**: [ ] PASS / [ ] FAIL
+
+---
+
+### Tasks Phase
+
+- [ ] Principle I: [Name] — [Brief verification criterion]
+- [ ] Principle IV: [Name] — [Brief verification criterion]
+- [ ] Principle V: [Name] — [Brief verification criterion]
+
+**Verdict**: [ ] PASS / [ ] FAIL
+
+---
+
+### Implement Phase
+
+- [ ] Principle I: [Name] — [Brief verification criterion]
+- [ ] Principle II: [Name] — [Brief verification criterion]
+- [ ] Principle III: [Name] — [Brief verification criterion]
+- [ ] Principle IV: [Name] — [Brief verification criterion]
+- [ ] Principle V: [Name] — [Brief verification criterion]
+
+**Verdict**: [ ] PASS / [ ] FAIL
+
+---
+
+## Technology Stack Constraints
+
+| Layer | Technology | Constraint |
+|-------|-----------|------------|
+| [Layer 1] | [Technology] | [Constraint description] |
+
+Third-party libraries MUST be approved via PR before inclusion.
+
+## Development Workflow
+
+[WORKFLOW_DESCRIPTION]
+
+## Governance
+
+[GOVERNANCE_RULES]
+
+**Amendment Process**: [How to propose and approve changes]
+
+**Versioning Policy**: [How versions are incremented]
+
+**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
 `
     };
 
@@ -171,12 +348,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadBtn = document.getElementById('download-templates');
     if (downloadBtn) {
       downloadBtn.addEventListener('click', () => {
-        if (confirm('Download all templates as .zip? (Requires JSZip library)\n\nClick "Cancel" for individual .md files.')) {
+        if (confirm('Download all 5 templates as .zip? (Requires JSZip library)\n\nClick "Cancel" for individual .md files.')) {
           window.downloadManager.downloadAllAsZip();
         } else {
           window.downloadManager.downloadIndividualTemplate('spec');
           window.downloadManager.downloadIndividualTemplate('plan');
           window.downloadManager.downloadIndividualTemplate('tasks');
+          window.downloadManager.downloadIndividualTemplate('checklist');
+          window.downloadManager.downloadIndividualTemplate('constitution');
         }
       });
     }
