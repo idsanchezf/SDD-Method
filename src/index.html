@@ -25,6 +25,8 @@
   <link rel="stylesheet" href="css/gate-panel.css">
   <!-- US15: Spec Anatomy Styles -->
   <link rel="stylesheet" href="css/spec-anatomy.css">
+  <!-- US18: Prerequisites Styles -->
+  <link rel="stylesheet" href="css/sdd-prerequisites.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -127,6 +129,17 @@
             <li><a href="#spec-anatomy-gwt" class="sidebar__link">Given/When/Then</a></li>
             <li><a href="#spec-anatomy-edgecases" class="sidebar__link">Edge Cases</a></li>
             <li><a href="#spec-anatomy-examples" class="sidebar__link">Ejemplos</a></li>
+          </ul>
+        </li>
+        <li class="sidebar__section" data-section-target="prerequisites">
+          <button class="sidebar__section-btn" type="button" aria-expanded="false">
+            <span>Prerrequisitos SDD</span>
+            <svg class="sidebar__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <ul class="sidebar__submenu">
+            <li><a href="#prereq-checklist-section" class="sidebar__link">Checklist</a></li>
+            <li><a href="#prereq-verdict" class="sidebar__link">Evaluación</a></li>
+            <li><a href="#prereq-resources" class="sidebar__link">Recursos</a></li>
           </ul>
         </li>
       </ul>
@@ -1116,6 +1129,60 @@
       </div>
     </section>
 
+    <!-- US18: Prerequisites Section -->
+    <section class="prerequisites-section" id="prerequisites" data-trackable>
+      <div class="prerequisites__container">
+        <h2>Prerrequisitos para adoptar SDD</h2>
+        <p class="section-intro">Evalúa si tu equipo está listo para adoptar SDD. Marca los prerrequisitos que cumple tu equipo, recibe un veredicto claro y accede a recursos para cerrar brechas.</p>
+
+        <!-- US1: Checklist -->
+        <div id="prereq-checklist-section" data-section-nav="prereq-checklist-section" data-section-title="Checklist">
+          <h3 class="prereq__subtitle">Checklist de Preparación</h3>
+          <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 1rem; line-height: 1.6;">Marca los prerrequisitos que tu equipo ya cumple. Haz clic en "Ver detalle" para entender por qué cada uno es necesario y acceder a recursos recomendados.</p>
+          <div class="prereq-checklist" id="prereq-checklist">
+            <!-- Rendered by sdd-prerequisites.js -->
+          </div>
+
+          <div class="prereq-actions">
+            <button class="prereq-evaluate-btn" id="prereq-evaluate" type="button">Evaluar preparación</button>
+          </div>
+
+          <div class="prereq-storage-notice" id="prereq-storage-notice" role="alert">
+            ⚠ El almacenamiento local no está disponible. El progreso del checklist no se guardará entre sesiones.
+          </div>
+        </div>
+
+        <!-- Verdict -->
+        <div id="prereq-verdict" data-section-nav="prereq-verdict" data-section-title="Evaluación">
+          <!-- Rendered by sdd-prerequisites.js -->
+        </div>
+
+        <!-- Resources Section -->
+        <div id="prereq-resources" data-section-nav="prereq-resources" data-section-title="Recursos">
+          <h3 class="prereq__subtitle">Todos los Recursos</h3>
+          <p style="font-size: 0.875rem; color: #64748b; margin-bottom: 1rem; line-height: 1.6;">Cada prerrequisito incluye recursos recomendados: tutoriales interactivos, documentación oficial y ejemplos prácticos aplicados a SDD. Expande cualquier prerrequisito en el checklist para ver sus recursos.</p>
+        </div>
+
+        <!-- Section Footer -->
+        <div class="prereq__footer">
+          <span>Versión: 1.0.0</span>
+          <span>Última actualización: 2026-05-08</span>
+        </div>
+
+        <!-- Cross-links -->
+        <div class="prereq-cross-links">
+          <h4>Aprende más</h4>
+          <ul>
+            <li><a href="#hero-definition">¿Qué es SDD?</a></li>
+            <li><a href="#phases-grid">Las 5 Fases</a></li>
+            <li><a href="#spec-anatomy">Anatomía de Specs</a></li>
+            <li><a href="#collab-flow">Colaboración Humano-IA</a></li>
+            <li><a href="#process-end-to-end">Proceso E2E</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <!-- US15: Spec Anatomy Section -->
     <section class="spec-anatomy-section" id="spec-anatomy" data-trackable>
       <div class="spec-anatomy__container">
@@ -1211,5 +1278,7 @@
   <script src="js/gate-panel.js" defer></script>
   <!-- US15: Spec Anatomy -->
   <script src="js/spec-anatomy.js" defer></script>
+  <!-- US18: SDD Prerequisites -->
+  <script src="js/sdd-prerequisites.js" defer></script>
 </body>
 </html>
