@@ -1,50 +1,169 @@
 # [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Stack Tecnológico & Restricciones
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+Define tecnologías, lenguajes y frameworks permitidos o prohibidos en el proyecto.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+**Purpose**: [Why this principle exists and what problem it solves]
+<!-- Example: Elimina la fragmentación tecnológica, reduce la curva de aprendizaje y asegura que todo el equipo trabaje con las mismas herramientas. -->
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement]
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+**Violation consequences**: [What happens if this principle is violated]
+<!-- Example: Dependencias no aprobadas aumentan el bundle size, introducen breaking changes y crean deuda técnica. -->
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Compliance examples**: [Concrete examples of following this principle]
+<!-- Example: Usar vanilla JS en lugar de frameworks, CSS nativo en lugar de preprocessors, GitHub Actions en lugar de CI/CD externo. -->
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+---
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### II. Arquitectura & Diseño
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+Patrones arquitectónicos, organización de código y convenciones de diseño.
+
+**Purpose**: [Why this principle exists]
+
+**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement]
+
+**Violation consequences**: [What happens if violated]
+
+**Compliance examples**: [Concrete examples of compliance]
+
+---
+
+### III. Workflow & Gobernanza
+
+Flujo de trabajo, branching strategy, revisión y aprobación de cambios.
+
+**Purpose**: [Why this principle exists]
+
+**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement]
+
+**Violation consequences**: [What happens if violated]
+
+**Compliance examples**: [Concrete examples of compliance]
+
+---
+
+### IV. Estándares de Calidad
+
+Testing, linting, accesibilidad, rendimiento y seguridad como parte del proceso.
+
+**Purpose**: [Why this principle exists]
+
+**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement]
+
+**Violation consequences**: [What happens if violated]
+
+**Compliance examples**: [Concrete examples of compliance]
+
+---
+
+### V. Documentación & Comunicación
+
+Especificaciones, documentación técnica y canales de comunicación del equipo.
+
+**Purpose**: [Why this principle exists]
+
+**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement]
+
+**Violation consequences**: [What happens if violated]
+
+**Compliance examples**: [Concrete examples of compliance]
+
+---
+
+## Constitution Checker
+
+<!-- 
+  Each phase of the SDD process has specific principles that apply.
+  Use this section to verify compliance before advancing to the next phase.
+  Mark each applicable principle as [x] when verified.
+-->
+
+### Specify Phase
+
+- [ ] Principle I: Stack Tecnológico — [Brief verification criterion]
+- [ ] Principle II: Arquitectura & Diseño — [Brief verification criterion]
+- [ ] Principle V: Documentación & Comunicación — [Brief verification criterion]
+
+**Verdict**: [ ] PASS / [ ] FAIL
+
+---
+
+### Clarify Phase
+
+- [ ] Principle I: Stack Tecnológico — [Brief verification criterion]
+- [ ] Principle V: Documentación & Comunicación — [Brief verification criterion]
+
+**Verdict**: [ ] PASS / [ ] FAIL
+
+---
+
+### Plan Phase
+
+- [ ] Principle I: Stack Tecnológico — [Brief verification criterion]
+- [ ] Principle II: Arquitectura & Diseño — [Brief verification criterion]
+- [ ] Principle III: Workflow & Gobernanza — [Brief verification criterion]
+- [ ] Principle V: Documentación & Comunicación — [Brief verification criterion]
+
+**Verdict**: [ ] PASS / [ ] FAIL
+
+---
+
+### Tasks Phase
+
+- [ ] Principle III: Workflow & Gobernanza — [Brief verification criterion]
+- [ ] Principle IV: Estándares de Calidad — [Brief verification criterion]
+- [ ] Principle V: Documentación & Comunicación — [Brief verification criterion]
+
+**Verdict**: [ ] PASS / [ ] FAIL
+
+---
+
+### Implement Phase
+
+- [ ] Principle I: Stack Tecnológico — [Brief verification criterion]
+- [ ] Principle II: Arquitectura & Diseño — [Brief verification criterion]
+- [ ] Principle III: Workflow & Gobernanza — [Brief verification criterion]
+- [ ] Principle IV: Estándares de Calidad — [Brief verification criterion]
+- [ ] Principle V: Documentación & Comunicación — [Brief verification criterion]
+
+**Verdict**: [ ] PASS / [ ] FAIL
+
+---
+
+## Technology Stack Constraints
+
+<!-- Example: Technology stack requirements, compliance standards, deployment policies -->
+
+| Layer | Technology | Constraint |
+|-------|-----------|------------|
+| [Layer 1] | [Technology] | [Constraint description] |
+| [Layer 2] | [Technology] | [Constraint description] |
+
+Third-party libraries MUST be approved via PR before inclusion.
+
+## Development Workflow
+
+<!-- Example: Code review requirements, testing gates, deployment approval process -->
+
+[WORKFLOW_DESCRIPTION]
 
 ## Governance
+
 <!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
 [GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use this constitution as the source of truth for development guidance. -->
+
+**Amendment Process**: [How to propose and approve changes to this constitution]
+<!-- Example: Propose changes via PR. Amendments require consensus (or majority if >3 collaborators). Approved amendments increment the version. -->
+
+**Versioning Policy**: [How versions are incremented]
+<!-- Example: Semantic versioning (MAJOR.MINOR.PATCH): MAJOR = principle removal, MINOR = new principle, PATCH = clarifications. -->
 
 **Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+<!-- Example: Version: 1.0.0 | Ratified: 2026-05-05 | Last Amended: 2026-05-05 -->
