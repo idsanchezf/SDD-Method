@@ -162,7 +162,7 @@ const TEMPLATE_CATALOG = [
     id: 'constitution',
     name: 'Constitution Template',
     type: 'constitution',
-    description: 'Plantilla para definir la constitución del proyecto con 5 principios, Constitution Checker por fase, restricciones tecnológicas y gobernanza.',
+    description: 'Plantilla para definir la constitución del proyecto con 5 principios: Stack Tecnológico, Arquitectura & Diseño, Workflow & Gobernanza, Estándares de Calidad, Documentación & Comunicación.',
     phase: 'Constitution',
     phaseColor: 'var(--phase-constitution, #dc2626)',
     file: '.specify/templates/constitution-template.md',

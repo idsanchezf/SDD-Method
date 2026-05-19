@@ -188,9 +188,9 @@ class DownloadManager {
 
 ## Core Principles
 
-### I. [PRINCIPLE_1_NAME] (NON-NEGOTIABLE)
+### I. Stack Tecnológico & Restricciones
 
-[PRINCIPLE_1_DESCRIPTION]
+Define tecnologías, lenguajes y frameworks permitidos o prohibidos en el proyecto.
 
 **Purpose**: [Why this principle exists and what problem it solves]
 
@@ -202,23 +202,9 @@ class DownloadManager {
 
 ---
 
-### II. [PRINCIPLE_2_NAME]
+### II. Arquitectura & Diseño
 
-[PRINCIPLE_2_DESCRIPTION]
-
-**Purpose**: [Why this principle exists]
-
-**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement]
-
-**Violation consequences**: [What happens if violated]
-
-**Compliance examples**: [Concrete examples of compliance]
-
----
-
-### III. [PRINCIPLE_3_NAME]
-
-[PRINCIPLE_3_DESCRIPTION]
+Patrones arquitectónicos, organización de código y convenciones de diseño.
 
 **Purpose**: [Why this principle exists]
 
@@ -230,9 +216,9 @@ class DownloadManager {
 
 ---
 
-### IV. [PRINCIPLE_4_NAME] (NON-NEGOTIABLE)
+### III. Workflow & Gobernanza
 
-[PRINCIPLE_4_DESCRIPTION]
+Flujo de trabajo, branching strategy, revisión y aprobación de cambios.
 
 **Purpose**: [Why this principle exists]
 
@@ -244,9 +230,23 @@ class DownloadManager {
 
 ---
 
-### V. [PRINCIPLE_5_NAME]
+### IV. Estándares de Calidad
 
-[PRINCIPLE_5_DESCRIPTION]
+Testing, linting, accesibilidad, rendimiento y seguridad como parte del proceso.
+
+**Purpose**: [Why this principle exists]
+
+**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement]
+
+**Violation consequences**: [What happens if violated]
+
+**Compliance examples**: [Concrete examples of compliance]
+
+---
+
+### V. Documentación & Comunicación
+
+Especificaciones, documentación técnica y canales de comunicación del equipo.
 
 **Purpose**: [Why this principle exists]
 
@@ -262,9 +262,9 @@ class DownloadManager {
 
 ### Specify Phase
 
-- [ ] Principle I: [Name] — [Brief verification criterion]
-- [ ] Principle II: [Name] — [Brief verification criterion]
-- [ ] Principle III: [Name] — [Brief verification criterion]
+- [ ] Principle I: Stack Tecnológico — [Brief verification criterion]
+- [ ] Principle II: Arquitectura & Diseño — [Brief verification criterion]
+- [ ] Principle V: Documentación & Comunicación — [Brief verification criterion]
 
 **Verdict**: [ ] PASS / [ ] FAIL
 
@@ -272,8 +272,8 @@ class DownloadManager {
 
 ### Clarify Phase
 
-- [ ] Principle I: [Name] — [Brief verification criterion]
-- [ ] Principle II: [Name] — [Brief verification criterion]
+- [ ] Principle I: Stack Tecnológico — [Brief verification criterion]
+- [ ] Principle V: Documentación & Comunicación — [Brief verification criterion]
 
 **Verdict**: [ ] PASS / [ ] FAIL
 
@@ -281,10 +281,10 @@ class DownloadManager {
 
 ### Plan Phase
 
-- [ ] Principle I: [Name] — [Brief verification criterion]
-- [ ] Principle II: [Name] — [Brief verification criterion]
-- [ ] Principle III: [Name] — [Brief verification criterion]
-- [ ] Principle IV: [Name] — [Brief verification criterion]
+- [ ] Principle I: Stack Tecnológico — [Brief verification criterion]
+- [ ] Principle II: Arquitectura & Diseño — [Brief verification criterion]
+- [ ] Principle III: Workflow & Gobernanza — [Brief verification criterion]
+- [ ] Principle V: Documentación & Comunicación — [Brief verification criterion]
 
 **Verdict**: [ ] PASS / [ ] FAIL
 
@@ -292,9 +292,9 @@ class DownloadManager {
 
 ### Tasks Phase
 
-- [ ] Principle I: [Name] — [Brief verification criterion]
-- [ ] Principle IV: [Name] — [Brief verification criterion]
-- [ ] Principle V: [Name] — [Brief verification criterion]
+- [ ] Principle III: Workflow & Gobernanza — [Brief verification criterion]
+- [ ] Principle IV: Estándares de Calidad — [Brief verification criterion]
+- [ ] Principle V: Documentación & Comunicación — [Brief verification criterion]
 
 **Verdict**: [ ] PASS / [ ] FAIL
 
@@ -302,11 +302,11 @@ class DownloadManager {
 
 ### Implement Phase
 
-- [ ] Principle I: [Name] — [Brief verification criterion]
-- [ ] Principle II: [Name] — [Brief verification criterion]
-- [ ] Principle III: [Name] — [Brief verification criterion]
-- [ ] Principle IV: [Name] — [Brief verification criterion]
-- [ ] Principle V: [Name] — [Brief verification criterion]
+- [ ] Principle I: Stack Tecnológico — [Brief verification criterion]
+- [ ] Principle II: Arquitectura & Diseño — [Brief verification criterion]
+- [ ] Principle III: Workflow & Gobernanza — [Brief verification criterion]
+- [ ] Principle IV: Estándares de Calidad — [Brief verification criterion]
+- [ ] Principle V: Documentación & Comunicación — [Brief verification criterion]
 
 **Verdict**: [ ] PASS / [ ] FAIL
 

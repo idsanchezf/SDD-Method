@@ -1,33 +1,27 @@
 # [PROJECT_NAME] Constitution
-<!-- Example: SDD Method Constitution, Team Constitution, etc. -->
 
 ## Core Principles
 
-### I. [PRINCIPLE_1_NAME] (NON-NEGOTIABLE)
-<!-- Example: I. Vanilla-First (NON-NEGOTIABLE) -->
+### I. Stack Tecnológico & Restricciones
 
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: No JavaScript frameworks (React, Vue, Angular) are permitted. All interactivity MUST be implemented with vanilla JavaScript (ES6+). DOM manipulation uses native APIs: querySelector, addEventListener, fetch, IntersectionObserver, etc. -->
+Define tecnologías, lenguajes y frameworks permitidos o prohibidos en el proyecto.
 
 **Purpose**: [Why this principle exists and what problem it solves]
-<!-- Example: Eliminates build-step complexity, reduces bundle size, ensures long-term maintainability, and lowers the barrier for contributors. -->
+<!-- Example: Elimina la fragmentación tecnológica, reduce la curva de aprendizaje y asegura que todo el equipo trabaje con las mismas herramientas. -->
 
-**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement — list which SDD phases this principle affects]
-<!-- Example: All phases (Vanilla-First is a foundational constraint) -->
+**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement]
 
 **Violation consequences**: [What happens if this principle is violated]
-<!-- Example: Framework dependencies increase bundle size, introduce breaking changes, and create a learning barrier for new contributors. -->
+<!-- Example: Dependencias no aprobadas aumentan el bundle size, introducen breaking changes y crean deuda técnica. -->
 
 **Compliance examples**: [Concrete examples of following this principle]
-<!-- Example: Using querySelector instead of jQuery, native fetch instead of axios, IntersectionObserver instead of scroll libraries. -->
+<!-- Example: Usar vanilla JS en lugar de frameworks, CSS nativo en lugar de preprocessors, GitHub Actions en lugar de CI/CD externo. -->
 
 ---
 
-### II. [PRINCIPLE_2_NAME]
-<!-- Example: II. Semantic HTML & Accessible by Default -->
+### II. Arquitectura & Diseño
 
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: All markup MUST use semantic HTML5 elements (header, nav, main, section, article, aside, footer). ARIA attributes are added only when native semantics are insufficient. Every interactive element MUST be keyboard-accessible and screen-reader compatible. -->
+Patrones arquitectónicos, organización de código y convenciones de diseño.
 
 **Purpose**: [Why this principle exists]
 
@@ -39,25 +33,9 @@
 
 ---
 
-### III. [PRINCIPLE_3_NAME]
-<!-- Example: III. Professional CSS Architecture -->
+### III. Workflow & Gobernanza
 
-[PRINCIPLE_3_DESCRIPTION]
-
-**Purpose**: [Why this principle exists]
-
-**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement]
-
-**Violation consequences**: [What happens if violated]
-
-**Compliance examples**: [Concrete examples of compliance]
-
----
-
-### IV. [PRINCIPLE_4_NAME] (NON-NEGOTIABLE)
-<!-- Example: IV. Feature Branch & PR Workflow (NON-NEGOTIABLE) -->
-
-[PRINCIPLE_4_DESCRIPTION]
+Flujo de trabajo, branching strategy, revisión y aprobación de cambios.
 
 **Purpose**: [Why this principle exists]
 
@@ -69,10 +47,23 @@
 
 ---
 
-### V. [PRINCIPLE_5_NAME]
-<!-- Example: V. CI/CD via GitHub Actions -->
+### IV. Estándares de Calidad
 
-[PRINCIPLE_5_DESCRIPTION]
+Testing, linting, accesibilidad, rendimiento y seguridad como parte del proceso.
+
+**Purpose**: [Why this principle exists]
+
+**Applies to phases**: [Specify / Clarify / Plan / Tasks / Implement]
+
+**Violation consequences**: [What happens if violated]
+
+**Compliance examples**: [Concrete examples of compliance]
+
+---
+
+### V. Documentación & Comunicación
+
+Especificaciones, documentación técnica y canales de comunicación del equipo.
 
 **Purpose**: [Why this principle exists]
 
@@ -94,9 +85,9 @@
 
 ### Specify Phase
 
-- [ ] Principle I: [Name] — [Brief verification criterion]
-- [ ] Principle II: [Name] — [Brief verification criterion]
-- [ ] Principle III: [Name] — [Brief verification criterion]
+- [ ] Principle I: Stack Tecnológico — [Brief verification criterion]
+- [ ] Principle II: Arquitectura & Diseño — [Brief verification criterion]
+- [ ] Principle V: Documentación & Comunicación — [Brief verification criterion]
 
 **Verdict**: [ ] PASS / [ ] FAIL
 
@@ -104,8 +95,8 @@
 
 ### Clarify Phase
 
-- [ ] Principle I: [Name] — [Brief verification criterion]
-- [ ] Principle II: [Name] — [Brief verification criterion]
+- [ ] Principle I: Stack Tecnológico — [Brief verification criterion]
+- [ ] Principle V: Documentación & Comunicación — [Brief verification criterion]
 
 **Verdict**: [ ] PASS / [ ] FAIL
 
@@ -113,10 +104,10 @@
 
 ### Plan Phase
 
-- [ ] Principle I: [Name] — [Brief verification criterion]
-- [ ] Principle II: [Name] — [Brief verification criterion]
-- [ ] Principle III: [Name] — [Brief verification criterion]
-- [ ] Principle IV: [Name] — [Brief verification criterion]
+- [ ] Principle I: Stack Tecnológico — [Brief verification criterion]
+- [ ] Principle II: Arquitectura & Diseño — [Brief verification criterion]
+- [ ] Principle III: Workflow & Gobernanza — [Brief verification criterion]
+- [ ] Principle V: Documentación & Comunicación — [Brief verification criterion]
 
 **Verdict**: [ ] PASS / [ ] FAIL
 
@@ -124,9 +115,9 @@
 
 ### Tasks Phase
 
-- [ ] Principle I: [Name] — [Brief verification criterion]
-- [ ] Principle IV: [Name] — [Brief verification criterion]
-- [ ] Principle V: [Name] — [Brief verification criterion]
+- [ ] Principle III: Workflow & Gobernanza — [Brief verification criterion]
+- [ ] Principle IV: Estándares de Calidad — [Brief verification criterion]
+- [ ] Principle V: Documentación & Comunicación — [Brief verification criterion]
 
 **Verdict**: [ ] PASS / [ ] FAIL
 
@@ -134,11 +125,11 @@
 
 ### Implement Phase
 
-- [ ] Principle I: [Name] — [Brief verification criterion]
-- [ ] Principle II: [Name] — [Brief verification criterion]
-- [ ] Principle III: [Name] — [Brief verification criterion]
-- [ ] Principle IV: [Name] — [Brief verification criterion]
-- [ ] Principle V: [Name] — [Brief verification criterion]
+- [ ] Principle I: Stack Tecnológico — [Brief verification criterion]
+- [ ] Principle II: Arquitectura & Diseño — [Brief verification criterion]
+- [ ] Principle III: Workflow & Gobernanza — [Brief verification criterion]
+- [ ] Principle IV: Estándares de Calidad — [Brief verification criterion]
+- [ ] Principle V: Documentación & Comunicación — [Brief verification criterion]
 
 **Verdict**: [ ] PASS / [ ] FAIL
 
